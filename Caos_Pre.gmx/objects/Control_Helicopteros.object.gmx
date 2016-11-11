@@ -30,7 +30,8 @@ list = ds_list_create();
 call_alarm = 0;
 helicopter_id = noone;
 width_back = sprite_get_width(spr_helicopter_perfil)/2; // Helicopter back.
-if(room == game_tutorial) helicopter_num = 1;
+
+
 // Create pos[i].x array.
 //show_debug_message(helicopter_num);
 for(var i = 0; i &lt; /*num_level + */helicopter_num; i++){

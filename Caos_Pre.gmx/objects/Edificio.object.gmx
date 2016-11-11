@@ -208,8 +208,10 @@ if(building_life &lt;= 0 and execute_alarms and !instance_exists(Rage)){
 if(is_ready){
 
     // Final level.
+    if(room == game10){
     if(!instance_exists(Building_25)){
         if(instance_exists(Letrero)) with Letrero instance_destroy();
+    }
     }
 
 

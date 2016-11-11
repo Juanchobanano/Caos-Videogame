@@ -49,7 +49,8 @@ cont = 1/100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (Player.vida &lt;= 40 and Player.vida &gt;=30){
+            <string>if(instance_exists(Player)){
+if (Player.vida &lt;= 40 and Player.vida &gt;=30){
     if (image_alpha &lt; 0.15){
         image_alpha += (cont/2);
     }
@@ -67,6 +68,7 @@ cont = 1/100;
     }else{
         instance_destroy();
     }
+}
 }
 </string>
           </argument>

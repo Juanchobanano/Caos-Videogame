@@ -30,7 +30,7 @@
     Smoothing = false
 // Helicopter global variables.
 globalvar helicopter_num, call_h, destroy_h;
-    helicopter_num = Get_Dificulty("Helicoptero");
+    helicopter_num = Num_Helicopter(num_level);
     call_h = noone;
     destroy_h = noone;
 
@@ -299,7 +299,7 @@ if (/*num_level == 1 or num_level == 2 or*/ num_level == 4 or num_level == 9){
           <argument>
             <kind>1</kind>
             <string>/// Create Tanks.
-if (num_level == 4 or num_level &gt;= 6){
+/*if(num_level &gt;= 4 or num_level &gt;= 6){
     if(num_level != 9){
         if(!create_tanks) exit;
         alarm[0] = 30 * 5;
@@ -320,6 +320,31 @@ if (num_level == 4 or num_level &gt;= 6){
             }
         }
     }
+}*/
+
+
+if(num_level &gt;= 4){
+    if(!create_tanks) exit;
+    alarm[0] = 30 * 5;
+    
+    
+    if(instance_number(Tank) &gt; Num_Tanks(num_level)) exit;
+    var width = sprite_get_width(spr_tank_idle);
+    
+    if(Player.x &lt; room_width/2){
+        var tank = instance_create(room_width + width, 430, Tank);
+    }else{
+        var tank = instance_create(-width, 430, Tank); 
+    }
+    with(tank){
+        if(x &lt;= -width){
+            spd = 2;
+        }else if(x &gt;= room_width + width){
+            spd = -2;
+            image_xscale = -1;
+        }
+    }  
+    
 }
 </string>
           </argument>
