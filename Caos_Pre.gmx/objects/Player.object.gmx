@@ -298,6 +298,12 @@ if(chances &lt; 0){
     room_goto_transition(Room_Menu, 0, 150);
     num_level = 0;
     chances = 2;
+    regresar_menu = true;
+    
+    //var asset = Get_Soundtrack(num_level-1);
+    //audio_sound_gain(asset, 0, 3000);
+    
+       
 // Dead animation.
 }else{
     alarm[4] = 1;
@@ -510,10 +516,10 @@ if(win and !save_level){
         if(file_exists(working_directory + "game_complete.sav")){
             file_delete(working_directory + "game_complete.sav");
         }
+        game_completed = 1;
         ini_open(working_directory + "game_complete.sav");
         ini_write_real("completed", "pass", 1);
         ini_close();
-        
     }
     
 }

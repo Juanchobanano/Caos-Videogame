@@ -7,7 +7,7 @@
     vida -= damage;
 }*/
 if(room == game_tutorial and Player.vida == 1) exit;
-if(room == game10 and Player.vida == 1 and chances == 0) exit;
+if(room == game10 and Player.vida <= 10 and chances == 0) exit;
 switch(argument[0]){
     case "Soldier_Bullet":
          with(Player){

@@ -477,6 +477,7 @@ audio_stop_sound(sn_edificio_collapse);
 if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
 
 // Save story.
+historia = true;
 ini_open(working_directory + "historia.sav");
 ini_write_real("historia", "pass", 1);
 ini_close();

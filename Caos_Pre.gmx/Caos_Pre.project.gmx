@@ -469,6 +469,7 @@
       <script>scripts\Fechas.gml</script>
       <script>scripts\Check_Tutorial.gml</script>
       <script>scripts\Create_Kids.gml</script>
+      <script>scripts\Speed_Text.gml</script>
     </scripts>
     <scripts name="Transition">
       <script>scripts\room_goto_transition.gml</script>

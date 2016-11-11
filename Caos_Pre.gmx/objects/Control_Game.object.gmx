@@ -31,8 +31,9 @@ if(room == Room_Digital){
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
               jugador, game_pause, tutorial_bool, soundtrack, idioma, 
-              avance_edificios, end_game, game_completed, rate;
+              avance_edificios, end_game, game_completed, rate, regresar_menu;
     
+    regresar_menu = false;
     rate = false;
     game_completed = false;
     end_game = false;
@@ -71,12 +72,12 @@ if(room == Room_Digital){
     save = true;
     gacha_select = 0;
     
-    if(file_exists(working_directory + "guardar_juego.sav")){
+   /* if(file_exists(working_directory + "guardar_juego.sav")){
         file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
-    }
+    }*/
     
    
 
@@ -162,6 +163,7 @@ if(room == Room_Digital){
     
     soundtrack = audio_play_sound(sn_soundtrack_pausa, 1, 1);
     //soundtrack = audio_play_sound(sn_soundtrack_1, 1, 1);
+
     
 }else if(room == Room_Baius){
 
@@ -203,10 +205,20 @@ if(room == Room_Digital){
             ini_close();
         }
     }
-
-    if(!audio_is_playing(sn_soundtrack_pausa)){
+    
+    if(regresar_menu){
+        audio_stop_sound(sn_soundtrack_pausa);
         audio_play_sound(sn_soundtrack_pausa, 1, 1);
+        regresar_menu = false;
     }
+
+    /*if(audio_is_playing(sn_soundtrack_pausa)){
+        
+        show_debug_message("SONANAOWNOERASIGNWERS");
+        audio_sound_get_gain(sn_soundtrack_pausa);
+    }*/
+
+
   //audio_sound_gain(sn_soundtrack_pausa, 1, 2000);
     // Guardar muertes en el marcador.
    /* if (achievement_login_status() == false &amp;&amp; os_is_network_connected()){
@@ -770,6 +782,7 @@ Encuentre a los niños
           <argument>
             <kind>1</kind>
             <string>room_goto(game10);
+num_level = 9;
 </string>
           </argument>
         </arguments>

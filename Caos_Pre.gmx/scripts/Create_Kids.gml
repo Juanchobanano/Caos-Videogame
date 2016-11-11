@@ -42,6 +42,7 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
         
     }
     create_kids = false;
+    chances = 0;
     
     // Create textbox.
     var t = instance_create(0,0, TextBox);

@@ -480,9 +480,10 @@ if(audio_is_playing(sn_helicopter_behind)){
 }
 
 if(audio_is_playing(sn_helicopter_front)){
-    audio_stop_sound(sn_helicopter_front)
+    audio_stop_sound(sn_helicopter_front);
 }
 
+    
 audio_stop_sound(sn_soundtrack_pausa);
 
 if(room == game10){

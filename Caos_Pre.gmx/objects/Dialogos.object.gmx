@@ -29,9 +29,15 @@
 Fechas();
 //show_debug_message("dialogo: " + string(num_level));
 // Create textbox variables.
+
+
+if(game_completed){
+    num_level = 9;
+}
+
 color = c_white;
 str = 0
-vel = .5;
+vel = Speed_Text(num_level);
 t = 0;
 llamar_alarma = false;
 

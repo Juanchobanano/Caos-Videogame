@@ -161,7 +161,7 @@ switch(argument[0]){
         // Detener a los niños cuando lleguen a la ciudad.
         if(argument[1] >= 12 and argument[1] <= 15){
             var first_c = instance_nearest(0,0,Child_Intro);
-            if(first_c.x < 200){
+            if(first_c.x < 300){
                 with(Child_Intro){
                     hspeed = 0;
                     switch(sprite_index){

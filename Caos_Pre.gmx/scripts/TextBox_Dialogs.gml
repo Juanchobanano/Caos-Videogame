@@ -25,7 +25,7 @@ switch(room_){
             ds_list_add(texto, "Carlos: ¿¡Que más!? ¿En qué anda?"); ds_list_add(caras, 0); // 1 
             ds_list_add(texto, "Daniel: ¡Quiubo! Estaba viendo una película de#ninjas!"); ds_list_add(caras, 1); // 2
             ds_list_add(texto, "Carlos: ¡Camine a jugar maquinitas!"); ds_list_add(caras, 0); // 3
-            ds_list_add(texto, "Daniel: ¡Hágale, de una, me contaron#que hay un nuevo juego!"); ds_list_add(caras, 1); // 4
+            ds_list_add(texto, "Daniel: ¡Hágale, de una, me contaron que hay#un nuevo juego!"); ds_list_add(caras, 1); // 4
          
             // Comienzan a caminar lo niños.
                
@@ -43,7 +43,7 @@ switch(room_){
             // Sale Julián y continúan el camino.
          
             ds_list_add(texto, "Daniel: ¡Vea que dizque hay un juego donde uno#puede escoger y pelear con varios manes de#diferentes artes marciales!"); ds_list_add(caras, 1); // 12 
-            ds_list_add(texto, "Daniel: ¡Uno es un ninja, otro es un karateka, otro hace kung fu!, ¿me entiende?"); ds_list_add(caras, 1); // 13
+            ds_list_add(texto, "Daniel: ¡Uno es un ninja, otro#es un karateka, otro hace kung fu!,#¿me entiende?"); ds_list_add(caras, 1); // 13
             ds_list_add(texto, "Carlos: ¡Uff suena tremendo!"); ds_list_add(caras, 0); // 14
 
             

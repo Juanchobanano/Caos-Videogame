@@ -36,7 +36,7 @@ if(place_meeting(x, y+vsp, Floor)){
         
         // Decrease chance variable. (3 chances per level).
         if(room != game10){ alarm[0] = 30; }
-        else{ alarm[3] = 90; }
+        else{ if(chances > 0){ alarm[0]= 30 } else{ alarm[3] = 90; }}
         audio_play_sound(sn_perdistes, 1, 0);
         
    

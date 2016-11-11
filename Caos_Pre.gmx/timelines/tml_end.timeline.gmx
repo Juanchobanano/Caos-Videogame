@@ -28,7 +28,7 @@ Player.controles = "izq";
     </event>
   </entry>
   <entry>
-    <step>15</step>
+    <step>10</step>
     <event>
       <action>
         <libid>1</libid>
