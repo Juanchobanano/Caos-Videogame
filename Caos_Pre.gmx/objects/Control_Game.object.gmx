@@ -204,10 +204,10 @@ if(room == Room_Digital){
         }
     }
 
-    if(!audio_is_playing(sn_soundtrack_pausa)){
+    /*if(!audio_is_playing(sn_soundtrack_pausa)){
         audio_play_sound(sn_soundtrack_pausa, 1, 1);
     }
-    audio_sound_gain(sn_soundtrack_pausa, 1, 2000);
+    audio_sound_gain(sn_soundtrack_pausa, 1, 2000);*/
     // Guardar muertes en el marcador.
    /* if (achievement_login_status() == false &amp;&amp; os_is_network_connected()){
         achievement_login();

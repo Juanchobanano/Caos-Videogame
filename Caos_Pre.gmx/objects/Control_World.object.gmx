@@ -457,7 +457,9 @@ if(audio_is_playing(sn_helicopter_behind)){
 if(audio_is_playing(sn_helicopter_front)){
     audio_stop_sound(sn_helicopter_front)
 }
-audio_stop_sound(sn_soundtrack_pausa);
+
+    audio_stop_sound(sn_soundtrack_pausa);
+}
 
 if(room == game10){
     audio_sound_gain(sn_rage_music, 0, 1000);
