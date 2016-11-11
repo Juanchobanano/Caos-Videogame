@@ -328,7 +328,8 @@ if(num_level &gt;= 4){
     alarm[0] = 30 * 5;
     
     
-    if(instance_number(Tank) &gt; Num_Tanks(num_level)) exit;
+    //if(instance_number(Tank) &gt; Num_Tanks(num_level)) exit;
+    if(instance_number(Tank) &gt; Num_Tanks(1)) exit;
     var width = sprite_get_width(spr_tank_idle);
     
     if(Player.x &lt; room_width/2){

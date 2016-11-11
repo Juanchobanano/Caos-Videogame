@@ -1,4 +1,4 @@
-if (xstart <  view_wview[0]/2 and x <  view_wview[0]/2){
+//if (xstart <  view_wview[0]/2 and x <  view_wview[0]/2){
 //Up - Right
 if (point_direction(xstart, ystart, x, y) > 30 and point_direction(xstart, ystart, x, y) < 60){
 Player.key_up = 1;
@@ -55,7 +55,7 @@ Player.key_up = 0;
 Player.key_left = 0;
 Player.key_down = 0;
 }
-}else {
+/*}else {
 //Player.key_up = 0;
 //Player.key_left = 0;
 //Player.key_down = 0;

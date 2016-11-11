@@ -189,6 +189,7 @@ else draw_player = 0;
 alarm[4] = dead_time;
 dead_time -= .5;
 if(dead_time &lt;= 0){
+    puntaje_global = player_score;
     var p = instance_create(800, 200, Player);
     instance_destroy();
     with(p){ vida = 100; }
@@ -331,6 +332,10 @@ if(chances &lt; 0){
           <argument>
             <kind>1</kind>
             <string>/// Player Mechanics.
+if (sprite_index == asset_get_index("spr_player" + jugador + "_climb_" + humor + "_eat")
+    or sprite_index == asset_get_index("spr_player" + jugador + "_ground_" + humor + "_attack")){
+    key_attack = 0;
+} 
 script_execute(state);
 // Apply movement.
 x += hsp;
@@ -374,6 +379,7 @@ if(keyboard_check_released(ord("1"))){
 //Touch control
 
 if (x_edificio != 0){
+    //show_debug_message("HOla_D11")
     if (abs(x_edificio - x) &lt; w_edificio-16 and key_left and ed_cont){
     //show_debug_message("HOla_D")
         key_up = 0;
@@ -430,6 +436,7 @@ if (x_edificio != 0){
         x_edificio = 0;
         w_edificio = 0;
         ed_r = 0;
+        ed_cont = 1;
     }
     if (y &lt; 406 and yprevious == y){
         key_up = 0;
@@ -438,11 +445,16 @@ if (x_edificio != 0){
         x_edificio = 0;
         w_edificio = 0;   
         ed_r = 0;
+        ed_cont = 1;
     }  
     
 }
 if (key_attack){
     key_attack = 0;
+}
+if(grounded){
+    y_anterior = 0;
+    y_anterior2 = 0;
 }
 
 /*c_bombas = 3;
