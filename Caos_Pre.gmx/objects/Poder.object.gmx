@@ -36,7 +36,7 @@ building_father = 0;
 
 var rand = random_range(0,100);
 
-if (rand &gt; 70){
+if (rand &gt; 50){
     image_index = irandom_range(0,3);//(0,1,2,3);//billetes, bomba, bolsa de dinero, jeringa
 }else {
     image_index = choose(4,5);

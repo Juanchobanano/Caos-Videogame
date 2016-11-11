@@ -296,7 +296,6 @@ if(!end_game){
 chances--;
 if(chances &lt; 0){
     room_goto_transition(Room_Menu, 0, 150);
-    audio_sound_gain(sn_soundtrack_pausa, 1, 6000);
     num_level = 0;
     chances = 2;
 // Dead animation.
