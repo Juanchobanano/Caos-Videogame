@@ -407,6 +407,10 @@
       <sprite>sprites\spr_skip_text</sprite>
       <sprite>sprites\spr_caras</sprite>
     </sprites>
+    <sprites name="Tutorial">
+      <sprite>sprites\Tutoria_espaniol</sprite>
+      <sprite>sprites\Tutorial_english</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background_menu</background>
