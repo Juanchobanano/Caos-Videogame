@@ -25,23 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
-Fechas();
-/*if(file_exists(working_directory + "pausa.png")){
-    file_delete(working_directory + "pausa.png")
-}*/
-//screen_save(working_directory + "pausa.png");
+            <string>//draw_set_color(c_white);
+/*var next = instance_create(700, 80, Button_Tutorial);
+with(next){ tipo = "next"; }
+
+var back = instance_create(68, 80, Button_Tutorial);
+with(back) { tipo = "back"; }*/
+
 instance_deactivate_all(true);
-instance_activate_object(Pausa);
-/*background = sprite_add(
-    working_directory + "pausa.png", 
-    0, 
-    0,
-    0, 
-    0,
-    0
-);*/
-    
+instance_activate_object(Tutorial);
+//instance_activate_object(next);
+//instance_activate_object(back);
+index = 0;
+max_index = 2;
+
+
 
 uni_resolution_hoz = shader_get_uniform(shd_gaussian_horizontal,"resolution");
 uni_resolution_vert = shader_get_uniform(shd_gaussian_vertical,"resolution");
@@ -80,32 +78,12 @@ view_surface_id[0] = surf;
           <argument>
             <kind>1</kind>
             <string>surface_free(surf);
-//file_delete(working_directory + "pausa.png");
-instance_activate_all();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>game_pause = false;
-        instance_destroy();
+if(!game_pause){
+    instance_activate_all();
+}else{
+    instance_activate_object(obj_controller_gaussian_blur);
+    instance_activate_object(Pausa);
+}
 </string>
           </argument>
         </arguments>
@@ -154,98 +132,49 @@ if shader_enabled shader_set(shd_gaussian_vertical);
     }
 shader_reset();
 
-draw_set_color(c_white);
-draw_set_font(font_menu);
-draw_set_halign(fa_center);
 
-draw_sprite(spr_pausa, 1, 705, 25); 
-
-if(Sprite_InRectangle(spr_tutorial, 0, 63-44, 25, 1)){
-    audio_play_sound(sn_tutorial, 1, 0);
-    instance_create(0, 0, Tutorial);
+if(idioma == "en"){
+    draw_sprite(spr_Tutorial_english, index, 0, 0);
+}else if(idioma == "es"){
+    draw_sprite(spr_Tutorial_espanol, index, 0, 0);
 }
 
-/*if(Sprite_InRectangle(spr_ico_baius, 0, 170, 420, .8)){
-    url_open("http://www.facebook.com/baiusgames/");
-}
+//show_debug_message(index);
 
-if(Sprite_InRectangle(spr_ico_creditos, 0, 728, 420, .8)){
-
-}*/
-
-
-draw_set_halign(fa_center);
-draw_text_outlined(room_width/2, 52, Nombre_Ciudad(num_level), c_white, c_black, 2);
-draw_text_outlined(room_width/2, 27, txt[num_level - 1], c_white, c_black, 2);
-draw_sprite(
-    spr_creditos, 
-    0, 
-    room_width/2, 
-    60
-);
-draw_set_halign(noone);
-/*if(in_Rectangle(697, 22, 697 
-    + sprite_get_width(spr_pausa), 
-    22 + sprite_get_height(spr_pausa)) and mouse_check_button_pressed(mb_left)){
-   
-    instance_activate_all();
-    game_pausa = false;
-    Pausa.visible = 1;
-    mouse_clear(mb_left);
-    file_delete(working_directory + "pausa.png");
-    instance_destroy();   
-    
-}*/
-draw_set_halign(noone);
-/*
-draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-draw_text(room_width/2, room_height/2 - 20, "GAME PAUSED");
-draw_set_halign(noone);
-draw_sprite(spr_play, 0, 696, 24);
-draw_sprite(spr_back, 0, 0, 24);
-if(in_Rectangle(0, 24, sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
-    game_pause = false;
-    instance_destroy();
-    room_goto_transition(r_levels2, 0, 40);
-    Play_Button();
-}
-      
-var xp = room_width/2 - sprite_get_width(spr_sound)/2 + 24 + 6;
-var yp = room_height/2 + 30; 
-
-draw_sprite(spr_repeat, 1, xp  - 120, yp);
-if(room != r_menu){
-    if(in_Rectangle(xp - 120, yp, xp - 120 +46, yp + 46) and mouse_check_button_pressed(mb_left)){
-        Play_Button();
-        game_pause = false;
-        instance_destroy();
-        room_restart();
+if(index &gt;= max_index){
+    if(Sprite_InRectangle(spr_go, 0, 700-40, 40, 1)){
+        instance_destroy(); mouse_clear(mb_left);
+        audio_play_sound(sn_punch_1 , 1, 0);
+    }
+}else{
+    if(Sprite_InRectangle(spr_boton_derecha, 0, 700-40, 40, 1)){
+        index++;
+        mouse_clear(mb_left);
+        audio_play_sound(sn_tutorial, 1, 0);
     }
 }
-  
-draw_sprite(spr_sound, sef_pause, xp, yp);
-if(in_Rectangle(xp, yp, xp + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-    Play_Button();
-    sef_pause = !sef_pause;
-    SaveSettings();
+
+if(index &gt; 0){
+    if(Sprite_InRectangle(spr_boton_izquierda, 0, 68-40, 40, 1)){
+        
+        index--; mouse_clear(mb_left);
+        audio_play_sound(sn_tutorial, 1, 0);
+        //show_debug_message("BACK");
+    }
 }
 
-draw_sprite(spr_music, musica_pause, xp - 36 - 24, yp);
-if(in_Rectangle(xp - 36 - 24, yp, xp - 36 - 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-    Play_Button();
-    musica_pause = !musica_pause;
-    SaveSettings();
-}
 
-draw_sprite(spr_idioma, Idioma_Index(idioma), xp + 36 + 24, yp);
-if(in_Rectangle(xp + 36 + 24, yp, xp + 36 + 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-    Play_Button();
-    idioma = Change_Language(idioma);
-    SaveSettings();
-    with(Control_Pistas) Pistas();
-}
-    
+draw_set_color(c_white);
+draw_set_font(font_tutorial);
+draw_set_halign(fa_center);
 
+//if(index == 0){
+    draw_text(room_width/2, 80, "Tutorial");
+/*}else if(index == 1){
+
+}*/
+
+draw_set_halign(noone);
 </string>
           </argument>
         </arguments>

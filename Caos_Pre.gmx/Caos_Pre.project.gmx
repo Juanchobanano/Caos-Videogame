@@ -35,10 +35,12 @@
       <sound>sound\sn_rage_music</sound>
       <sound>sound\sn_soundtrack_tutorial</sound>
       <sound>sound\sn_soundtrack_4</sound>
+      <sound>sound\sn_soundtrack_5</sound>
       <sounds name="Intro">
         <sound>sound\sn_musica_intro</sound>
         <sound>sound\sn_soundtrack_pablo</sound>
       </sounds>
+      <sound>sound\sn_soundtrack_final</sound>
     </sounds>
     <sounds name="Efectos">
       <sounds name="Punch">
@@ -225,6 +227,9 @@
       <sprite>sprites\spr_joystick</sprite>
       <sprite>sprites\spr_botones</sprite>
       <sprite>sprites\spr_bola</sprite>
+      <sprite>sprites\spr_boton_derecha</sprite>
+      <sprite>sprites\spr_boton_izquierda</sprite>
+      <sprite>sprites\spr_go</sprite>
     </sprites>
     <sprites name="Detalles">
       <sprite>sprites\spr_damage_overlay</sprite>
@@ -383,6 +388,7 @@
       <sprite>sprites\spr_ico_creditos</sprite>
       <sprite>sprites\spr_ico_bogota</sprite>
       <sprite>sprites\spr_ico_m</sprite>
+      <sprite>sprites\spr_tutorial</sprite>
     </sprites>
     <sprites name="Puntaje">
       <sprite>sprites\spr_score_1000</sprite>
@@ -408,8 +414,8 @@
       <sprite>sprites\spr_caras</sprite>
     </sprites>
     <sprites name="Tutorial">
-      <sprite>sprites\Tutoria_espaniol</sprite>
-      <sprite>sprites\Tutorial_english</sprite>
+      <sprite>sprites\spr_Tutorial_espanol</sprite>
+      <sprite>sprites\spr_Tutorial_english</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -556,6 +562,7 @@
       <font>fonts\font_press_14</font>
     </fonts>
     <font>fonts\font_textbox</font>
+    <font>fonts\font_tutorial</font>
   </fonts>
   <objects name="objects">
     <objects name="Edificio">
@@ -609,6 +616,7 @@
       <object>objects\Dibujar_Pausa</object>
       <object>objects\Control_Tutorial</object>
       <object>objects\Poder_Animado</object>
+      <object>objects\Tutorial</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -667,6 +675,7 @@
       <object>objects\Lapida</object>
       <object>objects\Mano</object>
       <object>objects\CambiarNivel</object>
+      <object>objects\Tutorial_Button</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>
@@ -676,6 +685,7 @@
       <object>objects\Button_A</object>
       <object>objects\Button_B</object>
       <object>objects\Joystick</object>
+      <object>objects\Button_Tutorial</object>
     </objects>
     <objects name="Menu">
       <object>objects\Baius</object>

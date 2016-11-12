@@ -69,6 +69,7 @@ if instance_exists(Control_Game) with Control_Game instance_destroy();
 //instance_create(80, 400+5, Joystick);//120, 100
 Controles = 1;
 instance_create(705, 25, Pausa);
+//instance_create(448, 25, Tutorial_Button);
 instance_create(0,0, Dibujar_Poderes);
 
 audio_play_sound(sn_soundtrack_pausa, 1, 1);

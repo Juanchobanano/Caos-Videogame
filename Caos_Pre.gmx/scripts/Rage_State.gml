@@ -5,15 +5,18 @@ if(humor == "normal"){
         if(audio_is_playing(sn_rage_music)){
             audio_stop_sound(sn_rage_music);
         }
-        
-        
+                
         audio_sound_gain(Get_Soundtrack(num_level-1), 0, 3000);
-        
         audio_play_sound(sn_trans, 1, 0);
-        audio_play_sound(sn_rage_music, 1, 1);
-        audio_sound_gain(sn_rage_music, 0, 1);
-        audio_sound_gain(sn_rage_music, 1, 5000);
-        
+        if(!end_game){
+            audio_play_sound(sn_rage_music, 1, 1);
+            audio_sound_gain(sn_rage_music, 0, 1);
+            audio_sound_gain(sn_rage_music, 1, 5000);
+        }else{
+            audio_play_sound(sn_soundtrack_final, 1, 1);
+            audio_sound_gain(sn_soundtrack_final, 0, 1);
+            audio_sound_gain(sn_soundtrack_final, 1, 5000);
+        }
         background_blend[0] = make_color_rgb(255, 50 ,10);
         if(eating) eating = false;
         if(take_women) take_women = false;

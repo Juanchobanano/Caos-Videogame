@@ -50,15 +50,10 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(num_level &gt;= 5 and num_level &lt; 10) var numlevel = num_level - 4;   
-else if(num_level &lt; 5) var numlevel = num_level;
-else var numlevel = 1;
-var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
-
-if(!game_pause){
+            <string>if(!game_pause){
  //   with o_player can_move = false;
     audio_play_sound(sn_tutorial, 1, 0);
-    audio_sound_gain(asset, 0, 3000);
+    audio_sound_gain(Get_Soundtrack(num_level), 0, 3000);
    // audio_stop_sound(sn_soundtrack_pausa);
    // audio_play_sound(sn_soundtrack_pausa, 1, 1);
     audio_sound_gain(sn_soundtrack_pausa, 0, 1);
@@ -94,7 +89,7 @@ if(!game_pause){
     if(audio_is_playing(sn_helicopter_behind)) audio_sound_gain(sn_helicopter_behind, 1, 0);
     if(audio_is_playing(sn_helicopter_front)) audio_sound_gain(sn_helicopter_front, 1, 0);
 
-    audio_sound_gain(asset, 1, 5000);
+    audio_sound_gain(Get_Soundtrack(num_level), 1, 5000);
     audio_sound_gain(sn_soundtrack_pausa, 0, 3000);
     //sprite_delete(background);
     //background = -1;

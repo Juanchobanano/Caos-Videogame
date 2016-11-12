@@ -98,7 +98,9 @@ if(str &gt;= string_length(ds_list_find_value(texto, t))){
         final = true; // Animar al final de el diálogo actual.
         if(t &gt;= ds_list_size(texto)){
             audio_stop_sound(sn_dialogo);
-            instance_destroy();
+            if(room == game_intro or room == game10){
+                instance_destroy();
+            }
         }
 
         

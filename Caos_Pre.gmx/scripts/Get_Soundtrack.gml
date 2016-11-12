@@ -3,6 +3,7 @@ audio_stop_sound(sn_soundtrack_1);
 audio_stop_sound(sn_soundtrack_2);
 audio_stop_sound(sn_soundtrack_3);
 audio_stop_sound(sn_soundtrack_4);
+audio_stop_sound(sn_soundtrack_5);
 
 var level = argument[0];
 switch(level){
@@ -18,23 +19,23 @@ switch(level){
     case 4:
         return sn_soundtrack_4;
     break;
-    case 5: 
-        return sn_soundtrack_1;
+    case 5:
+        return sn_soundtrack_5;
     break;
     case 6:
-        return sn_soundtrack_2;
-    break;
-    case 7:
-        return sn_soundtrack_3;
-    break;
-    case 8:
-        return sn_soundtrack_4;
-    break;
-    case 9:
         return sn_soundtrack_1;
     break;
-    case 10:
+    case 7:
         return sn_soundtrack_2;
+    break;
+    case 8:
+        return sn_soundtrack_3;
+    break;
+    case 9:
+        return sn_soundtrack_4;
+    break;
+    case 10:
+        return sn_soundtrack_1;
     break;
     
 }

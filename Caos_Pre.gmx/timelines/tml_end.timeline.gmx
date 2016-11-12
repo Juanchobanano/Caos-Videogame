@@ -21,6 +21,10 @@
             <kind>1</kind>
             <string>/// El Jugador se mueve hacia Julián.
 Player.controles = "izq";
+//audio_stop_sound(sn_soundtrack_final);
+audio_sound_gain(sn_soundtrack_final, 0, 2000);
+audio_stop_sound(sn_rage_music);
+audio_play_sound(sn_rage_music, 1, 1);
 </string>
           </argument>
         </arguments>
