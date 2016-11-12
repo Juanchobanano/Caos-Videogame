@@ -72,12 +72,12 @@ if(room == Room_Digital){
     save = true;
     gacha_select = 0;
     
-   /* if(file_exists(working_directory + "guardar_juego.sav")){
+    if(file_exists(working_directory + "guardar_juego.sav")){
         file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
-    }*/
+    }
     
    
 
@@ -206,9 +206,12 @@ if(room == Room_Digital){
         }
     }
     
+    
     if(regresar_menu){
-        audio_stop_sound(sn_soundtrack_pausa);
-        audio_play_sound(sn_soundtrack_pausa, 1, 1);
+       // soundtrack = sn_soundtrack_pausa;
+       // audio_stop_sound(soundtrack);
+        audio_resume_all();
+       // audio_play_sound(soundtrack, 1, 1);
         regresar_menu = false;
     }
 
@@ -713,6 +716,30 @@ Encuentre a los niños
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="87">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(game_final);
+//audio_stop_sound(soundtrack);
 </string>
           </argument>
         </arguments>

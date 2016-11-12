@@ -88,6 +88,7 @@ if(str &gt;= string_length(ds_list_find_value(txt,t))){
             room_goto_transition(Room_Menu, 0, 150);
             audio_stop_sound(sn_dialogo);
             
+            //audio_play_sound(sn_musica_intro, 1, 1);            
             //   audio_sound_gain(sn_musica_intro , 0, 1000);
         }
         
