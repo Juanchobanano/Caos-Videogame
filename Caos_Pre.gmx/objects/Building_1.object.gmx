@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-if(num_level == 2) lt2 = instance_create(524, 274, Letrero_galan1);
+if(room == game2)  lt2 = instance_create(524, 274, Letrero_galan1);
 </string>
           </argument>
         </arguments>

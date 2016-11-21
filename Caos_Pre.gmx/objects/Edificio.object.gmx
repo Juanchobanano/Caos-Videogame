@@ -209,9 +209,12 @@ if(is_ready){
 
     // Final level.
     if(room == game10){
-    if(!instance_exists(Building_25)){
-        if(instance_exists(Letrero)) with Letrero instance_destroy();
-    }
+        if(!instance_exists(Building_25)){
+            if(instance_exists(Letrero)) with Letrero instance_destroy();
+            with(Control_World) Controles = false;
+            with(Tap_Control0) instance_destroy();
+            with(Tap_Control1) instance_destroy();
+        }
     }
 
 

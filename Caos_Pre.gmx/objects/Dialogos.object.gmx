@@ -26,14 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>// Text dialogs.
-Fechas();
-//show_debug_message("dialogo: " + string(num_level));
-// Create textbox variables.
-
-
 if(game_completed){
     num_level = 9;
+    chances = 2;
+    vida_global = 100;
+
 }
+
+// Select Fechas();
+Fechas();
 
 color = c_white;
 str = 0
@@ -41,41 +42,17 @@ vel = Speed_Text(num_level);
 t = 0;
 llamar_alarma = false;
 
-// levl 1 vel = .4;
+// Select background and music.
+background_index[0] = Background(num_level);
+audio_play_sound(sn_dialogo, 1, 0);
 
-
-/*if(num_level != 0 and activar_tuto) tutorial_bool = true;
-else tutorial_bool = true;
-
-/*if(!tutorial_bool and activar_tuto and !historia){
-    background_index[0] = background_bogota;
-    txt[0] = "T U T O R I A L";
-    audio_play_sound(sn_dialogo2, 1, 0);
-}else{*/
-//show_debug_message(historia);
-//if(!historia){
-    background_index[0] = Background(num_level);
-    audio_play_sound(sn_dialogo, 1, 0);
-/*}else{
-    if(idioma == "en"){ txt[0] = "Based on real facts" }
-    else if(idioma == "es") { txt[0] = "Basada en hechos reales"     }
-    background_index[0] = background_bogota;
-    audio_play_sound(sn_dialogo, 1, 0);
-}
-
-*/
-
+// Soundtrack Pablo.
 if(audio_is_playing(sn_soundtrack_pablo)){
     audio_sound_gain(sn_soundtrack_pablo, 0, 3000);
 }
-/*
-//}
 
-//show_debug_message(tutorial_bool);
-/*if(num_level == 0){
-    audio_sound_gain(sn_soundtrack_intro, 0, 5000);
-}*/
-
+// Stop all the sounds.
+Stop_Sounds();
 </string>
           </argument>
         </arguments>
@@ -99,23 +76,8 @@ if(audio_is_playing(sn_soundtrack_pablo)){
           <argument>
             <kind>1</kind>
             <string>/// This variable will always be true do to the fact activar_tuto is false (Create Event).
-//if(tutorial_bool){
-   
+if(num_level == 0){ audio_stop_sound(sn_soundtrack_pablo); }
 if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
-/*else{
-    // Reset variables.        
-    num_level = 0;
-    vida = 100;
-    puntaje = 1000;
-    room_goto_transition(Room_Creditos, 0, 120);
-    // Historia parte 2.
-}
- 
-/*}else{
-    room_goto_transition(game_tutorial, 0, 45);
-    tutorial_bool = true;
-    show_debug_message(tutorial_bool);
-}
 </string>
           </argument>
         </arguments>

@@ -19,7 +19,7 @@ if(animar){
 
                 case 5: // Crear mujer.
                     var women = instance_create(1392, 394, Child_Intro);
-                    with(women) sprite_index = spr_women_idle;
+                    with(women) sprite_index = spr_women_2;
                      audio_stop_sound(sn_helicopter_front);
                 break;
                 
@@ -110,8 +110,10 @@ if(animar){
             }
         break;
         // Final del juego.
-        case game10:
-                
+        default:
+            if(room != game10){
+               can_continue = false; 
+            }
         break;
         
     }

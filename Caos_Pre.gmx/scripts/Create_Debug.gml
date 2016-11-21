@@ -1,4 +1,3 @@
 /// Create_Debug(xx, yy);
-if(!position_meeting(argument[0], argument[1], Bola)){
+if(instance_exists(Bola)) with Bola instance_destroy(); 
 instance_create(argument[0], argument[1], Bola);
-}

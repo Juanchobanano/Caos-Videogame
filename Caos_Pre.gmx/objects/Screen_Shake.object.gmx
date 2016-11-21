@@ -53,7 +53,7 @@ int = 1.5;
             <string>if(room == Room_Menu){
     if(!historia){ 
         room_goto_transition(game_intro, 0, 45); 
-        audio_sound_gain(soundtrack, 0, 3000);
+        audio_sound_gain(sn_soundtrack_pausa, 0, 3000);
         
     }else{
         if(!game_completed){
@@ -66,9 +66,34 @@ int = 1.5;
 }  
 
 /// Tutorial.
-if(room == game1){
+if(room == game1 and !show_tuto){
     instance_create(0,0, Tutorial);
+    show_tuto = true;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>int += 1.5;
+alarm[1] = 20;
 </string>
           </argument>
         </arguments>

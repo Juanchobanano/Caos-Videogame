@@ -6,7 +6,7 @@ if(humor == "normal"){
             audio_stop_sound(sn_rage_music);
         }
                 
-        audio_sound_gain(Get_Soundtrack(num_level-1), 0, 3000);
+        audio_sound_gain(Get_Soundtrack(num_level), 0, 3000);
         audio_play_sound(sn_trans, 1, 0);
         if(!end_game){
             audio_play_sound(sn_rage_music, 1, 1);

@@ -29,7 +29,7 @@
 event_inherited();
 lt = instance_create(x+sprite_width/2, y - sprite_height - sprite_get_height(spr_letrero_antena2)/2, Letrero_antena2);
 with lt depth = 3;
-if(num_level == 2) lt2 = instance_create(678, 292, Letrero_galan2);
+if(room == game2)  lt2 = instance_create(678, 292, Letrero_galan2);
 </string>
           </argument>
         </arguments>

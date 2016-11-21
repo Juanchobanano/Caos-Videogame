@@ -138,17 +138,23 @@
           <sprite>sprites\spr_dog</sprite>
         </sprites>
         <sprites name="Children2">
+          <sprites name="Armas">
+            <sprite>sprites\spr_balon</sprite>
+            <sprite>sprites\spr_ninja</sprite>
+            <sprite>sprites\spr_musica</sprite>
+            <sprite>sprites\sprite224</sprite>
+            <sprite>sprites\sprite225</sprite>
+          </sprites>
+          <sprite>sprites\spr_women_2</sprite>
           <sprite>sprites\spr_child1_idle_2</sprite>
           <sprite>sprites\spr_child1_run_2</sprite>
           <sprite>sprites\spr_child2_run_2</sprite>
           <sprite>sprites\spr_child2_idle_2</sprite>
           <sprite>sprites\spr_child3_idle_2</sprite>
           <sprite>sprites\spr_child3_run_2</sprite>
-          <sprites name="Armas">
-            <sprite>sprites\spr_balon</sprite>
-            <sprite>sprites\spr_ninja</sprite>
-            <sprite>sprites\spr_musica</sprite>
-          </sprites>
+          <sprite>sprites\spr_child1_attack_2</sprite>
+          <sprite>sprites\spr_child2_attack_2</sprite>
+          <sprite>sprites\spr_child3_attack_2</sprite>
         </sprites>
       </sprites>
       <sprite>sprites\spr_destruction</sprite>
@@ -244,6 +250,7 @@
       <sprite>sprites\spr_caos_original</sprite>
       <sprite>sprites\spr_caos_intro</sprite>
       <sprite>sprites\spr_mano_tuto</sprite>
+      <sprite>sprites\spr_debug</sprite>
     </sprites>
     <sprites name="Player">
       <sprites name="Pablo Escobar">
@@ -401,7 +408,6 @@
     <sprite>sprites\sprite88</sprite>
     <sprite>sprites\spr_avioneta</sprite>
     <sprite>sprites\spr_avion</sprite>
-    <sprite>sprites\spr_google_games</sprite>
     <sprite>sprites\spr_sapo</sprite>
     <sprites name="Imagenes Promocionales">
       <sprite>sprites\spr_presentaciones</sprite>
@@ -412,6 +418,7 @@
       <sprite>sprites\spr_textbox</sprite>
       <sprite>sprites\spr_skip_text</sprite>
       <sprite>sprites\spr_caras</sprite>
+      <sprite>sprites\spr_caras2</sprite>
     </sprites>
     <sprites name="Tutorial">
       <sprite>sprites\spr_Tutorial_espanol</sprite>
@@ -480,6 +487,7 @@
       <script>scripts\Check_Tutorial.gml</script>
       <script>scripts\Create_Kids.gml</script>
       <script>scripts\Speed_Text.gml</script>
+      <script>scripts\Stop_Sounds.gml</script>
     </scripts>
     <scripts name="Transition">
       <script>scripts\room_goto_transition.gml</script>
@@ -495,6 +503,7 @@
       <script>scripts\Building_Exists.gml</script>
       <script>scripts\Nombre_Ciudad.gml</script>
       <script>scripts\Num_Tanks.gml</script>
+      <script>scripts\instance_nearest_of.gml</script>
     </scripts>
     <scripts name="Edificios">
       <script>scripts\Recieve_Damage.gml</script>
@@ -529,7 +538,12 @@
         <script>scripts\Attack_Climb_Android.gml</script>
         <script>scripts\Attack_Jump_Android.gml</script>
         <script>scripts\Destroy_Enemy_Android.gml</script>
+        <script>scripts\Check_Enemy_Climb.gml</script>
       </scripts>
+    </scripts>
+    <scripts name="Caos">
+      <script>scripts\crear_cuadricula.gml</script>
+      <script>scripts\dibujar_efecto.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -560,8 +574,11 @@
       <font>fonts\font_press_20</font>
       <font>fonts\font_press_11</font>
       <font>fonts\font_press_14</font>
+      <font>fonts\font_textbox3</font>
+      <font>fonts\font_textbox2</font>
     </fonts>
     <font>fonts\font_textbox</font>
+    <font>fonts\font_nombres</font>
     <font>fonts\font_tutorial</font>
   </fonts>
   <objects name="objects">
@@ -748,12 +765,16 @@
       <object>objects\Arma_Child</object>
       <object>objects\Player_Final</object>
       <object>objects\Dialogo_Final</object>
+      <object>objects\Rage_Final</object>
       <object>objects\Imagen_Child</object>
       <object>objects\Child_End</object>
+      <object>objects\Objetos_Final</object>
+      <object>objects\Control_Final</object>
     </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tml_end</timeline>
+    <timeline>timelines\tml_final</timeline>
   </timelines>
   <rooms name="rooms">
     <rooms name="Presentacion">

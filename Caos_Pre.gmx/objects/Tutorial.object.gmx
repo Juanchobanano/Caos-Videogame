@@ -37,7 +37,7 @@ instance_activate_object(Tutorial);
 //instance_activate_object(next);
 //instance_activate_object(back);
 index = 0;
-max_index = 2;
+max_index = 4;
 
 
 
@@ -169,7 +169,7 @@ draw_set_font(font_tutorial);
 draw_set_halign(fa_center);
 
 //if(index == 0){
-    draw_text(room_width/2, 80, "Tutorial");
+    draw_text(room_width/2, 50, "Tutorial");
 /*}else if(index == 1){
 
 }*/

@@ -44,7 +44,7 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
     create_kids = false;
     chances = 0;
     
-    with(Control_World) Controles = false;
+
     
     // Create textbox.
     var t = instance_create(0,0, TextBox);
@@ -62,15 +62,12 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
         
         with(Player){
             end_game = true;
-            Player.poder_ate = "billetes";
+            poder_ate = "billetes";
             Player.angry = 100;
             x = room_width/2 - 35;
             image_xscale = -1;
             image_speed = 0;
         }
-        
-        with(Tap_Control0) instance_destroy();
-        with(Tap_Control1) instance_destroy();
         
         
         if(instance_exists(Letrero)){

@@ -19,8 +19,7 @@ if(climb){
     if(key_jump and !instance_exists(Rage)){
         // Set eat to false.
         eating = false;
-    
-        Check_Tutorial("JUMP OFF#THE BUILDING!");
+
     
         // Take women accesors.
         sprite_index = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack");
@@ -202,22 +201,29 @@ if(climb){
                     
                 // No, is not.
                 }else{            
-                    Check_Tutorial("HIT THE BUILDING!");
-                    if(os_type == os_windows) Destroy_Enemy();
-                    var asset = asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack");
-                    Current_Sprite(asset, 0, 3, retard_value);
+                
+                    if(controles == "windows") Destroy_Enemy();
+                    
                     //Player can make damage only 3 times in the same place
-                    if (y != y_anterior){
-                        Recieve_Damage("front", climbed_building);
-                        y_anterior = y;
-                        same_place_counter = 0;
-                    }else{
-                        if(same_place_counter <2){
+                    if(controles == "android"){
+                        Check_Enemy_Climb();
+                        
+                        //show_debug_message("Check Enemy Climb");
+                        
+                    }else if(controles == "windows"){
+                        var asset = asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack");
+                        Current_Sprite(asset, 0, 3, retard_value);
+                        if (y != y_anterior){
                             Recieve_Damage("front", climbed_building);
-                            same_place_counter++;
+                            y_anterior = y;
+                            same_place_counter = 0;
+                        }else{
+                            if(same_place_counter < 2){
+                                Recieve_Damage("front", climbed_building);
+                                same_place_counter++;
+                            }
                         }
                     }
-                    //show_debug_message("attack");
                 } 
                 
               
@@ -231,10 +237,7 @@ if(climb){
         }
         
     }
-    
-    // Attack enemies.
-    scriptCheckAttack(device_mouse_x(0), device_mouse_y(0));
-    
+        
 }else{
 
     // Process the x inputs.
@@ -341,7 +344,7 @@ if(climb){
     }
     
     // Windows.
-    if(controles == "android"){
+    if(controles == "windows"){
  
         // If the player attack.
         if(key_attack){
@@ -402,7 +405,15 @@ if(climb){
     
     // Android.
     }else{
-        scriptCheckAttack(device_mouse_x(0), device_mouse_y(0));
+        if(key_attack){
+            if(instance_exists(Enemy)){
+                var enemy = instance_nearest(x, y, Enemy);
+                var near_enough = point_in_circle(enemy.x, enemy.y, Player.x, Player.y, 100);
+                if(!near_enough){ show_debug_message("out of range") exit; }
+                
+                if(near_enough){ scriptCheckAttack(enemy.x, enemy.y, enemy); }
+            }
+        }
     }
     
     // Player is on the roof but wants to return to its climb state.

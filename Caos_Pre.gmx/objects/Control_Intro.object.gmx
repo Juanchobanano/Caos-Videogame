@@ -34,7 +34,7 @@ animar = true;
 inicio = true;
 seguir_ninos = false;
 inc = 0.02;
-audio_play_sound(sn_wind1, 1, 1);
+//audio_play_sound(sn_wind1, 1, 1);
 
 // Control variables.
 if(audio_is_playing(sn_avion)){
@@ -54,7 +54,7 @@ buildings = false;
 collapses = false;
 sentido = "derecha";
 
-texto_avion = "Colombia, finales de los años 80.         Basado en hechos reales.";
+texto_avion = "Colombia, finales de los años 80.      Basado en hechos reales.";
 texto_1 = "";
 
 mostrar_historia = true;
@@ -62,6 +62,7 @@ alarm[8] = 35;
 cantidad_letras = 0;
 audio_play_sound(sn_musica_intro, 1, 1);
 audio_sound_gain(sn_musica_intro, 1, 3000);
+//audio_stop_sound(soundtrack);
 
 //audio_play_sound(sn_soundtrack_1, 1, 1);
 //audio_sound_gain(sn_soundtrack_1, 0, 1);
@@ -97,7 +98,8 @@ HACER CAER LAS BOMBAS MAS RÁPIDO.
             <string>/// Texto. Basado en hechos reales.
 cantidad_letras++;
 texto_1 = string_copy(texto_avion, 0, cantidad_letras);
-alarm[8] = 1.7;
+alarm[8] = 2.53;
+//alarm[8] = 1.7; // Verdana 16
 </string>
           </argument>
         </arguments>
@@ -520,7 +522,7 @@ draw_sprite(
 );
 
 if(mostrar_historia){
-    draw_set_font(font_textbox);
+    draw_set_font(font_textbox2);
     draw_set_color(c_white);
     draw_text(170, 58, texto_1);
 }

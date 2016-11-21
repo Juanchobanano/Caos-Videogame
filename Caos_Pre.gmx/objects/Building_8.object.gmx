@@ -33,7 +33,7 @@ event_inherited();
     Letrero_lev
 );
 with lt depth = 7;*/
-if(num_level == 2) lt2 = instance_create(155, 159, Letrero_galan1);
+if(room == game2)  lt2 = instance_create(155, 159, Letrero_galan1);
 </string>
           </argument>
         </arguments>

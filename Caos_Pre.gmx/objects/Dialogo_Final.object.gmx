@@ -26,23 +26,27 @@
           <argument>
             <kind>1</kind>
             <string>/// Play soundtrack!
-audio_play_sound(sn_musica_intro, 1, 1);
+/*audio_play_sound(sn_musica_intro, 1, 1);
 audio_sound_gain(sn_musica_intro, 0, 1);
-audio_sound_gain(sn_musica_intro, 1, 3000);
+audio_sound_gain(sn_musica_intro, 1, 3000);*/
 
 color = c_white;
 str = 0
 vel = .4;
 t = 0;
 angle = 0;
-draw_skip = false;
+draw_skip = true;
 can_continue = true;
 
+audio_play_sound(sn_dialogo, 0, 1);
 txt = ds_list_create();
-ds_list_add(txt, "Esta historia");
-ds_list_add(txt, "Esta historia");
-ds_list_add(txt, "Esta historia");
-ds_list_add(txt, "Esta historia");
+ds_list_add(txt, "El 12 de Mayo de 1990, Carlos#y Daniel de 11 años y Julián#de 17, fueron víctimas del#carro bomba que explotó en el#barrio Niza, en la ciudad de#Bogotá.");
+                 //                           //                           //                           //                           //                           //                           //                           //                                          //                                          //                                          //                                          //
+ds_list_add(txt, "Carlos estuvo más de 12 horas#en el quirófano, reconstru-#cción del 70% de su cráneo.");
+ds_list_add(txt, "Daniel sufrió una fractura ex-#puesta de clavícula, lo cual#generó una burbuja en su#torrente sanguíneo.");
+ds_list_add(txt, "Julián sufrió un corte trans-#versal de 20cm en la parte#posterior de su cabeza.");
+ds_list_add(txt, "Infortunadamente, aún hoy en#diferentes partes del mundo,#los adultos continúan portán-#dose mal, día tras día niños#y jóvenes sufren experiencias# similares a las de Carlos,#Daniel y Julián.");
+ds_list_add(txt, "En muchos casos no corren con#la misma suerte...");
 </string>
           </argument>
         </arguments>
@@ -85,7 +89,7 @@ if(str &gt;= string_length(ds_list_find_value(txt,t))){
         final = true; // Animar al final de el diálogo actual.
         if(t &gt;= ds_list_size(txt)){
             instance_destroy();
-            room_goto_transition(Room_Menu, 0, 150);
+            room_goto_transition(Room_Creditos, 0, 150);
             audio_stop_sound(sn_dialogo);
             
             //audio_play_sound(sn_musica_intro, 1, 1);            
@@ -152,15 +156,15 @@ audio_stop_sound(sn_musica_intro);
 //draw_text(room_width/2, room_height/2, txt[num_level]);
 // Draw the textbox and the text.
 
-draw_set_font(font_textbox);
+draw_set_font(font_textbox2);
 draw_set_color(c_white);
 //var c_grey_dark = make_color_rgb(208, 208, 208);
 //var c_grey_light = make_color_rgb(220, 220, 220);
 var c_grey_light = c_white;
 //var c_grey_light = make_color_rgb(220, 220, 220);
 draw_text_colour(
-    125, 
-    195, 
+    140, 
+    135+40+10, 
     string_copy(ds_list_find_value(txt,t), 0, str), 
     c_grey_light, 
     c_grey_light, 
@@ -173,10 +177,10 @@ if(draw_skip){
    //show_debug_message("awdnjyy");
     if(ds_list_size(txt) &gt; t +1 ){
         angle+=.3; 
-        draw_sprite_ext(spr_skip_text, 0, 720, 630 + sin(angle) * 5, 1, 1, 0, c_white, 1); 
+        draw_sprite_ext(spr_skip_text, 0, 645-15, 15+135+40+10+string_height(ds_list_find_value(txt, t))  + sin(angle) * 5, 1, 1, 0, c_white, 1); 
     }else{
         angle+=.3; 
-        draw_sprite(spr_skip_text, 1, 720, 630 + sin(angle) * 5);
+        draw_sprite(spr_skip_text, 1, 645-15, 135+40+10+string_height(ds_list_find_value(txt, t)) + sin(angle) * 5);
     }
 }
 </string>

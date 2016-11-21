@@ -50,9 +50,7 @@ vida_bool_g = 0;
 globalvar object_ind;
 object_ind = noone;
 
-// Tank bullets.
 
-//show_debug_message(num_level);
 termina_nivel = false;
 floor_soldiers_num = 1;
 create_ad = false;
@@ -63,39 +61,9 @@ alarm[4] = 120;
 create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
-/// Create controls.
-//instance_create(615+15, 395+20+10+10, Button_B);//600
-//instance_create(700+15, 345+20+10+10, Button_A);//685
-//instance_create(80, 400+5, Joystick);//120, 100
 Controles = 1;
 instance_create(705, 25, Pausa);
-//instance_create(448, 25, Tutorial_Button);
 instance_create(0,0, Dibujar_Poderes);
-
-audio_play_sound(sn_soundtrack_pausa, 1, 1);
-audio_sound_gain(sn_soundtrack_pausa, 0, 0);
-
-// Crear los 3 niños.
-/*for(var i = 0; i &lt; 3; i++){
-    n = instance_create(768 + i  * 32, 411 , Child_Intro);
-    with(n){
-        
-    }
-}
-
-// Backgorund global variable.
-//globalvar background;
-//background = -1;
-// Set background.
-/*if(num_level == 1 or num_level == 7){
-    background_index[0] = background_medellin;
-}else if(num_level == 2 or num_level == 3 or num_level == 5 
-         or num_level == 6 or num_level == 8 or num_level == 10){
-    background_index[0] = background_bogota;
-}else{
-    background_index[0] = background_cartagena;
-}*/
-
 </string>
           </argument>
         </arguments>
@@ -466,7 +434,7 @@ if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("S"))){
           <argument>
             <kind>1</kind>
             <string>//var asset = asset_get_index("sn_soundtrack_" + string(num_level));
-var asset = Get_Soundtrack(num_level-1);
+var asset = Get_Soundtrack(num_level);
 audio_sound_gain(asset, 0, 3000);
 //sprite_delete(background);
 
@@ -485,11 +453,21 @@ if(audio_is_playing(sn_helicopter_front)){
     audio_stop_sound(sn_helicopter_front);
 }
 
-    
 audio_stop_sound(sn_soundtrack_pausa);
 
 if(room == game10){
     audio_sound_gain(sn_rage_music, 0, 1000);
+}
+
+// Save game completed.
+if(room == game10){
+    if(file_exists(working_directory + "game_complete.sav")){
+        file_delete(working_directory + "game_complete.sav");
+    }
+    game_completed = 1;
+    ini_open(working_directory + "game_complete.sav");
+    ini_write_real("completed", "pass", 1);
+    ini_close();
 }
 </string>
           </argument>

@@ -3,9 +3,9 @@
   <spriteName>spr_caras</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Objetos_Final</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>nombre = "Carlos";
+            <string>event_inherited();
+nombre = "Carlos";
 image_speed = 0;
 /*image_xscale = 2;
 image_yscale = 2;
@@ -52,9 +53,14 @@ image_yscale = 2;
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_set_font(font_textbox);
+draw_set_font(font_nombres);
 draw_set_color(c_white);
-draw_text(x + 10+10, y - string_height(nombre), nombre);
+//draw_text(x + 10+10, y - string_height(nombre), nombre);
+draw_set_halign(fa_center);
+draw_set_alpha(image_alpha);
+draw_text(x + sprite_width/2, y - string_height(nombre) - 5, nombre);
+draw_set_halign(noone);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

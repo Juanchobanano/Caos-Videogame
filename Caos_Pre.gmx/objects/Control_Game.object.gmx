@@ -30,14 +30,15 @@ if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
-              jugador, game_pause, tutorial_bool, soundtrack, idioma, 
-              avance_edificios, end_game, game_completed, rate, regresar_menu;
+              jugador, game_pause, tutorial_bool, idioma, 
+              end_game, game_completed, rate, regresar_menu, show_tuto;
     
+    show_tuto = false;
     regresar_menu = false;
     rate = false;
     game_completed = false;
     end_game = false;
-    avance_edificios = ds_list_create(); // Importante!
+   // avance_edificios = ds_list_create(); // Importante!
     idioma = "es";
     tutorial_bool = false;
     game_pause = false;
@@ -49,7 +50,8 @@ if(room == Room_Digital){
     puntaje_global = 1000;
     best_score = 1000;
     num_level = 0;
-    
+    //texture_set_interpolation(true);
+
     // Historia.
     globalvar historia, activar_tuto;
     historia = false;
@@ -77,6 +79,7 @@ if(room == Room_Digital){
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
+        file_delete(working_directory + "rate.sav");
     }
     
    
@@ -91,6 +94,7 @@ if(room == Room_Digital){
             save_nivel = ini_read_real("save_nivel", "pass", 0);
             save_puntaje = ini_read_real("save_puntaje", "pass", 0);
             gacha_select = ini_read_real("gacha_select", "pass", 0);
+            vida_global = ini_read_real("vida", "pass", 0);
           //  var str = ini_read_string("avance_edificios", "pass", "");
           //  ds_list_read(avance_edificios, str);
             ini_close();
@@ -98,13 +102,13 @@ if(room == Room_Digital){
         }
         
         // Cargar avance de edificios.
-        /*if(file_exists(working_directory + "avance_edificios.sav")){
+        if(file_exists(working_directory + "avance_edificios.sav")){
             ini_open(working_directory + "avance_edificios.sav");
             var str = ini_read_string("avance_edificios", "pass", 0);
             ds_list_read(avance_edificios, str);
             chances = ini_read_real("chances", "pass", 0);
             ini_close();
-        }*/
+        }
         
         if(file_exists(working_directory + "game_complete.sav")){
             ini_open(working_directory + "game_complete.sav");
@@ -128,8 +132,10 @@ if(room == Room_Digital){
             }
         }*/
         
-        num_level = save_nivel;// - 1;
+        num_level = save_nivel;
+        show_debug_message(num_level);
         puntaje_global = save_puntaje;
+        
         
        // show_debug_message(num_level);
     }
@@ -161,7 +167,7 @@ if(room == Room_Digital){
     alarm[1] = 62; //55
     instance_create(0, 0, Change_Soundtrack);
     
-    soundtrack = audio_play_sound(sn_soundtrack_pausa, 1, 1);
+    audio_play_sound(sn_soundtrack_pausa, 1, 1);
     //soundtrack = audio_play_sound(sn_soundtrack_1, 1, 1);
 
     
@@ -178,6 +184,8 @@ if(room == Room_Digital){
     // Tank animation.
     animator = 0;
     audio_stop_sound(sn_musica_intro);
+    audio_stop_sound(sn_roar);
+    audio_stop_sound(sn_rage_music);
     
     if(file_exists(working_directory + "rate.sav")){
         ini_open(working_directory + "rate.sav");
@@ -206,12 +214,23 @@ if(room == Room_Digital){
         }
     }
     
-    
     if(regresar_menu){
-       // soundtrack = sn_soundtrack_pausa;
-       // audio_stop_sound(soundtrack);
-        audio_resume_all();
-       // audio_play_sound(soundtrack, 1, 1);
+        //audio_stop_all();
+        /*audio_stop_sound(sn_soundtrack_1);
+        audio_stop_sound(sn_soundtrack_2);
+        audio_stop_sound(sn_soundtrack_3);
+        audio_stop_sound(sn_soundtrack_4);
+        audio_stop_sound(sn_soundtrack_5);
+        audio_stop_sound(sn_soundtrack_final);
+        Stop_Sounds();*/
+        //show_debug_message("Regresar Menú");
+        audio_stop_sound(sn_soundtrack_pausa);
+        audio_play_sound(sn_soundtrack_pausa, 1, 1);
+        //var s = string(audio_sound_get_gain(sn_soundtrack_pausa));
+        //show_debug_message("Gain: " + s);
+        audio_sound_gain(sn_soundtrack_pausa, 1, 1);
+       // var s = string(audio_sound_get_gain(sn_soundtrack_pausa));
+       // show_debug_message("Gain: " + s);
         regresar_menu = false;
     }
 
@@ -549,9 +568,7 @@ if(room == Room_Select){
         draw_sprite(spr_character_1, 1, 204, 210 - yemenos);
         if(mouse_check_button_released(mb_left) and !seleccionado){
             // Change soundtrack.
-            if(!tutorial_bool and activar_tuto){
-                audio_sound_gain(soundtrack, 0, 3000);                
-            }
+            audio_sound_gain(sn_soundtrack_pausa, 0, 3000);                
             seleccionado = true;
             jugador = "";
             var marco = instance_nearest(204, 210 - yemenos, Marco);
@@ -739,7 +756,8 @@ Encuentre a los niños
           <argument>
             <kind>1</kind>
             <string>room_goto(game_final);
-//audio_stop_sound(soundtrack);
+audio_stop_sound(sn_soundtrack_pausa);
+num_level = 10;
 </string>
           </argument>
         </arguments>
@@ -833,7 +851,7 @@ num_level = 9;
           <argument>
             <kind>1</kind>
             <string>room_goto(game_intro);
-audio_stop_sound(soundtrack);
+//audio_stop_sound(soundtrack);
 </string>
           </argument>
         </arguments>

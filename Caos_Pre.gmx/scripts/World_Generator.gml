@@ -1,5 +1,5 @@
 /// World_Generator(num_level, offset)
-var num_level = argument[0];
+/*var num_level = argument[0];
 var offset = argument[1]; // 80
 
 var number_build = num_level + 5;

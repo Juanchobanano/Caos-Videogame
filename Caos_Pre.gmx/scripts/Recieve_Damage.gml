@@ -1,39 +1,33 @@
 /// Recieve_Damage(direction, building_id);
 var dir = argument[0];
-var building_father = argument[1];
+var building_father1 = argument[1];
 if(instance_exists(Rage)) exit;
 
 switch(dir){
     case "down":
-    
-       // show_debug_message(building_id.bbox_bottom - Player.y); // -15 top coso.
-      //  show_debug_message("HIT THE BUILDING#WHILE GOING DOWN");
-
-        Check_Tutorial("HIT THE BUILDING#WHILE GOING DOWN!");
         
-        
-        if(image_xscale == 1){ xx_damage = building_father.bbox_right + 1 - sprite_get_width(spr_building_damage); }
-        else if(image_xscale == -1){ xx_damage = building_father.bbox_left; }
+        if(image_xscale == 1){ xx_damage = building_father1.bbox_right + 1 - sprite_get_width(spr_building_damage); }
+        else if(image_xscale == -1){ xx_damage = building_father1.bbox_left; }
             
         if(bbox_bottom >= 390) exit;
-        with(building_father) building_life -= 1;
+        with(building_father1) building_life -= 1;
         
-        with(building_father){
+        with(building_father1){
             for(var i = 0; i < ds_grid_width(damage_grid); i++){
                 if(ds_grid_get(damage_grid, i, 0) == ""){                
                 
                     ds_grid_add(damage_grid, i, 0, floor(xx_damage));
                     
-                    if(building_father.bbox_bottom - Player.y <= 95){
+                    if(building_father1.bbox_bottom - Player.y <= 95){
                       // ds_grid_add(damage_grid, i, 1, bbox_bottom - sprite_get_height(spr_building_damage)+1);
-                        ds_grid_add(damage_grid, i, 1, floor(building_father.y - (bbox_bottom - sprite_get_height(spr_building_damage)+1)));
+                        ds_grid_add(damage_grid, i, 1, floor(building_father1.y - (bbox_bottom - sprite_get_height(spr_building_damage)+1)));
                         
                         if(Player.image_xscale == 1) ds_grid_add(damage_grid, i, 2, 9);
                         else ds_grid_add(damage_grid, i, 2, 6);
                         
                     }else{
                         //ds_grid_add(damage_grid, i, 1, Player.y + sprite_height/3);
-                        ds_grid_add(damage_grid, i, 1, floor(building_father.y - (Player.y + sprite_height/4)));
+                        ds_grid_add(damage_grid, i, 1, floor(building_father1.y - (Player.y + sprite_height/4)));
                         
                         if(Player.image_xscale == -1) ds_grid_add(damage_grid, i, 2, choose(0, 1));
                         else ds_grid_add(damage_grid, i, 2, choose(7,8));
@@ -94,9 +88,9 @@ switch(dir){
 
         if(image_xscale == 1) xx_damage = bbox_left - sprite_get_width(spr_building_damage)/2;
         else xx_damage = bbox_right - sprite_get_width(spr_building_damage)/2;
-        with(building_father) building_life -= 1;
+        with(building_father1) building_life -= 1;
         
-        with(building_father){
+        with(building_father1){
   
             for(var i = 0; i < ds_grid_width(damage_grid); i++){
                 if(ds_grid_get(damage_grid, i, 0) == ""){
@@ -104,13 +98,13 @@ switch(dir){
                     var range = irandom_range(-5,15);
                     ds_grid_add(damage_grid, i, 0, floor(xx_damage + range));
                     
-                    if(building_father.bbox_top - Player.y >= -15){
+                    if(building_father1.bbox_top - Player.y >= -15){
                       //  ds_grid_add(damage_grid, i, 1, bbox_top);  
-                        ds_grid_add(damage_grid, i, 1, floor(building_father.y - building_father.bbox_top));              
+                        ds_grid_add(damage_grid, i, 1, floor(building_father1.y - building_father1.bbox_top));              
                         ds_grid_add(damage_grid, i, 2, choose(4, 5));
                     
                     }else{
-                        ds_grid_add(damage_grid, i, 1, floor(building_father.y - (Player.y - sprite_get_height(spr_building_damage)/2)));  
+                        ds_grid_add(damage_grid, i, 1, floor(building_father1.y - (Player.y - sprite_get_height(spr_building_damage)/2)));  
                        // ds_grid_add(damage_grid, i, 1, Player.y - sprite_get_height(spr_building_damage)/2);              
                         ds_grid_add(damage_grid, i, 2, choose(2, 3));
                     }
@@ -168,13 +162,13 @@ switch(dir){
     break;
     case "other":
         
-  //      building_father = building_id.id;
+  //      building_father1 = building_id.id;
         if(image_xscale == 1) xx_damage = bbox_right - sprite_get_width(spr_building_damage)/2;
         else xx_damage = bbox_left - sprite_get_width(spr_building_damage)/2;
-        with(building_father) building_life -= 1;
+        with(building_father1) building_life -= 1;
         
           
-        with(building_father){
+        with(building_father1){
   
             for(var i = 0; i < ds_grid_width(damage_grid); i++){
                 if(ds_grid_get(damage_grid, i, 0) == ""){
@@ -182,13 +176,13 @@ switch(dir){
                     var range = irandom_range(-15,15);
                     ds_grid_add(damage_grid, i, 0, floor(xx_damage + range));
                     
-                    if(building_father.bbox_top - Player.y >= -15){
+                    if(building_father1.bbox_top - Player.y >= -15){
                       //  ds_grid_add(damage_grid, i, 1, bbox_top);  
-                        ds_grid_add(damage_grid, i, 1, floor(building_father.y - building_father.bbox_top));              
+                        ds_grid_add(damage_grid, i, 1, floor(building_father1.y - building_father1.bbox_top));              
                         ds_grid_add(damage_grid, i, 2, choose(4, 5));
                     
                     }else{
-                        ds_grid_add(damage_grid, i, 1, floor(building_father.y - (Player.y - sprite_get_height(spr_building_damage)/2)));  
+                        ds_grid_add(damage_grid, i, 1, floor(building_father1.y - (Player.y - sprite_get_height(spr_building_damage)/2)));  
                        // ds_grid_add(damage_grid, i, 1, Player.y - sprite_get_height(spr_building_damage)/2);              
                         ds_grid_add(damage_grid, i, 2, choose(2, 3));
                     }

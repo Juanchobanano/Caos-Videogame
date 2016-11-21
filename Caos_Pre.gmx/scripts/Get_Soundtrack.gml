@@ -1,10 +1,4 @@
 /// Get_Soundtrack(num_level);
-audio_stop_sound(sn_soundtrack_1);
-audio_stop_sound(sn_soundtrack_2);
-audio_stop_sound(sn_soundtrack_3);
-audio_stop_sound(sn_soundtrack_4);
-audio_stop_sound(sn_soundtrack_5);
-
 var level = argument[0];
 switch(level){
     case 1:
