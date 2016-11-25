@@ -72,6 +72,12 @@ if(animar){
                         seguir_ninos = true;
                     }
                 break;
+                
+                case 14:
+                    can_continue = false;
+                break;
+                
+                
                 // Empiezan a salir personas corriendo.
                 case 15:
  

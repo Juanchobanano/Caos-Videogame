@@ -154,8 +154,13 @@ if(num_level == 5){
 //if(rand == 2){
 
 if(num_level != 4) room_goto_transition(Room_Transicion, 0, 30);
-else room_goto_transition(Room_Select, 0, 30);
-chances = 2;
+else{
+    room_goto_transition(Room_Select, 0, 30);
+    chances = 2;
+}
+ 
+  // Recargar vidas.
+
 /*if(num_level != 5){
     instance_create(
         room_width + 10, 

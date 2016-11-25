@@ -64,7 +64,7 @@ if(humor == "normal"){
         humor_animation = false;
         if(eating) eating = false;
         if(take_women) take_women = false;
-        if(room != game10 and !instance_exists(Child_Final)) room_speed = 30;
+        room_speed = 30;
        /* movespeed = 5;
         jumpspeed = 15;
         climb_speed = 3;*/

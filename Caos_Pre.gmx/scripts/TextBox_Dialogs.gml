@@ -122,7 +122,7 @@ switch(room_){
             ds_list_add(texto, "Daniel: ¡Y esto!"); ds_list_add(caras, 1);
             ds_list_add(texto, "Carlos: ¡Acabemos con él!"); ds_list_add(caras, 0);
             ds_list_add(texto, "El Jefe: ¡Noooo! ¡Mi imperio!"); ds_list_add(caras, 4); 
-        }else if(idioma == "en"){
+         }else if(idioma == "en"){
         
         }
     break;

@@ -90,9 +90,6 @@
         <sound>sound\sn_score_1</sound>
         <sound>sound\sn_score_2</sound>
       </sounds>
-      <sounds name="Viento">
-        <sound>sound\sn_wind1</sound>
-      </sounds>
       <sounds name="Puerta">
         <sound>sound\sn_puerta</sound>
       </sounds>

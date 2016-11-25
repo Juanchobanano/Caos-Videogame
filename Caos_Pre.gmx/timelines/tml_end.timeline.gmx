@@ -55,6 +55,8 @@ var balon = instance_create(270, 440, Arma_Child);
 with(balon) sprite_index = spr_balon;
 Player.controles = "windows";
 with(TextBox){ t++; str = 0; }
+var julian_c = instance_nearest(0,0, Child_Final);
+with(julian_c) image_index = 1;
 </string>
           </argument>
         </arguments>
@@ -121,6 +123,7 @@ with(musica){
 }
 Player.controles = "windows";
 with(TextBox){ t++; str = 0; }
+with(Child_Final){ image_index = 1; }
 </string>
           </argument>
         </arguments>
@@ -148,6 +151,7 @@ with(TextBox){ t++; str = 0; }
             <kind>1</kind>
             <string>/// T++ Textbox.
 with(TextBox){ t++; str = 0; }
+with(Child_Final){ image_index = 0; }
 </string>
           </argument>
         </arguments>
@@ -175,6 +179,9 @@ with(TextBox){ t++; str = 0; }
             <kind>1</kind>
             <string>/// Destruir pablo!
 destruir_pablo = true;
+with(Child_Final){
+    image_speed = .1;
+}
 </string>
           </argument>
         </arguments>
@@ -206,6 +213,22 @@ with Arma_Child instance_destroy();
 audio_play_sound(sn_roar, 1, 0);
 with Puntaje_Suma instance_destroy();
 with(TextBox){ str = 0; t++; }
+
+var kids = instance_nearest_list(0, 0, Child_Final);
+with(ds_list_find_value(kids, 0)){
+    image_index = 0;
+    sprite_index = spr_child2_idle_2;
+}
+with(ds_list_find_value(kids, 1)){
+    sprite_index = spr_child1_idle_2;
+    image_index = 0;
+    image_speed = 0;
+}
+with(ds_list_find_value(kids, 2)){
+    sprite_index  = spr_child3_idle_2;
+    image_index = 0;
+    image_speed = 0;
+}
 </string>
           </argument>
         </arguments>

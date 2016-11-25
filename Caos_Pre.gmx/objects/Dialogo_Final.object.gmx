@@ -99,10 +99,10 @@ if(str &gt;= string_length(ds_list_find_value(txt,t))){
     }
 }else{
     draw_skip = false;
-    mouse_clear(mb_left);
-    /*if((keyboard_check(ord('Z')) or mouse_check_button(mb_left)) and (str &lt; string_length(ds_list_find_value(txt,t)))){
+    //mouse_clear(mb_left);
+    if((keyboard_check(ord('Z')) or mouse_check_button(mb_left)) and (str &lt; string_length(ds_list_find_value(txt,t)))){
         str += (vel + 1);
-    }*/
+    }
 }
 </string>
           </argument>
