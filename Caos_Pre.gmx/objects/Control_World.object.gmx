@@ -64,6 +64,9 @@ if instance_exists(Control_Game) with Control_Game instance_destroy();
 Controles = 1;
 instance_create(705, 25, Pausa);
 instance_create(0,0, Dibujar_Poderes);
+
+stringa = "0";
+//instance_create(0,0,Tap_Control0);
 </string>
           </argument>
         </arguments>
@@ -385,8 +388,10 @@ if (Controles){
     if(!instance_exists(Button_A) and !instance_exists(Button_B)){
         //B_A = instance_create(615+15, 395+20+10, Button_B);//600
         //B_B = instance_create(700+15, 345+20+10, Button_A);//685
-        B_A = instance_create(700+10, 345+20+10, Button_B);//685
-        B_B = instance_create(615+10, 395+20+10, Button_A);//600
+        B_A = instance_create(710, 375, Button_B);//685
+        B_B = instance_create(625, 425, Button_A);//600
+        B_LF = instance_create(75, 425, Button_Left);
+        B_RT = instance_create(190, 425, Button_Right);
     }
 }else{
     if(instance_exists(Button_A) and instance_exists(Button_B)){
@@ -398,9 +403,13 @@ if (Controles){
 //Tap Control
 if(device_mouse_check_button(0, mb_left)){
     if (!instance_exists(Tap_Control0)){
-        instance_create(device_mouse_x(0), device_mouse_y(0),Tap_Control0);
+       if(device_mouse_x(0) &lt; 575){
+            instance_create(device_mouse_x(0), device_mouse_y(0),Tap_Control0);
+        }
+        
     }
 }
+
 /*if(device_mouse_check_button(1, mb_left)){
     if (!instance_exists(Tap_Control1)){
         instance_create(device_mouse_x(1), device_mouse_y(1),Tap_Control1);
@@ -587,6 +596,18 @@ if(room == game10){
     1
 );*/
 
+/*draw_line_width(
+    570, 
+    0, 
+    570, 
+    room_height,
+    3
+);*/
+
+
+//draw_circle_colour(device_mouse_x(0), device_mouse_y(0), 50, c_white, c_red,3);
+//draw_circle_colour(device_mouse_x(1), device_mouse_y(1), 50, c_white, c_blue, 3);
+
 draw_sprite(
     spr_piso, 
     0,
@@ -594,6 +615,8 @@ draw_sprite(
     433
    // room_height - sprite_get_height(spr_piso)
 );
+
+//draw_text(0, room_height-string_height(stringa),  "Moving with: " + stringa);
 </string>
           </argument>
         </arguments>

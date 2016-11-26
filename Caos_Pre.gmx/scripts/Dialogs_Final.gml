@@ -160,8 +160,9 @@ switch(argument[0]){
                 
         // Detener a los niños cuando lleguen a la ciudad.
         if(argument[1] >= 12 and argument[1] <= 15){
-            var first_c = instance_nearest(0,0,Child_Intro);
-            if(first_c.x < 300){
+            var first_c = instance_nearest(0, room_height,Child_Intro);
+            if(first_c.x < 350){
+                can_continue = true;
                 with(Child_Intro){
                     hspeed = 0;
                     switch(sprite_index){
@@ -187,18 +188,38 @@ switch(argument[0]){
                // var kids = instance_nearest_list(0,0, Child_Final);
                // var julian_c = ds_list_find_value(kids, 0);
                 
-                var julian_c = instance_nearest(0,0, Child_Final);
+                var julian_c = instance_nearest(0, room_height, Child_Final);
                 
-                if(julian_c.x < 230){
+                if(julian_c.x < 230){ //230
                     with(julian_c){
                         hspeed = 0;
                         x = 230;
                         image_speed = 0;
                         image_xscale = 1;
-                        sprite_index = spr_child2_idle_2;
-                        instance_create(0,0, End_Game);
+                        //sprite_index = spr_child2_idle_2;
+                        sprite_index = spr_child2_attack_2;
+                        image_index = 0;
+                        if(!instance_exists(End_Game)){
+                            instance_create(0,0, End_Game);
+                        }
                         //with TextBox instance_destroy();
                     }                 
+                    
+                    var kids = instance_nearest_list(0,0, Child_Final);
+                    with(ds_list_find_value(kids, 1)){ // Carlos.
+                        sprite_index = spr_child1_attack_2;
+                        image_xscale = -1;
+                        image_speed = 0;
+                        image_index = 0;
+                        
+                    }
+                    
+                    with(ds_list_find_value(kids, 2)){ // Daniel.
+                        sprite_index = spr_child3_attack_2;
+                        image_xscale = -1;
+                        image_speed = 0;
+                        image_index = 0;
+                    }
                 }
                 
                /* var carlos_c = ds_list_find_value(kids, 1);

@@ -41,8 +41,8 @@ switch(dir){
                     if(rand == 1){
                         var x1 = ds_grid_get(damage_grid, i, 0);
                         var y1 = ds_grid_get(damage_grid, i, 1);
-                        if (!instance_nearest(x1+10, (y+10)- y1, Poder)){
-                            inst = instance_create(x1+10, (y+10)- y1, Poder);
+                        if (!instance_nearest(x1, (y+10)- y1, Poder)){
+                            inst = instance_create(x1, (y+10)- y1, Poder);
                         }
                     }
                     //
@@ -117,8 +117,8 @@ switch(dir){
                     if(rand == 1){
                         var x1 = ds_grid_get(damage_grid, i, 0);
                         var y1 = ds_grid_get(damage_grid, i, 1);
-                        if (!instance_nearest(x1+10, (y+10)- y1, Poder)){
-                            inst = instance_create(x1+10, (y+10)- y1, Poder);
+                        if (!instance_nearest(x1, (y+10)- y1, Poder)){
+                            inst = instance_create(x1, (y+10)- y1, Poder);
                         }
                     }
                     //

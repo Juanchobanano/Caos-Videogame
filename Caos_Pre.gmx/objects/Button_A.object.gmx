@@ -66,7 +66,7 @@ image_index = 3;
             <kind>1</kind>
             <string>/// Set image alpha to 2.
 image_alpha = .5;
-Check_Tutorial("JUMP!");
+//keyboard_clear(ord("Z"));
 </string>
           </argument>
         </arguments>

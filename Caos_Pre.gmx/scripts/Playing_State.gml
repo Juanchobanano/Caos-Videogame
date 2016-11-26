@@ -15,6 +15,10 @@ if(climb){
     // Set hsp in 0.
     hsp = 0;
     
+    if(key_up or key_down){
+        eating = false;
+    }
+    
     // Jump from buildings.
     if(key_jump and !instance_exists(Rage)){
         // Set eat to false.

@@ -32,6 +32,7 @@
 
 // Controles.
 controles = "android";
+//controles = "windows";
 //movepos_final = false;
 
 // ROAR.
@@ -1238,7 +1239,7 @@ if(grounded){
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="65">
+    <event eventtype="9" enumb="66">
       <action>
         <libid>1</libid>
         <id>603</id>

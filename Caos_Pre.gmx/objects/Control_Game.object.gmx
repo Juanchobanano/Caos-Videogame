@@ -74,14 +74,14 @@ if(room == Room_Digital){
     save = true;
     gacha_select = 0;
     
-    if(file_exists(working_directory + "guardar_juego.sav")){
+  /*  if(file_exists(working_directory + "guardar_juego.sav")){
         file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
         file_delete(working_directory + "rate.sav");
     }
-    
+    */
    
 
     if(save){
@@ -880,7 +880,7 @@ num_level = 9;
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="65">
+    <event eventtype="9" enumb="66">
       <action>
         <libid>1</libid>
         <id>603</id>

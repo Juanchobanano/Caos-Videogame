@@ -698,6 +698,8 @@
       <object>objects\Key_Father</object>
       <object>objects\Button_A</object>
       <object>objects\Button_B</object>
+      <object>objects\Button_Left</object>
+      <object>objects\Button_Right</object>
       <object>objects\Joystick</object>
       <object>objects\Button_Tutorial</object>
     </objects>

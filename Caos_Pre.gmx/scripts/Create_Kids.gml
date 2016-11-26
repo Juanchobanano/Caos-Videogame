@@ -58,6 +58,10 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
             with Tank instance_destroy();                        
         }
         
+        with(Control_World){
+            Controles = false;
+        }
+        
         with(Player){
             controles = "windows";
             end_game = true;

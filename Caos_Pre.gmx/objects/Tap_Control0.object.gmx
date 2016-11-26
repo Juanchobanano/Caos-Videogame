@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>if(instance_exists(Player)){
-    x = device_mouse_x(0);
-    y = device_mouse_y(0);
+    x = device_mouse_x(control);
+    y = device_mouse_y(control);
     scriptCheckDirection();
-    if (!device_mouse_check_button(0, mb_left)){
+    if (!device_mouse_check_button(control, mb_left)){
     Player.y1_ed = ystart;
     Player.x1_ed = xstart;
         if (xstart == x and ystart == y){
