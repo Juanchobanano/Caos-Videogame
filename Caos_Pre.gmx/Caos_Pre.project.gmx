@@ -233,6 +233,8 @@
       <sprite>sprites\spr_boton_derecha</sprite>
       <sprite>sprites\spr_boton_izquierda</sprite>
       <sprite>sprites\spr_go</sprite>
+      <sprite>sprites\spr_boton_derecha_tuto</sprite>
+      <sprite>sprites\spr_boton_izquierda_tuto</sprite>
     </sprites>
     <sprites name="Detalles">
       <sprite>sprites\spr_damage_overlay</sprite>
@@ -365,6 +367,7 @@
       <sprite>sprites\spr_creditos2</sprite>
       <sprite>sprites\spr_new</sprite>
       <sprite>sprites\spr_marco</sprite>
+      <sprite>sprites\spr_candado</sprite>
       <sprite>sprites\spr_pausa</sprite>
       <sprite>sprites\spr_icon_creditos</sprite>
       <sprites name="Presentacion">

@@ -74,15 +74,15 @@ if(room == Room_Digital){
     save = true;
     gacha_select = 0;
     
-  /*  if(file_exists(working_directory + "guardar_juego.sav")){
+    /*if(file_exists(working_directory + "guardar_juego.sav")){
         file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
         file_delete(working_directory + "rate.sav");
-    }
-    */
-   
+    }*/
+    save = false;
+    historia = true;
 
     if(save){
         globalvar save_nivel, save_puntaje, gacha_select;
@@ -559,11 +559,8 @@ if(room == Room_Select){
     
     // Draw pablo escobar.
     if(mouse_x &gt; 204 and mouse_x &lt; 204 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){
-        
         if(font == "press") draw_set_font(font_press_14);
         else draw_set_font(font_wonder_14);
-        //draw_set_font(font_04b11_15);
-        //draw_set_color(c_red);
         color = c_red;
         draw_sprite(spr_character_1, 1, 204, 210 - yemenos);
         if(mouse_check_button_released(mb_left) and !seleccionado){
@@ -575,18 +572,12 @@ if(room == Room_Select){
             with marco image_speed = 1;
             Play_Track("press_start");
             mouse_clear(mb_left);
-           // room_goto_transition(Room_Transicion, 0, 45);
         }
     }else{
-       // draw_set_font(font_arial_12);
-      // draw_set_color(c_white);
-      color = c_white;
-      //  draw_set_font(font_04b11_12);
-      if(font == "press") draw_set_font(font_press_11);
-      else draw_set_font(font_wonder_11);
-       // draw_set_font(font_menu);
-      draw_sprite(spr_character_1, 0, 204, 210 - yemenos);
-        //draw_sprite(spr_character_1, 0, 232, 240+24);
+          color = c_white;
+          if(font == "press") draw_set_font(font_press_11);
+          else draw_set_font(font_wonder_11);
+          draw_sprite(spr_character_1, 0, 204, 210 - yemenos);
     }
 
 
@@ -602,10 +593,12 @@ if(room == Room_Select){
     if(num_level == 4) if(!instance_exists(New)) instance_create(440 + sprite_get_width(spr_character_2)/2, 210 + 144 - sprite_get_height(spr_new) - 25, New);
 
     color = c_white;
+    
+    if(num_level &lt; 4) draw_set_alpha(.5);
+    
     // Draw second character.
-    if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){
-        
-        if(num_level == 4 or gacha_select){ // Select new character nivel 5.
+    if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){   
+    if(num_level == 4 or gacha_select){ // Select new character nivel 5.
             draw_sprite(spr_character_2, 1, 440, 210 - yemenos);
             if(mouse_check_button_released(mb_left) and !seleccionado){
                 if(font == "press") draw_set_font(font_press_14);
@@ -639,12 +632,13 @@ if(room == Room_Select){
         }
     }else{
         draw_set_color(c_white);
-        //draw_set_font(font_04b11_12);
         if(font == "press") draw_set_font(font_press_11);
         else draw_set_font(font_wonder_11);
         draw_sprite(spr_character_2, 0, 440, 210 - yemenos);
     }
-   //  bv b
+    
+    
+    
 
     draw_set_halign(fa_center);
     draw_text_outlined(440 + 128/2, 180 - yemenos, "EL MERO", color, c_black, 2); 
@@ -654,6 +648,8 @@ if(room == Room_Select){
     draw_text(440 + 128/2, 360 - yemenos, select);*/
     draw_set_halign(noone);
     draw_set_color(c_white);
+    
+     draw_set_alpha(1);
 }
 
 if(keyboard_check_pressed(vk_space)){

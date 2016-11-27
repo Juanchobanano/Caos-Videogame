@@ -147,7 +147,7 @@ if(index &gt;= max_index){
         audio_play_sound(sn_punch_1 , 1, 0);
     }
 }else{
-    if(Sprite_InRectangle(spr_boton_derecha, 0, 700-40, 40, 1)){
+    if(Sprite_InRectangle(spr_boton_derecha_tuto, 0, 700-40, 40, 1)){
         index++;
         mouse_clear(mb_left);
         audio_play_sound(sn_tutorial, 1, 0);
@@ -155,7 +155,7 @@ if(index &gt;= max_index){
 }
 
 if(index &gt; 0){
-    if(Sprite_InRectangle(spr_boton_izquierda, 0, 68-40, 40, 1)){
+    if(Sprite_InRectangle(spr_boton_izquierda_tuto, 0, 68-40, 40, 1)){
         
         index--; mouse_clear(mb_left);
         audio_play_sound(sn_tutorial, 1, 0);
@@ -169,7 +169,7 @@ draw_set_font(font_tutorial);
 draw_set_halign(fa_center);
 
 //if(index == 0){
-    draw_text(room_width/2, 50, "Tutorial");
+draw_text(room_width/2, 50, "Tutorial");
 /*}else if(index == 1){
 
 }*/

@@ -62,6 +62,9 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
             Controles = false;
         }
         
+        with Button_Left instance_destroy();
+        with Button_Right instance_destroy();
+        
         with(Player){
             controles = "windows";
             end_game = true;
