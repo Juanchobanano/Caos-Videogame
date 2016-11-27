@@ -65,7 +65,9 @@ image_index = 4;
           <argument>
             <kind>1</kind>
             <string>/// Set image index to 3.
+if (instance_exists(Edificio)){
 Edificio.c_boton = 0; // controlar tap edificio
+}
 image_alpha = .5;
 //keyboard_clear(ord("X"));
 </string>
@@ -91,7 +93,9 @@ image_alpha = .5;
           <argument>
             <kind>1</kind>
             <string>/// Set image index to 1.
+if (instance_exists(Edificio)){
 Edificio.c_boton = 1; // controlar tap edificio
+}
 image_alpha = .8;
 </string>
           </argument>

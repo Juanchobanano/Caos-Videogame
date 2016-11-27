@@ -102,7 +102,9 @@ if(instance_exists(Player)){
           <argument>
             <kind>1</kind>
             <string>/// Set image alpha to 2.
+if (instance_exists(Edificio)){
 Edificio.c_boton = 0; // controlar tap edificio
+}
 image_alpha = .5;
 
 if(instance_exists(Player)){
@@ -146,7 +148,9 @@ if(instance_exists(Player)){
           <argument>
             <kind>1</kind>
             <string>/// Set image index to 0.
+if (instance_exists(Edificio)){
 Edificio.c_boton = 1; // controlar tap edificio
+}
 image_alpha = .8;
 if(instance_exists(Player)){
     Player.key_left = 0;
