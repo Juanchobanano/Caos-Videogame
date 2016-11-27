@@ -66,12 +66,18 @@ b_climb = false;
           <argument>
             <kind>1</kind>
             <string>/// Check if the player is climb.
-if(Player.climb){
-     b_climb = true;
-     image_angle = 270;
-}else{
-     b_climb = false;
-     image_angle = 0;
+if(instance_exists(Player)){
+    if(Player.climb){
+         b_climb = true;
+         if(Player.image_xscale == 1){
+            image_angle = 270;
+         }else{
+            image_angle = 90;
+         }
+    }else{
+         b_climb = false;
+         image_angle = 0;
+    }
 }
 </string>
           </argument>
@@ -99,12 +105,22 @@ if(Player.climb){
 Edificio.c_boton = 0; // controlar tap edificio
 image_alpha = .5;
 
-if(!b_climb){
-    Player.key_left = 1;
-    Player.key_right = 0;
-}else{
-    Player.key_up = 1;
-    Player.key_down = 0;
+if(instance_exists(Player)){
+    if(!b_climb){
+        Player.key_left = 1;
+        Player.key_right = 0;
+        if(!Player.grounded and !Player.climb){
+            Player.key_down = 1;
+        }
+    }else{
+        if(Player.image_xscale == -1){
+            Player.key_down = 1;
+            Player.key_up = 0;
+        }else{
+            Player.key_up = 1;
+            Player.key_down = 0;
+        }
+    }
 }
 //keyboard_clear(ord("Z"));
 </string>
@@ -132,8 +148,12 @@ if(!b_climb){
             <string>/// Set image index to 0.
 Edificio.c_boton = 1; // controlar tap edificio
 image_alpha = .8;
-Player.key_left = 0;
-Player.key_up = 0;
+if(instance_exists(Player)){
+    Player.key_left = 0;
+    if(Player.image_xscale == -1) Player.key_down = 0;
+    else Player.key_up = 0;
+    
+}
 </string>
           </argument>
         </arguments>
