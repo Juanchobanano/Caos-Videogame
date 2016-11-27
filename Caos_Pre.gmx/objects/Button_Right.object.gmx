@@ -149,8 +149,8 @@ Edificio.c_boton = 1; // controlar tap edificio
 image_alpha = .8;
 if(instance_exists(Player)){
     Player.key_right = 0;
-    if(Player.image_xscale == -1) Player.key_up = 0;
-    else Player.key_down = 0;
+    Player.key_up = 0;
+    Player.key_down = 0;
 }
 </string>
           </argument>
