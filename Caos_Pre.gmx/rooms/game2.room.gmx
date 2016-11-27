@@ -104,8 +104,6 @@
     <instance objName="obj_ventana" x="599" y="333" name="inst_8F3F03FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="642" y="333" name="inst_CE3452AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Control_PreWorld" x="63" y="70" name="inst_D582D0CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Button_Left" x="67" y="412" name="inst_1E0EC58F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Button_Right" x="180" y="411" name="inst_E2520A97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

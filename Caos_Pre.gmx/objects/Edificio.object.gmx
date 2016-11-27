@@ -125,7 +125,7 @@ ds_grid_destroy(damage_grid);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Animación parpadeo.
 if (cont_parpadeo &lt;= 3){
     if (visible == 1){
         cont_parpadeo++;
