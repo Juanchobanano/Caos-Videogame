@@ -59,9 +59,8 @@ for(var i = 0; i &lt; ds_grid_width(damage_grid); i++){
 }
 
 //Touch
-c_boton = 1;
 cont_parpadeo = 0;
-
+c_boton = 1;
 // Fisures variables.
 /*max_fisures_array = ds_list_create();
 max_fisures = floor(sprite_get_height(spr_edificios)/sprite_get_height(spr_fisures));
@@ -328,6 +327,7 @@ if(is_ready){
           <argument>
             <kind>1</kind>
             <string>if(instance_exists(Player)){ 
+if (building_life &gt; 1){
 if (c_boton){
 if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
     if (abs(Player.y1_ed - device_mouse_y(0)) &lt; 64  and abs(Player.x1_ed - device_mouse_x(0)) &lt; 64){
@@ -338,6 +338,7 @@ if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
     //show_debug_message(Player.x_edificio);
         }
     }
+}
 }
 }
 }
