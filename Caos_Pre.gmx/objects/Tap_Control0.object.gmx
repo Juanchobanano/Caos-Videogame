@@ -25,11 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(Player)){
-    x = device_mouse_x(control);
-    y = device_mouse_y(control);
-    scriptCheckDirection();
-    if (!device_mouse_check_button(control, mb_left)){
+            <string>/*if(instance_exists(Player)){
+    x = device_mouse_x(0);//control
+    y = device_mouse_y(0);
+    //scriptCheckDirection();
+    if (!device_mouse_check_button(0, mb_left)){
     Player.y1_ed = ystart;
     Player.x1_ed = xstart;
         if (xstart == x and ystart == y){
@@ -44,15 +44,11 @@
             Player.key_attack = 0;
             Player.cont_attack = 0;
             Player.cont_jump = 0;
-            //Player.x_edificio = 0;
-            Player.key_up = 0;
-            Player.key_left = 0;
-            Player.key_right = 0;
-            Player.x_edificio = 0;
+            /*Player.x_edificio = 0;
             Player.w_edificio = 0;   
             Player.ed_r = 0;
-            Player.ed_cont = 1;
-        }
+            Player.ed_cont = 1;*/
+/*        }
         instance_destroy();
     }
 }

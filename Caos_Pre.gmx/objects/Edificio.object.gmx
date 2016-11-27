@@ -58,6 +58,10 @@ for(var i = 0; i &lt; ds_grid_width(damage_grid); i++){
     }
 }
 
+//Touch
+c_boton = 1;
+cont_parpadeo = 0;
+
 // Fisures variables.
 /*max_fisures_array = ds_list_create();
 max_fisures = floor(sprite_get_height(spr_edificios)/sprite_get_height(spr_fisures));
@@ -100,6 +104,46 @@ ds_grid_destroy(damage_grid);
     with(Control_Tutorial) alarm[2] = 60;
     instance_create(room_width/2, room_height/2 - 30, Coronaste);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if (cont_parpadeo &lt;= 3){
+    if (visible == 1){
+        cont_parpadeo++;
+        visible = 0;
+        alarm[2] = 2;
+    }else if (visible == 0){
+        cont_parpadeo++;
+        visible = 1;
+        alarm[2] = 2;
+    }
+}else{
+    cont_parpadeo = 0;
+    parpadear = 0;
+    visible = 1;
+    alarm[2] = -1;
+}
+
 </string>
           </argument>
         </arguments>
@@ -283,18 +327,57 @@ if(is_ready){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
+            <string>if(instance_exists(Player)){ 
+if (c_boton){
+if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
     if (abs(Player.y1_ed - device_mouse_y(0)) &lt; 64  and abs(Player.x1_ed - device_mouse_x(0)) &lt; 64){
         if (Player.x_edificio == 0){
             Player.x_edificio = x;
             Player.w_edificio = sprite_width;
+            alarm[2] = 2;
     //show_debug_message(Player.x_edificio);
         }
     }
 }
+}
+}
 //show_debug_message(Player.x_edificio);
 //show_debug_message(y1);
 //show_debug_message(Player.w_edificio);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(instance_exists(Player)){   
+//Player.y1_ed = ystart;
+//Player.x1_ed = xstart;
+
+    Player.y1_ed = device_mouse_y(0);
+    Player.x1_ed = device_mouse_x(0);
+
+    Player.x_edificio = 0;
+    Player.w_edificio = 0;   
+    Player.ed_r = 0;
+    Player.ed_cont = 1;
+}
 </string>
           </argument>
         </arguments>
@@ -318,7 +401,6 @@ if(is_ready){
           <argument>
             <kind>1</kind>
             <string>/// Draw the building.
-
     // Draw building.
     draw_sprite_part_ext(
         sprite_index, 
@@ -363,6 +445,22 @@ if(is_ready){
         );
         
     }
+// parpadeo
+/*if (parpadear){
+if (cont_parpadeo &lt; 200){
+    if (image_alpha == 1){
+        cont_parpadeo++;
+        image_alpha = .5;
+    }else if (image_alpha == .5){
+        cont_parpadeo++;
+        image_alpha = 1;
+    }
+}else{
+    cont_parpadeo = 0;
+    parpadear = 0;
+    image_alpha = 1;
+}
+}
 
 </string>
           </argument>

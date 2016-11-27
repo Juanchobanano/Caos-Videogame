@@ -96,6 +96,7 @@ if(Player.climb){
           <argument>
             <kind>1</kind>
             <string>/// Set image alpha to 2.
+Edificio.c_boton = 0; // controlar tap edificio
 image_alpha = .5;
 
 if(!b_climb){
@@ -129,6 +130,7 @@ if(!b_climb){
           <argument>
             <kind>1</kind>
             <string>/// Set image index to 0.
+Edificio.c_boton = 1; // controlar tap edificio
 image_alpha = .8;
 Player.key_left = 0;
 Player.key_up = 0;
