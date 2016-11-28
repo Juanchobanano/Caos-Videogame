@@ -1,6 +1,10 @@
 // (Horizontal Attack).
 var enemy = argument[0];
-if(yy < y + 26 and yy > y - 46){
+var yy = argument[1];
+if(enemy.x < Player.x) var escala = 1;
+else var escala = -1;
+image_xscale = escala;
+if(yy < y + 10 and yy > y - 15){
 
     // (Aside Attack).
     
@@ -30,7 +34,7 @@ if(yy < y + 26 and yy > y - 46){
 }else{
 
     // (Down Attack).   
-    if(yy >= y + 26){
+    if(yy >= y + 10){
         Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 2, retard_value);
        // Destroy_Enemy_Android(x - 40 * image_xscale, y + 52, enemy);
         
@@ -41,8 +45,28 @@ if(yy < y + 26 and yy > y - 46){
     }
 }
 
+if(!place_meeting(enemy.x, enemy.y, Soldado_Piso)){
 
 
+    if(point_in_circle(enemy.x, enemy.y, x, y, 20)){
+        if(instance_exists(Helicoptero)){
+            destroy_h = instance_nearest(enemy.x, enemy.y, Helicoptero);
+            if(destroy_h.sprite_index != spr_helicopter_back){
+                Play_Track("attack");
+                with destroy_h instance_destroy(); // Get score dentro de cada objeto.
+            }
+        }
+    }else{
+        with(enemy) instance_destroy();   
+        if(object_get_name(enemy) == "Soldado_Piso"){
+            audio_play_sound(sn_eat_power, 1, 0);   
+        }else{
+            Play_Track("attack");
+        }
+    }
+}
+
+/*
 if(point_in_circle(enemy.x, enemy.y, x, y, 20)){
     destroy_h = instance_nearest(enemy.x, enemy.y, Helicoptero);
     if(destroy_h.sprite_index != spr_helicopter_back){

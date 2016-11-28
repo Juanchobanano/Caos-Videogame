@@ -54,7 +54,7 @@ var spr = "";
 var xx = 0;
     var yy = 0;
 
-if(c_billetes &gt;= 3){
+if(c_billetes &gt;= 3 and room != game10){
     c_billetes = 0;    
     for(var i = 0; i &lt; 3; i++){ 
         var power_a = instance_create(263 + (i * 40), 17, Poder_Animado);

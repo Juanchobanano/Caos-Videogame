@@ -85,17 +85,19 @@ if(climb){
 
 if(!place_meeting(enemy.x, enemy.y, Soldado_Piso)){
 
-
     if(point_in_circle(enemy.x, enemy.y, x, y, 20)){
         destroy_h = instance_nearest(enemy.x, enemy.y, Helicoptero);
         if(destroy_h.sprite_index != spr_helicopter_back){
+            Play_Track("attack");
             with destroy_h instance_destroy(); // Get score dentro de cada objeto.
         }
     }else{
         with (enemy) instance_destroy();
         if(object_get_name(enemy) == "Soldado_Piso"){
             audio_play_sound(sn_eat_power, 1, 0);   
-        }             
+        }else{
+            Play_Track("attack");
+        }            
     }
 }
 

@@ -638,10 +638,10 @@
     <objects name="World">
       <object>objects\Player</object>
       <object>objects\Control_damage_overlay</object>
+      <object>objects\Control_PreWorld</object>
       <object>objects\Control_World</object>
       <object>objects\Tap_Control0</object>
       <object>objects\Tap_Control1</object>
-      <object>objects\Control_PreWorld</object>
       <object>objects\Floor</object>
       <object>objects\Poder</object>
       <object>objects\Damage</object>

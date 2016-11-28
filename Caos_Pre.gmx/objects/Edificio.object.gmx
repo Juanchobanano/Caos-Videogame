@@ -126,21 +126,25 @@ ds_grid_destroy(damage_grid);
           <argument>
             <kind>1</kind>
             <string>/// Animación parpadeo.
-if (cont_parpadeo &lt;= 3){
-    if (visible == 1){
-        cont_parpadeo++;
-        visible = 0;
-        alarm[2] = 2;
-    }else if (visible == 0){
-        cont_parpadeo++;
-        visible = 1;
-        alarm[2] = 2;
+if(instance_exists(Player)){
+    if(Player.grounded){
+        if (cont_parpadeo &lt;= 3){
+            if (visible == 1){
+                cont_parpadeo++;
+                visible = 0;
+                alarm[2] = 2;
+            }else if (visible == 0){
+                cont_parpadeo++;
+                visible = 1;
+                alarm[2] = 2;
+            }
+        }else{
+            cont_parpadeo = 0;
+            parpadear = 0;
+            visible = 1;
+            alarm[2] = -1;
+        }
     }
-}else{
-    cont_parpadeo = 0;
-    parpadear = 0;
-    visible = 1;
-    alarm[2] = -1;
 }
 
 </string>
@@ -254,7 +258,9 @@ if(is_ready){
     if(room == game10){
         if(!instance_exists(Building_25)){
             if(instance_exists(Letrero)) with Letrero instance_destroy();
-            with(Control_World) Controles = false;
+            with(Control_World) Controles = false;                   
+            with Button_Left instance_destroy();
+            with Button_Right instance_destroy();
             with(Tap_Control0) instance_destroy();
             with(Tap_Control1) instance_destroy();
         }

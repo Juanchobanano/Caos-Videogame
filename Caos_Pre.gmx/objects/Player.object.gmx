@@ -301,7 +301,12 @@ if(chances &lt; 0){
     num_level = 0;
     chances = 2;
     regresar_menu = true;
-    
+    puntaje_global = 1000;
+    audio_stop_sound(sn_soundtrack_1);
+    audio_stop_sound(sn_soundtrack_2);
+    audio_stop_sound(sn_soundtrack_3);
+    audio_stop_sound(sn_soundtrack_4);
+    audio_stop_sound(sn_soundtrack_5);
     //var asset = Get_Soundtrack(num_level-1);
     //audio_sound_gain(asset, 0, 3000);
     

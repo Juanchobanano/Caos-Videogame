@@ -22,7 +22,7 @@ with(eat_person_id){
        break;
        case 4: // Carro.
            Get_Score(x,y, 200,false);
-           show_debug_message("comer carro");
+       //    show_debug_message("comer carro");
        break
        case 5: // Cigarro.
            Get_Score(x,y, 200,false);

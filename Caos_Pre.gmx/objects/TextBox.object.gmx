@@ -109,7 +109,9 @@ if(str &gt;= string_length(ds_list_find_value(texto, t))){
     //mouse_clear(mb_left);
     draw_skip = false;
     if((keyboard_check(ord('Z')) or mouse_check_button(mb_left)) and (str &lt; string_length(ds_list_find_value(texto, t)))){
-        str += (vel + 1);
+        if(room == game_intro or room == game_final){
+            str += (vel + 1);
+        }
     }
 }
 

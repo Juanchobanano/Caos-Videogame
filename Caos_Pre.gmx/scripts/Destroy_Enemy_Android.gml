@@ -23,9 +23,11 @@ if(!place_meeting(xx, yy, Soldado_Piso)){
 
 
     if(point_in_circle(xx, yy, x, y, 20)){
-        destroy_h = instance_nearest(xx, yy, Helicoptero);
-        if(destroy_h.sprite_index != spr_helicopter_back){
-            with destroy_h instance_destroy(); // Get score dentro de cada objeto.
+        if(instance_exists(Helicoptero)){
+            destroy_h = instance_nearest(xx, yy, Helicoptero);
+            if(destroy_h.sprite_index != spr_helicopter_back){
+                with destroy_h instance_destroy(); // Get score dentro de cada objeto.
+            }
         }
     }else{
         with (enemy) instance_destroy();

@@ -27,7 +27,7 @@ if(climb){
     // Atacar saltando.
     }else{
         if(!take_women){
-           // Attack_Jump_Android(xx, yy, enemy);
+            Attack_Jump_Android(enemy, yy);
         }
     }
 }

@@ -413,7 +413,7 @@ if(climb){
             if(instance_exists(Enemy)){
                 var enemy = instance_nearest(x, y, Enemy);
                 var near_enough = point_in_circle(enemy.x, enemy.y, Player.x, Player.y, 100);
-                if(!near_enough){ show_debug_message("out of range") exit; }
+                //if(!near_enough){ show_debug_message("out of range") exit; }
                 
                 if(near_enough){ scriptCheckAttack(enemy.x, enemy.y, enemy); }
             }
