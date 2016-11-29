@@ -75,14 +75,14 @@ if(room == Room_Digital){
     gacha_select = 0;
     
     //if(file_exists(working_directory + "guardar_juego.sav")){
-        file_delete(working_directory + "guardar_juego.sav");
+       /* file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
-        file_delete(working_directory + "rate.sav");
+        file_delete(working_directory + "rate.sav");*/
     //}
     //save = false;
-    //historia = true;
+    historia = true;
 
     if(save){
         globalvar save_nivel, save_puntaje, gacha_select;
