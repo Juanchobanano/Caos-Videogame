@@ -135,7 +135,9 @@ y1_ed = 0;
 x1_ed = 0;
 
 // Jump.
+if(room != game_intro){
 image_xscale = -1;
+}
 grounded = false;
 hsp = 5 * image_xscale * -1;
 vsp = -jumpspeed;
