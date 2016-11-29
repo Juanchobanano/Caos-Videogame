@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-lt = instance_create(x + 62, y - sprite_width - 12 +5, Letrero_escuela);
+lt = instance_create(x + 62-5, y - sprite_width - 12 + 5, Letrero_escuela);
 with lt depth = -1;
 image_index = 0;
 image_speed = 0;

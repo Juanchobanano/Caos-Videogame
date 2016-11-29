@@ -86,6 +86,7 @@ if(str &lt; string_length(ds_list_find_value(texto, t))){
 if(str &gt;= string_length(ds_list_find_value(texto, t))){
     draw_skip = true;   
     audio_stop_sound(sn_dialogo);
+    //audio_play_sound(sn_puerta, 1, 0);
     Dialogs_Final(room, t);
     
     if((keyboard_check_pressed(ord('Z')) or mouse_check_button_pressed(mb_left)) and can_continue){

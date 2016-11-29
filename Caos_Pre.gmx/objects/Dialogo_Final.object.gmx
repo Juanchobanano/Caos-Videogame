@@ -30,6 +30,7 @@
 audio_sound_gain(sn_musica_intro, 0, 1);
 audio_sound_gain(sn_musica_intro, 1, 3000);*/
 
+//sonar_puerta = true;
 color = c_white;
 str = 0
 vel = .4;
@@ -75,13 +76,14 @@ ds_list_add(txt, "En muchos casos no corren con#la misma suerte...");
 }
 
 if(str &gt;= string_length(ds_list_find_value(txt,t))){
-
+   // if(sonar_puerta) audio_play_sound(sn_puerta, 1, 0);
+   // sonar_puerta = !sonar_puerta;
     draw_skip = true;   
     audio_stop_sound(sn_dialogo);
     
     if((keyboard_check_pressed(ord('Z')) or mouse_check_button_pressed(mb_left)) and can_continue){
         audio_play_sound(sn_dialogo, 0, 1);
-      
+        //sonar_puerta = !sonar_puerta;
         t++;
         str = 0;
         draw_skip = false;

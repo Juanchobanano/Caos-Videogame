@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Create a random number of helicopters depending of the level.
+//show_debug_message('Crear objeto helicopterosum');
 list = ds_list_create();
 call_alarm = 0;
 helicopter_id = noone;
@@ -33,9 +34,10 @@ width_back = sprite_get_width(spr_helicopter_perfil)/2; // Helicopter back.
 
 
 // Create pos[i].x array.
-//show_debug_message(helicopter_num);
-for(var i = 0; i &lt; /*num_level + */helicopter_num; i++){
-//    show_debug_message('create h');
+//show_debug_message(helicopter_num);+
+//show_debug_message("Helicopter Num: " + string(helicopter_num));
+for(var i = 0; i &lt; Num_Helicopter(num_level); i++){
+   // show_debug_message('create h: ' + string(i));
 
     pos[i] = choose(-width_back, room_width + width_back);
 
@@ -96,7 +98,7 @@ alarm[0] = 1;
           <argument>
             <kind>1</kind>
             <string>/// Set speed to helicopters.
-if(call_alarm &lt; /*num_level +*/ helicopter_num){
+if(call_alarm &lt; Num_Helicopter(num_level)){
     with(h[call_alarm]){ spd = 4; }
     call_alarm++;
     alarm[0] = irandom_range(20,30);

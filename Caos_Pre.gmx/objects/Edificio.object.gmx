@@ -333,20 +333,20 @@ if(is_ready){
           <argument>
             <kind>1</kind>
             <string>if(instance_exists(Player)){ 
-if (building_life &gt; 1){
-if (c_boton){
-if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
-    if (abs(Player.y1_ed - device_mouse_y(0)) &lt; 64  and abs(Player.x1_ed - device_mouse_x(0)) &lt; 64){
-        if (Player.x_edificio == 0){
-            Player.x_edificio = x;
-            Player.w_edificio = sprite_width;
-            alarm[2] = 2;
-    //show_debug_message(Player.x_edificio);
+    if (building_life &gt; 0){
+        if (c_boton){
+            if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
+                if (abs(Player.y1_ed - device_mouse_y(0)) &lt; 64  and abs(Player.x1_ed - device_mouse_x(0)) &lt; 64){
+                    if (Player.x_edificio == 0){
+                        Player.x_edificio = x;
+                        Player.w_edificio = sprite_width;
+                        alarm[2] = 2;
+                //show_debug_message(Player.x_edificio);
+                    }
+                }
+            }
         }
     }
-}
-}
-}
 }
 //show_debug_message(Player.x_edificio);
 //show_debug_message(y1);
@@ -374,9 +374,6 @@ if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
           <argument>
             <kind>1</kind>
             <string>if(instance_exists(Player)){   
-//Player.y1_ed = ystart;
-//Player.x1_ed = xstart;
-
     Player.y1_ed = device_mouse_y(0);
     Player.x1_ed = device_mouse_x(0);
 

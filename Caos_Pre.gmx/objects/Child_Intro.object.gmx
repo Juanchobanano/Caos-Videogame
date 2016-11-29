@@ -27,9 +27,15 @@
             <kind>1</kind>
             <string>dibujar_exclamacion = false;
 exclamacion = false;
-if(room != game_intro){
+
+/*if(room != game_intro){
     hspeed = -6;
     image_xscale = -1;
+    image_speed = .2;
+}*/
+
+if(room != game_intro){
+    hspeed = 6;
     image_speed = .2;
 }
 </string>
@@ -80,73 +86,73 @@ if(room != game_intro){
     }
 
    // Revisar cuando destruir a los niños.
-   var xx = 30;
+   var xx = -15; // 30
    switch(room){
         case game1:
-            if(x &lt; 340+xx){
+            if(x &gt; 340+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game2:
-            if(x &lt; 516+xx){
+            if(x &gt; 516+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game3:
-            if(x &lt; 394+xx){
+            if(x &gt; 394+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game4:
-            if(x &lt; 442+xx){
+            if(x &gt; 442+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game5:
-            if(x &lt; 407+xx){
+            if(x &gt; 407+xx){
                 instance_destroy();          
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game6:
-            if(x &lt; 351+xx){
+            if(x &gt; 351+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game7:
-            if(x &lt; 397+xx){
+            if(x &gt; 397+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game8:
-            if(x &lt; 459+xx){
+            if(x &gt; 459+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game9:
-            if(x &lt; 376+xx){
+            if(x &gt; 376+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);
             }
         break;
         case game10:
-            if(x &lt; 637+8+xx){
+            if(x &gt; 637+8+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);

@@ -26,11 +26,22 @@
           <argument>
             <kind>1</kind>
             <string>// Crear objeto tutorial.
-if(room != Room_Prueba){
+
+/*if(room != Room_Prueba){
     instance_create(768, 394, Child_Intro);
     var d = instance_create(803, 394, Child_Intro);
     with(d) sprite_index = spr_child3_idle_2;
     var j = instance_create(836, 388, Child_Intro);
+    with(j) sprite_index = spr_child2_idle_2;
+    num_level++;
+}
+*/
+
+if(room != Room_Prueba){
+    instance_create(-21, 394, Child_Intro);
+    var d = instance_create(-56, 394, Child_Intro);
+    with(d) sprite_index = spr_child3_idle_2;
+    var j = instance_create(-91, 388, Child_Intro);
     with(j) sprite_index = spr_child2_idle_2;
     num_level++;
 }
@@ -104,7 +115,7 @@ switch(room){
             <string>if(instance_number(Child_Intro) == 0){
     with Edificio index_puerta = 0;
     instance_create(0, 0, Control_World);
-    instance_create(800, 200, Player);
+    instance_create(-32, 200, Player); //800
     instance_destroy();
 }
 </string>

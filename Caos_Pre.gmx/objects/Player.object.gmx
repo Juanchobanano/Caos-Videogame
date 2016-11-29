@@ -135,6 +135,7 @@ y1_ed = 0;
 x1_ed = 0;
 
 // Jump.
+image_xscale = -1;
 grounded = false;
 hsp = 5 * image_xscale * -1;
 vsp = -jumpspeed;
@@ -143,6 +144,8 @@ var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle")
 Current_Sprite(asset, 0, irandom_range(0,2));
 limits = false;
 roar = false;
+
+
 
 // Draw score in middle.
 draw_score = false;

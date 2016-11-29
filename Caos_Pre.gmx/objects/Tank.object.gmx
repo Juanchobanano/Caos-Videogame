@@ -60,9 +60,11 @@ x_creation = x;
             <kind>1</kind>
             <string>/// Set alarm to -1.
 alarm[0] = -1;
-var d = instance_create(x, y, Destrucion);
-//with(d){ image_speed = 1; sprite_index = spr_destruction2; }
-if(room != Room_Menu) Get_Score(x, y, 300, false);
+// Player destroyed the Tank.
+if(out == 1){
+    var d = instance_create(x, y, Destrucion);
+    if(room != Room_Menu) Get_Score(x, y, 300, false);
+}
 </string>
           </argument>
         </arguments>
@@ -177,6 +179,15 @@ if(distance &lt;= 0){
 
 // Set hspeed in spd.
 hspeed = spd;
+
+// Change direction.
+/*if(spd &gt; 0 and Player.x &lt; self.x and x &gt;= room_width){
+    spd = -2;
+    image_xscale = -1;
+}else if(spd &lt; 0 and Player.x &gt; self.x and x &lt;= 0){
+    spd = 2;
+    image_xscale = 1;
+}
 
 </string>
           </argument>

@@ -20,8 +20,8 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
                     c.sprite_index = spr_child1_run_2;
                 break;
             }
-            c.hspeed = -3;
-            c.image_xscale = -1;
+            c.hspeed = 3;
+            c.image_xscale = 1;
             
       
         // Final del juego.
