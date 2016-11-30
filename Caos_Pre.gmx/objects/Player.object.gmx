@@ -449,7 +449,7 @@ if (x_edificio != 0){
         ed_r = 0;
         ed_cont = 1;
     }
-    if (y &lt; 406 and yprevious == y){
+    if (!grounded and y &lt; 406 and yprevious == y){
         key_up = 0;
         key_left = 0;
         key_right = 0;

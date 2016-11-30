@@ -144,6 +144,11 @@ if(instance_exists(Player)){
             visible = 1;
             alarm[2] = -1;
         }
+    }else{
+            cont_parpadeo = 0;
+            parpadear = 0;
+            visible = 1;
+            alarm[2] = -1;
     }
 }
 
@@ -310,6 +315,7 @@ if(is_ready){
         
     }
 }
+
 </string>
           </argument>
         </arguments>
