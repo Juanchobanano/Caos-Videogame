@@ -159,8 +159,8 @@ if(num_level == 5){
 if(num_level != 4) room_goto_transition(Room_Transicion, 0, 30);
 else{
     room_goto_transition(Room_Select, 0, 30);
-    chances = 2;
 }
+show_debug_message(chances);
  
   // Recargar vidas.
 
@@ -432,6 +432,8 @@ if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("S"))){
     var b = instance_nearest(x, y, Edificio);
     with b building_life = 0;
 }
+
+//show_debug_message(num_level);
 </string>
           </argument>
         </arguments>
@@ -482,13 +484,32 @@ if(room == game10){
 
 // Save game completed.
 if(room == game10){
+
     if(file_exists(working_directory + "game_complete.sav")){
         file_delete(working_directory + "game_complete.sav");
     }
-    game_completed = 1;
+    game_completed += 1;
     ini_open(working_directory + "game_complete.sav");
-    ini_write_real("completed", "pass", 1);
+    ini_write_real("completed", "pass", game_completed);
     ini_close();
+    
+    if(puntaje_global &gt; best_score){
+         best_score = puntaje_global;
+         file_delete(working_directory + "puntaje.sav");
+         ini_open(working_directory + "puntaje.sav");
+         ini_write_real("puntaje", "pass", best_score);
+         ini_close();
+    }
+    
+    file_delete(working_directory + "guardar_juego.sav");
+    file_delete(working_directory + "historia.sav");
+    num_level = 0;
+    chances = 2;
+    puntaje_global = 1000;
+    player_score = 0;
+    save_puntaje = puntaje_global;
+    save_nivel = num_level;
+    historia = false;
 }
 </string>
           </argument>

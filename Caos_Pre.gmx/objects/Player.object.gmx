@@ -74,6 +74,8 @@ image_speed = 0;
 
 // Score variable.
 //score_global = puntaje_global; // Save the initial score before playing the level.
+//show_debug_message("puntaje_global: ");
+//show_debug_message(puntaje_global);
 player_score = puntaje_global; // Get the current score.
 save_level = false;
 
@@ -303,18 +305,19 @@ if(!end_game){
 chances--;
 if(chances &lt; 0){
     room_goto_transition(Room_Menu, 0, 150);
+    file_delete(working_directory + "guardar_juego.sav");
     num_level = 0;
     chances = 2;
     regresar_menu = true;
     puntaje_global = 1000;
+    player_score = 0;
+    save_puntaje = puntaje_global;
+    save_nivel = num_level;
     audio_stop_sound(sn_soundtrack_1);
     audio_stop_sound(sn_soundtrack_2);
     audio_stop_sound(sn_soundtrack_3);
     audio_stop_sound(sn_soundtrack_4);
     audio_stop_sound(sn_soundtrack_5);
-    //var asset = Get_Soundtrack(num_level-1);
-    //audio_sound_gain(asset, 0, 3000);
-    
        
 // Dead animation.
 }else{
@@ -468,11 +471,12 @@ if(grounded){
     y_anterior2 = 0;
 }
 
+//show_debug_message(chances);
 /*c_bombas = 3;
     c_bolsa = 3;
     c_jeringa = 3;
 
-//show_debug_message(vida);
+show_debug_message(vida);
 /*show_debug_message(x);
 show_debug_message(y);
 </string>
@@ -500,8 +504,8 @@ show_debug_message(y);
             <string>/// Save vida and puntaje global.
 if(!lose){
     vida_global = vida;
+    puntaje_global = player_score;
 }
-puntaje_global = player_score;
 /*else{
     puntaje_global = score_global; // The player won't get score.
 }*/
@@ -521,7 +525,7 @@ if(win and !save_level){
     // Save nivel.
     if(save){
         save_nivel = num_level;
-        show_debug_message("save level: " + string(save_nivel));
+        //show_debug_message("save level: " + string(save_nivel));
         save_puntaje = puntaje_global;
         if(file_exists(working_directory + "guardar_juego.sav")){
             file_delete(working_directory + "guardar_juego.sav");
@@ -530,7 +534,8 @@ if(win and !save_level){
         ini_write_real("save_nivel", "pass", save_nivel);
         ini_write_real("save_puntaje", "pass", save_puntaje);
         ini_write_real("vida", "pass", vida_global);
-        if(num_level == 5){
+        ini_write_real("chances", "pass", chances);
+        if(num_level == 4){
             ini_write_real("gacha_select", "pass", 1);
         }
         ini_close();
