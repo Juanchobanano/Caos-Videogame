@@ -26,12 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>// Text dialogs.
-if(game_completed){
+/*if(game_completed){
     num_level = 9;
     chances = 2;
     vida_global = 100;
 
-}
+}*/
 
 // Select Fechas();
 Fechas();

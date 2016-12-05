@@ -159,9 +159,6 @@
         <sprite>sprites\spr_tank_idle</sprite>
         <sprite>sprites\spr_tank_attack</sprite>
       </sprites>
-      <sprite>sprites\spr_destruction2</sprite>
-      <sprite>sprites\spr_destruction3</sprite>
-      <sprite>sprites\spr_destruction4</sprite>
     </sprites>
     <sprites name="Letreros">
       <sprite>sprites\spr_letrero_pp</sprite>
@@ -242,7 +239,6 @@
       <sprite>sprites\spr_caos2</sprite>
       <sprite>sprites\spr_rage</sprite>
       <sprite>sprites\spr_barra_vida</sprite>
-      <sprite>sprites\sprite169</sprite>
       <sprite>sprites\spr_coronaste</sprite>
       <sprite>sprites\spr_perdiste</sprite>
       <sprite>sprites\spr_caos</sprite>
@@ -356,7 +352,6 @@
           <sprite>sprites\spr_player2_face</sprite>
         </sprites>
       </sprites>
-      <sprite>sprites\spr_lapida</sprite>
     </sprites>
     <sprites name="Menu">
       <sprite>sprites\spr_character_1</sprite>
@@ -367,18 +362,10 @@
       <sprite>sprites\spr_creditos2</sprite>
       <sprite>sprites\spr_new</sprite>
       <sprite>sprites\spr_marco</sprite>
-      <sprite>sprites\spr_candado</sprite>
       <sprite>sprites\spr_pausa</sprite>
       <sprite>sprites\spr_icon_creditos</sprite>
-      <sprites name="Presentacion">
-        <sprite>sprites\spr_bombazo</sprite>
-        <sprite>sprites\spr_puno</sprite>
-        <sprite>sprites\spr_caos_inicio</sprite>
-        <sprite>sprites\spr_escobar</sprite>
-      </sprites>
     </sprites>
     <sprites name="Powers">
-      <sprite>sprites\spr_powers</sprite>
       <sprite>sprites\spr_powers2</sprite>
       <sprite>sprites\spr_power2_2</sprite>
       <sprite>sprites\spr_bomba</sprite>
@@ -405,13 +392,10 @@
       <sprite>sprites\spr_score_100</sprite>
       <sprite>sprites\spr_score_50</sprite>
     </sprites>
-    <sprite>sprites\sprite88</sprite>
     <sprite>sprites\spr_avioneta</sprite>
     <sprite>sprites\spr_avion</sprite>
-    <sprite>sprites\spr_sapo</sprite>
     <sprites name="Imagenes Promocionales">
       <sprite>sprites\spr_presentaciones</sprite>
-      <sprite>sprites\spr_change_level</sprite>
     </sprites>
     <sprites name="TextBox">
       <sprite>sprites\spr_exclamation</sprite>
@@ -427,17 +411,14 @@
   </sprites>
   <backgrounds name="background">
     <background>background\background_menu</background>
-    <background>background\background_creditos</background>
     <background>background\background3</background>
     <background>background\background_alexander</background>
-    <background>background\background_select</background>
     <backgrounds name="Cities">
       <background>background\background_bogota</background>
       <background>background\background_intro</background>
       <background>background\background_cali</background>
       <background>background\background_medellin</background>
       <background>background\background_cartagena</background>
-      <background>background\background10</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -551,35 +532,21 @@
     <shader type="GLSLES">shaders\shd_gaussian_vertical.shader</shader>
   </shaders>
   <fonts name="fonts">
-    <font>fonts\font_game_13</font>
-    <font>fonts\font_arial_15</font>
-    <font>fonts\font_arial_20</font>
-    <font>fonts\font_arial_12</font>
-    <font>fonts\font_game_14</font>
-    <font>fonts\font_game_16</font>
-    <font>fonts\font_game_10</font>
-    <fonts name="04b11">
-      <font>fonts\font_04b11_20</font>
-      <font>fonts\font_04b11_30</font>
-      <font>fonts\font_04b11_12</font>
-      <font>fonts\font_04b11_15</font>
-    </fonts>
-    <fonts name="8Bit Wonder">
-      <font>fonts\font_menu</font>
-      <font>fonts\font_wonder_20</font>
+    <fonts name="Font Finales">
+      <font>fonts\font_press_14</font>
       <font>fonts\font_wonder_11</font>
+      <font>fonts\font_menu</font>
+      <font>fonts\font_game_10</font>
+      <font>fonts\font_textbox2</font>
+      <font>fonts\font_04b11_30</font>
+      <font>fonts\font_press_11</font>
+      <font>fonts\font_game_13</font>
+      <font>fonts\font_press_20</font>
+      <font>fonts\font_tutorial</font>
+      <font>fonts\font_nombres</font>
+      <font>fonts\font_wonder_20</font>
       <font>fonts\font_wonder_14</font>
     </fonts>
-    <fonts name="Press Start">
-      <font>fonts\font_press_20</font>
-      <font>fonts\font_press_11</font>
-      <font>fonts\font_press_14</font>
-      <font>fonts\font_textbox3</font>
-      <font>fonts\font_textbox2</font>
-    </fonts>
-    <font>fonts\font_textbox</font>
-    <font>fonts\font_nombres</font>
-    <font>fonts\font_tutorial</font>
   </fonts>
   <objects name="objects">
     <objects name="Edificio">
@@ -680,7 +647,6 @@
       <object>objects\Coronaste</object>
       <object>objects\Pausa</object>
       <object>objects\Hurt</object>
-      <object>objects\DeathRock_Particles</object>
       <objects name="Poderes">
         <object>objects\Bomba</object>
         <object>objects\Bolsa</object>
@@ -689,9 +655,7 @@
         <object>objects\Vida_Suma</object>
         <object>objects\Coin</object>
       </objects>
-      <object>objects\Lapida</object>
       <object>objects\Mano</object>
-      <object>objects\CambiarNivel</object>
       <object>objects\Tutorial_Button</object>
     </objects>
     <objects name="Transition">
@@ -711,8 +675,6 @@
       <object>objects\Digital</object>
       <object>objects\New</object>
       <object>objects\Marco</object>
-      <object>objects\Bombazo</object>
-      <object>objects\Escobar</object>
       <object>objects\Presenta</object>
     </objects>
     <objects name="Enemies">
@@ -747,7 +709,6 @@
       <object>objects\Digital_Icono</object>
       <object>objects\Creditos_Icono</object>
       <object>objects\Iconos</object>
-      <object>objects\Google</object>
     </objects>
     <objects name="Puntaje">
       <object>objects\Puntaje</object>

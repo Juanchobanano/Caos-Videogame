@@ -21,50 +21,38 @@ switch(room_){
             // 0: Carlos, 1: Daniel, 2: Julián 3: Mamá
         
             // Charla en casa.
-            ds_list_add(texto, "Carlos: ¡Daniel! ¡Daniel!"); ds_list_add(caras, 0); // 0 
-            ds_list_add(texto, "Carlos: ¿¡Que más!? ¿En qué anda?"); ds_list_add(caras, 0); // 1 
-            ds_list_add(texto, "Daniel: ¡Quiubo! ¡Estaba viendo una#película de ninjas!"); ds_list_add(caras, 1); // 2
-            ds_list_add(texto, "Carlos: ¡Camine a jugar maquinitas!"); ds_list_add(caras, 0); // 3
-            ds_list_add(texto, "Daniel: ¡Hágale, de una, me contaron#que hay un nuevo juego!"); ds_list_add(caras, 1); // 4
+            ds_list_add(texto, "Carlos: ¡Daniel! ¡Daniel!"); ds_list_add(caras, 0); // 0
+            ds_list_add(texto, "Carlos: ¡Camine a jugar maquinitas!"); ds_list_add(caras, 0); // 1
+            ds_list_add(texto, "Daniel: ¡Hágale, de una, me contaron#que hay un nuevo juego!"); ds_list_add(caras, 1); // 2
          
             // Comienzan a caminar lo niños.
                
-            ds_list_add(texto, "Mamá: ¿¡Y ustedes a dónde creen que#van jovencitos!?"); ds_list_add(caras, 3); // 5
-            ds_list_add(texto, "Daniel: Ehh... ¡Hola mamá!"); ds_list_add(caras, 1); // 6            
-            ds_list_add(texto, "Daniel: Vamos al centro comercial..."); ds_list_add(caras, 1); // 7                       
-            ds_list_add(texto, "Mamá: ¿¡Y quién les dio permiso!?"); ds_list_add(caras, 3); // 8
-            ds_list_add(texto, "Daniel: ¡Ay..., porfavor mami!"); ds_list_add(caras, 1); // 9
+            ds_list_add(texto, "Mamá: ¿¡Y ustedes a dónde creen que#van jovencitos!?"); ds_list_add(caras, 3); // 3
+            ds_list_add(texto, "Daniel: ¡Ay..., porfavor mami!"); ds_list_add(caras, 1); // 4
             
             // Pasa otro helicoptero.
             
-            ds_list_add(texto, "Mamá: ¡No se me van a ir hasta allá#solos!"); ds_list_add(caras, 3); // 10
-            ds_list_add(texto, "Mamá: ¡Van con Julián y no se me#demoren porque la cosa no está#para andar callejeando!"); ds_list_add(caras, 3); // 11
+            ds_list_add(texto, "Mamá: ¡No se me van a ir hasta allá#solos!"); ds_list_add(caras, 3); // 6
+            ds_list_add(texto, "Mamá: ¡Van con Julián y no se me#demoren porque la cosa no está#para andar callejeando!"); ds_list_add(caras, 3); // 7
             
             // Sale Julián y continúan el camino.
-         
-            ds_list_add(texto, "Daniel: ¡Vea que dizque hay un juego#donde uno puede escoger y pelear con#varios manes de diferentes artes#marciales!"); ds_list_add(caras, 1); // 12 
-            ds_list_add(texto, "Daniel: ¡Uno es un ninja, otro es un#karateka, otro hace kung fu!, ¿me#entiende?"); ds_list_add(caras, 1); // 13
-            ds_list_add(texto, "Carlos: ¡Uff suena tremendo!"); ds_list_add(caras, 0); // 14
-
-            
-            
-           // ds_list_add(texto, "Daniel: ¡Vea que dizque en el juego uno puede#escoger y jugar con dos monstruos gigantes#que destruyen ciudades!"); ds_list_add(caras, 1); // 12 
-           // ds_list_add(texto, "Carlos: ¡Uff que chevere, tenemos que jugarlo!"); ds_list_add(caras, 0); // 13
-            
+                               //                               //                               //                               //
+            ds_list_add(texto, "Daniel: ¡Dizque hay un juego con#diferentes artes marciales, tiene#Ninjas, Karatekas, un man de#Kung Fu, ¿me entiende?"); ds_list_add(caras, 1); // 8
+            ds_list_add(texto, "Carlos: ¡Uff suena tremendo!"); ds_list_add(caras, 0); // 9
             
             // Interrumpen personas corriendo
-            ds_list_add(texto, "Julián: Esperen..., ¿Por qué todo el#mundo está corriendo?"); ds_list_add(caras, 2); // 15
+            ds_list_add(texto, "Julián: Esperen..., ¿Por qué todo el#mundo está corriendo?"); ds_list_add(caras, 2); // 10
             
 
             // Explosiones.
-            ds_list_add(texto, "Daniel: ¿¡Qué esta pasando!?"); ds_list_add(caras, 1); // 16
+            ds_list_add(texto, "Daniel: ¿¡Qué esta pasando!?"); ds_list_add(caras, 1); // 11
             
             // Soldados y tanques.
-            ds_list_add(texto, "Carlos: ¡No sé, pero tenemos que#irnos ya!"); ds_list_add(caras, 0); // 17
+            ds_list_add(texto, "Carlos: ¡No sé, pero tenemos que#irnos ya!"); ds_list_add(caras, 0); // 12
  
             
             // Aparece caos en pantalla y pablo saltando.
-            ds_list_add(texto, "Julián: ¡Vamonos, encondámonos donde#podamos!"); ds_list_add(caras, 2); // 18
+            ds_list_add(texto, "Julián: ¡Vamonos, encondámonos donde#podamos!"); ds_list_add(caras, 2); // 13
             
 
             

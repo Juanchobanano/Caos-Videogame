@@ -28,7 +28,7 @@
             <string>/// Create infloor - soldiers.
 vspeed = -4;
 index = 0;
-show_debug_message("Change picture with A.");
+//show_debug_message("Change picture with A.");
 /*if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
     var width = sprite_get_width(spr_soldier_walk);
     instance_create(
@@ -75,14 +75,14 @@ draw_sprite(
 );
 
 if(y &lt;= 0) vspeed = 0;
-if(num_level == 10){
-    if(mouse_check_button_pressed(mb_left) and y &lt;= 0){
-        room_goto_transition(Room_Menu, 0, 35);
-        audio_play_sound(sn_tutorial, 1, 0);
-        regresar_menu = true;
-        audio_stop_sound(sn_soundtrack_1);
-    }
-}else{
+//if(num_level == 10){
+if(mouse_check_button_pressed(mb_left) and y &lt;= 0){
+    room_goto_transition(Room_Menu, 0, 35);
+    audio_play_sound(sn_tutorial, 1, 0);
+    regresar_menu = true;
+    audio_stop_sound(sn_soundtrack_1);
+}
+/*}else{
     if(mouse_check_button_pressed(mb_left)){
         room_goto_transition(Room_Select, 0, 35);
         audio_play_sound(sn_tutorial, 1, 0);

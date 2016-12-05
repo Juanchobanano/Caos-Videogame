@@ -11,7 +11,7 @@ if(final){
                     
                 break;
                 
-                case 4: // Los niños comienzan a caminar a la ciudad.
+                case 2: // Los niños comienzan a caminar a la ciudad.
                     with(Child_Intro){
                         image_speed = .2;
                         /*if(sprite_index != spr_child1_idle_2){
@@ -33,14 +33,15 @@ if(final){
                         }
                         hspeed = -2;
                     }
-                    
                     can_continue = false;
+                    
+                
                 break;
                 /*case 14:
                     audio_sound_gain(sn_musica_intro, 0, 3000);
                 break;*/
                 
-                case 17:
+                case 11:
                     // Aparece Pablo Escobar.
                    //can_continue = false;
                     //with (Control_Intro) { alarm[7] = 30; } // Aparecer Caos. 
@@ -61,7 +62,7 @@ if(final){
 
                 
                 // Pablo ruge!
-                case 18:
+                case 12:
                 
                     // EN OBJETO RAGE QUEDÓ ALGO PROGRAMADO!!
                         background_blend[0] = make_color_rgb(255, 50 ,10);
@@ -123,7 +124,7 @@ if(final){
 switch(argument[0]){
     case game_intro:
         switch(argument[1]){
-            case 4: // Revisa si los niños ya llegaron al limite para pasar a la mamá quien los llama.
+            case 2: // Revisa si los niños ya llegaron al limite para pasar a la mamá quien los llama.
                 var first_c = instance_nearest(0,0,Child_Intro);
                 if(first_c.x < 1200){
                     t++;
@@ -159,7 +160,7 @@ switch(argument[0]){
         
                 
         // Detener a los niños cuando lleguen a la ciudad.
-        if(argument[1] >= 12 and argument[1] <= 15){
+        if(argument[1] >= 7 and argument[1] <= 8){
             var first_c = instance_nearest(0, room_height,Child_Intro);
             if(first_c.x < 350){
                 can_continue = true;

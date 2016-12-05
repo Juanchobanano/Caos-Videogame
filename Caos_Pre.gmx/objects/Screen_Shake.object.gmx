@@ -56,12 +56,12 @@ int = 1.5;
         audio_sound_gain(sn_soundtrack_pausa, 0, 3000);
         
     }else{
-        if(!game_completed){
-            room_goto_transition(Room_Select, 0, 45); 
-        }else{
-            room_goto_transition(game10, 0, 45);
+        //if(game_completed &lt;= 0){
+        room_goto_transition(Room_Select, 0, 45); 
+        /*}else{
+           room_goto_transition(game10, 0, 45);
             num_level = 9;
-        }
+        }*/
     }
 }  
 

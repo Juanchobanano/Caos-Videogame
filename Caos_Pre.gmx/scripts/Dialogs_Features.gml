@@ -15,22 +15,22 @@ if(animar){
                     }
                 
                 break;
-                
 
-                case 5: // Crear mujer.
+
+                case 3: // Crear mujer.
                     var women = instance_create(1392, 394, Child_Intro);
                     with(women) sprite_index = spr_women_2;
                      audio_stop_sound(sn_helicopter_front);
                 break;
                 
                 // Pasan dos helicoptero.
-                case 9:
+                case 5:
                     instance_create(-20 + 768, 80, Helicopter_Intro);
                    // instance_create(-60 + 768, 200, Helicopter_Intro);
                 break;
                 
                 // Crear a Julián.
-                case 11:
+                case 6:
                     var julian = instance_create(1359, 399, Child_Intro);
                     with(julian){
                         sprite_index = spr_child2_idle_2;
@@ -39,7 +39,7 @@ if(animar){
                 break;
                 
                 
-                case 12: // Destruir mujer, cerrar la puerta, niños siguen caminando.
+                case 7: // Destruir mujer, cerrar la puerta, niños siguen caminando.
                     var women = instance_nearest(1395, 399, Child_Intro);
                     with women instance_destroy();
                     with Building_32 image_index = 0;
@@ -73,13 +73,13 @@ if(animar){
                     }
                 break;
                 
-                case 14:
+                case 8:
                     can_continue = false;
                 break;
                 
                 
                 // Empiezan a salir personas corriendo.
-                case 15:
+                case 9:
  
                     //audio_sound_gain(sn_soundtrack_1, 1, 4000);
                     /*var rage = instance_create(view_wview[0]/2, room_height/2, Rage);
@@ -90,7 +90,7 @@ if(animar){
                 break;
                 
                 // Explosiones.
-                case 16:
+                case 10:
                     audio_stop_sound(sn_musica_intro);
                     audio_play_sound(sn_soundtrack_pablo, 1, 1);
                     //audio_sound_gain(sn_soundtrack_1, 1, 3000);
@@ -106,7 +106,7 @@ if(animar){
 
                 break;
                 
-                case 17:
+                case 11:
                     can_continue = false;
                 break;
                 

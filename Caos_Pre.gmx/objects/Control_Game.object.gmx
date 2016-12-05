@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -54,7 +54,7 @@ if(room == Room_Digital){
 
     // Historia.
     globalvar historia, activar_tuto;
-    historia = false;
+    historia = true;
     activar_tuto = true;
     
     // Variables de poderes.
@@ -74,20 +74,22 @@ if(room == Room_Digital){
     save = true;
     gacha_select = 0;
     
+
+    
     //if(file_exists(working_directory + "guardar_juego.sav")){
-       /* file_delete(working_directory + "guardar_juego.sav");
+        file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
-        file_delete(working_directory + "rate.sav");*/
+        file_delete(working_directory + "rate.sav");
     //}
     //save = false;
-    historia = true;
+  //  historia = true;
 
     if(save){
         globalvar save_nivel, save_puntaje, gacha_select;
         save_nivel = 0;
-        save_puntaje = 0;
+        save_puntaje = 1000;
         
         if(file_exists(working_directory + "guardar_juego.sav")){
             ini_open(working_directory + "guardar_juego.sav");
@@ -95,6 +97,7 @@ if(room == Room_Digital){
             save_puntaje = ini_read_real("save_puntaje", "pass", 0);
             gacha_select = ini_read_real("gacha_select", "pass", 0);
             vida_global = ini_read_real("vida", "pass", 0);
+            chances = ini_read_real("chances", "pass", 0);
           //  var str = ini_read_string("avance_edificios", "pass", "");
           //  ds_list_read(avance_edificios, str);
             ini_close();
@@ -102,13 +105,13 @@ if(room == Room_Digital){
         }
         
         // Cargar avance de edificios.
-        if(file_exists(working_directory + "avance_edificios.sav")){
+      /*  if(file_exists(working_directory + "avance_edificios.sav")){
             ini_open(working_directory + "avance_edificios.sav");
             var str = ini_read_string("avance_edificios", "pass", 0);
             ds_list_read(avance_edificios, str);
             chances = ini_read_real("chances", "pass", 0);
             ini_close();
-        }
+        }*/
         
         if(file_exists(working_directory + "game_complete.sav")){
             ini_open(working_directory + "game_complete.sav");
@@ -133,7 +136,7 @@ if(room == Room_Digital){
         }*/
         
         num_level = save_nivel;
-        show_debug_message(num_level);
+        //show_debug_message(num_level);
         puntaje_global = save_puntaje;
         
         
@@ -395,6 +398,30 @@ var width = sprite_get_width(spr)*2;
 var height = 437;
 for(var i = 0; i &lt; 2; i++){ instance_create(-100+i*spr, height, Tank); }
 alarm[0] = 30*7;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//show_debug_message("puntaje_global: ");
+//show_debug_message(num_level);
 </string>
           </argument>
         </arguments>

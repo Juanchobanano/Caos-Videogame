@@ -46,7 +46,7 @@ ds_list_add(txt, "El 12 de Mayo de 1990, Carlos#y Daniel de 11 años y Julián#d
 ds_list_add(txt, "Carlos estuvo más de 12 horas#en el quirófano, reconstru-#cción del 70% de su cráneo.");
 ds_list_add(txt, "Daniel sufrió una fractura ex-#puesta de clavícula, lo cual#generó una burbuja en su#torrente sanguíneo.");
 ds_list_add(txt, "Julián sufrió un corte trans-#versal de 20cm en la parte#posterior de su cabeza.");
-ds_list_add(txt, "Infortunadamente, aún hoy en#diferentes partes del mundo,#los adultos continúan portán-#dose mal, día tras día niños#y jóvenes sufren experiencias# similares a las de Carlos,#Daniel y Julián.");
+ds_list_add(txt, "Infortunadamente, aún hoy en#diferentes partes del mundo,#los adultos continúan portán-#dose mal, día tras día niños#y jóvenes sufren experiencias#similares a las de Carlos,#Daniel y Julián.");
 ds_list_add(txt, "En muchos casos no corren con#la misma suerte...");
 </string>
           </argument>

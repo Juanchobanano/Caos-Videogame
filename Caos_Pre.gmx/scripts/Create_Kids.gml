@@ -42,12 +42,13 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
         
     }
     create_kids = false;
-    chances = 0;
+
     
     // Create textbox.
     var t = instance_create(0,0, TextBox);
     
     if(room == game10){
+        chances = 0; 
         audio_stop_sound(sn_helicopter_behind);
         audio_stop_sound(sn_helicopter_front);
         with(Control_World){
