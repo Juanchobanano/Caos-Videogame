@@ -156,14 +156,15 @@ shader_reset();
 
 draw_set_color(c_white);
 draw_set_font(font_menu);
+//draw_set_font(font_press_11 );
 draw_set_halign(fa_center);
 
 draw_sprite(spr_pausa, 1, 705, 25); 
 
-if(Sprite_InRectangle(spr_tutorial, 0, 63-44, 25, 1)){
+/*if(Sprite_InRectangle(spr_tutorial, 0, 63-44, 25, 1)){
     audio_play_sound(sn_tutorial, 1, 0);
     instance_create(0, 0, Tutorial);
-}
+}*/
 
 /*if(Sprite_InRectangle(spr_ico_baius, 0, 170, 420, .8)){
     url_open("http://www.facebook.com/baiusgames/");
@@ -175,8 +176,8 @@ if(Sprite_InRectangle(spr_ico_creditos, 0, 728, 420, .8)){
 
 
 draw_set_halign(fa_center);
-draw_text_outlined(room_width/2, 52, Nombre_Ciudad(num_level), c_white, c_black, 2);
-draw_text_outlined(room_width/2, 27, txt[num_level - 1], c_white, c_black, 2);
+draw_text_outlined(room_width/2, 52, string_upper(Nombre_Ciudad(num_level)), c_white, c_black, 2);
+draw_text_outlined(room_width/2, 27,  string_upper(txt[num_level - 1]), c_white, c_black, 2);
 draw_sprite(
     spr_creditos, 
     0, 

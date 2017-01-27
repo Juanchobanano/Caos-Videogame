@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Generate the World.
+//application_surface_enable(false);
 //World_Generator(num_level, 80);
     Smoothing = false
 // Helicopter global variables.
@@ -63,10 +64,19 @@ if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
 Controles = 1;
 instance_create(705, 25, Pausa);
+instance_create(648, 25, Tutorial_Button);
 instance_create(0,0, Dibujar_Poderes);
 
 stringa = "0";
 //instance_create(0,0,Tap_Control0);
+
+if(num_level == 1 and game_completed == 0){
+    instance_deactivate_object(obj_ventana);
+    alarm[0] = -1; // Create tanks.
+    alarm[1] = -1; // Create helicopters.
+    alarm[2] = -1; // Create infloor - soldiers.
+   // alarm[4] = -1;
+}
 </string>
           </argument>
         </arguments>
@@ -160,7 +170,7 @@ if(num_level != 4) room_goto_transition(Room_Transicion, 0, 30);
 else{
     room_goto_transition(Room_Select, 0, 30);
 }
-show_debug_message(chances);
+//show_debug_message(chances);
  
   // Recargar vidas.
 
@@ -362,6 +372,7 @@ if(room != game10){
         termina_nivel = true;
         
         // Coronaste!
+        if(!instance_exists(Aviso)) instance_create(0, 0, Aviso);
         if(instance_exists(Puntaje_Suma)) with Puntaje_Suma instance_destroy();
         instance_create(room_width/2, room_height/2 - 30, Coronaste);
         audio_play_sound(sn_coronaste, 1, 0);
@@ -395,8 +406,9 @@ if (Controles){
     if(!instance_exists(Button_A) and !instance_exists(Button_B)){
         //B_A = instance_create(615+15, 395+20+10, Button_B);//600
         //B_B = instance_create(700+15, 345+20+10, Button_A);//685
-        B_A = instance_create(710, 375, Button_B);//685
-        B_B = instance_create(625, 425, Button_A);//600
+        B_A = instance_create(710, 425, Button_B);// y = 425
+        B_B = instance_create(710 - 100, 425, Button_A);//600
+        B_C = instance_create(710, 425 - 90, Button_Climb);
         B_LF = instance_create(75, 425, Button_Left);
         B_RT = instance_create(190, 425, Button_Right);
     }
@@ -404,6 +416,15 @@ if (Controles){
     if(instance_exists(Button_A) and instance_exists(Button_B)){
         with(Button_B) instance_destroy();
         with(Button_A) instance_destroy();
+    }
+    if(instance_exists(Button_Climb)){
+         with(Button_Climb) instance_destroy();
+    }
+    if(instance_exists(Button_Left)){
+        with(Button_Left) instance_destroy();
+    }
+    if(instance_exists(Button_Right)){
+        with(Button_Right) instance_destroy();
     }
 }
 
@@ -433,6 +454,10 @@ if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("S"))){
     with b building_life = 0;
 }
 
+
+/*if(audio_is_playing(sn_roar)){
+    show_debug_message("ROAR!!");
+}
 //show_debug_message(num_level);
 </string>
           </argument>
@@ -480,6 +505,7 @@ audio_stop_sound(sn_soundtrack_pausa);
 
 if(room == game10){
     audio_sound_gain(sn_rage_music, 0, 1000);
+    audio_stop_sound(sn_roar);
 }
 
 // Save game completed.
@@ -501,15 +527,29 @@ if(room == game10){
          ini_close();
     }
     
+    
     file_delete(working_directory + "guardar_juego.sav");
-    file_delete(working_directory + "historia.sav");
+    // file_delete(working_directory + "historia.sav");
+    file_delete(working_directory + "checkpoint.sav");
     num_level = 0;
     chances = 2;
     puntaje_global = 1000;
     player_score = 0;
     save_puntaje = puntaje_global;
     save_nivel = num_level;
-    historia = false;
+    //historia = false;
+    c_billetes = 0;
+    c_bombas = 0;
+    c_bolsa = 0;
+    c_jeringa = 0;
+    end_game = false;
+    can_post = true;
+    if(file_exists(working_directory + "can_post.sav")) file_delete(working_directory + "can_post.sav");
+    ini_open(working_directory + "can_post.sav");
+    ini_write_real("can_post", "pass", can_post);
+    ini_close();    
+    
+    
 }
 </string>
           </argument>
@@ -566,6 +606,31 @@ if(room == game10){
 
 
 //avance_edificios = instance_nearest_list(0,0, Edificio);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="77">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*shader_set(shd_saturation);
+draw_surface(application_surface, 0, 0);
+shader_reset();
 </string>
           </argument>
         </arguments>

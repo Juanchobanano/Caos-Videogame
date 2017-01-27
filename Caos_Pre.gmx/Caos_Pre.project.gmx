@@ -221,7 +221,6 @@
       <sprite>sprites\spr_collapse</sprite>
       <sprite>sprites\spr_piso</sprite>
       <sprite>sprites\spr_piso2</sprite>
-      <sprite>sprites\sprite131</sprite>
     </sprites>
     <sprites name="Joystick">
       <sprite>sprites\spr_joystick</sprite>
@@ -232,6 +231,7 @@
       <sprite>sprites\spr_go</sprite>
       <sprite>sprites\spr_boton_derecha_tuto</sprite>
       <sprite>sprites\spr_boton_izquierda_tuto</sprite>
+      <sprite>sprites\spr_climb</sprite>
     </sprites>
     <sprites name="Detalles">
       <sprite>sprites\spr_damage_overlay</sprite>
@@ -373,6 +373,7 @@
       <sprite>sprites\spr_billete</sprite>
       <sprite>sprites\spr_jeringa</sprite>
       <sprite>sprites\spr_coin</sprite>
+      <sprite>sprites\spr_leaderboard</sprite>
     </sprites>
     <sprites name="Helpful">
       <sprite>sprites\spr_floor</sprite>
@@ -383,6 +384,7 @@
       <sprite>sprites\spr_ico_bogota</sprite>
       <sprite>sprites\spr_ico_m</sprite>
       <sprite>sprites\spr_tutorial</sprite>
+      <sprite>sprites\spr_idioma</sprite>
     </sprites>
     <sprites name="Puntaje">
       <sprite>sprites\spr_score_1000</sprite>
@@ -403,10 +405,6 @@
       <sprite>sprites\spr_skip_text</sprite>
       <sprite>sprites\spr_caras</sprite>
       <sprite>sprites\spr_caras2</sprite>
-    </sprites>
-    <sprites name="Tutorial">
-      <sprite>sprites\spr_Tutorial_espanol</sprite>
-      <sprite>sprites\spr_Tutorial_english</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -485,6 +483,7 @@
       <script>scripts\Nombre_Ciudad.gml</script>
       <script>scripts\Num_Tanks.gml</script>
       <script>scripts\instance_nearest_of.gml</script>
+      <script>scripts\Add_Sprite.gml</script>
     </scripts>
     <scripts name="Edificios">
       <script>scripts\Recieve_Damage.gml</script>
@@ -601,6 +600,7 @@
       <object>objects\Control_Tutorial</object>
       <object>objects\Poder_Animado</object>
       <object>objects\Tutorial</object>
+      <object>objects\VR_Adapter</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -657,6 +657,9 @@
       </objects>
       <object>objects\Mano</object>
       <object>objects\Tutorial_Button</object>
+      <object>objects\Instruccion</object>
+      <object>objects\Leaderboard</object>
+      <object>objects\Aviso</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>
@@ -669,6 +672,7 @@
       <object>objects\Button_Right</object>
       <object>objects\Joystick</object>
       <object>objects\Button_Tutorial</object>
+      <object>objects\Button_Climb</object>
     </objects>
     <objects name="Menu">
       <object>objects\Baius</object>
@@ -705,6 +709,7 @@
       </objects>
     </objects>
     <objects name="Iconos">
+      <object>objects\Idioma</object>
       <object>objects\Baius_Icono</object>
       <object>objects\Digital_Icono</object>
       <object>objects\Creditos_Icono</object>
@@ -723,16 +728,18 @@
       <object>objects\Player_Intro</object>
     </objects>
     <objects name="Final">
-      <object>objects\End_Game</object>
-      <object>objects\Child_Final</object>
-      <object>objects\Arma_Child</object>
-      <object>objects\Player_Final</object>
       <object>objects\Dialogo_Final</object>
       <object>objects\Rage_Final</object>
       <object>objects\Imagen_Child</object>
       <object>objects\Child_End</object>
       <object>objects\Objetos_Final</object>
       <object>objects\Control_Final</object>
+      <objects name="Nivel10">
+        <object>objects\Player_Final</object>
+        <object>objects\Child_Final</object>
+        <object>objects\Arma_Child</object>
+        <object>objects\End_Game</object>
+      </objects>
     </objects>
   </objects>
   <timelines name="timelines">

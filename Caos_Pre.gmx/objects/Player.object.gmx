@@ -168,6 +168,7 @@ win = false;
 // Dead time anim. (alarma 4).
 dead_time = 5;
 draw_player = true;
+if(num_level == 5) instance_create(0, 0, Aviso);
 
 
 </string>
@@ -301,23 +302,57 @@ if(!end_game){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Room_goto Room Transition (Player dead).
+            <string>/// El jugador pierde el juego!!!!
 chances--;
 if(chances &lt; 0){
+
     room_goto_transition(Room_Menu, 0, 150);
+    // Delete old file.
     file_delete(working_directory + "guardar_juego.sav");
-    num_level = 0;
+    
     chances = 2;
     regresar_menu = true;
     puntaje_global = 1000;
-    player_score = 0;
+    //player_score = 0;
+    
+    // Checkpoint !
+    
+    if(num_level &gt;= 5){   
+        num_level = num_level -1;
+        puntaje_global = puntaje_checkpoint;
+        //show_debug_message("puntaje_global " + string(puntaje_global));
+        gacha_select = true;
+    }else{
+        num_level = 0;
+    }
+    
     save_puntaje = puntaje_global;
+   // show_debug_message(save_puntaje);
     save_nivel = num_level;
+    
+    // Save new file.
+    ini_open(working_directory + "guardar_juevo.sav");
+    ini_write_real("save_nivel", "pass", save_nivel);
+    ini_write_real("save_puntaje", "pass", save_puntaje);
+    ini_write_real("gacha_select", "pass", gacha_select);
+    ini_write_real("vida_global", "pass", 100);
+    ini_write_real("chances", "pass", 2);
+    
+    
+    /*if(num_level &gt;= 4){
+        show_debug_message(save_nivel);
+        show_debug_message(save_puntaje);
+        show_debug_message(gacha_select);
+        show_debug_message(vida_global);
+        show_debug_message(chances);
+    }*/
+    
     audio_stop_sound(sn_soundtrack_1);
     audio_stop_sound(sn_soundtrack_2);
     audio_stop_sound(sn_soundtrack_3);
     audio_stop_sound(sn_soundtrack_4);
     audio_stop_sound(sn_soundtrack_5);
+    audio_stop_sound(sn_avion);
        
 // Dead animation.
 }else{
@@ -536,7 +571,22 @@ if(win and !save_level){
         ini_write_real("vida", "pass", vida_global);
         ini_write_real("chances", "pass", chances);
         if(num_level == 4){
+        
+            // Guardar gacha.
             ini_write_real("gacha_select", "pass", 1);
+            
+            show_debug_message("Guardar checkpoint.")
+            
+            // Guardar puntaje del checkpoint.
+            if(file_exists(working_directory + "checkpoint.sav")){
+                file_delete(working_directory + "checkpoint.sav");
+            }
+            ini_open(working_directory + "checkpoint.sav");
+            puntaje_checkpoint = puntaje_global;
+            show_debug_message(puntaje_checkpoint);
+            ini_write_real("checkpoint", "pass", puntaje_checkpoint);
+            ini_close();
+            
         }
         ini_close();
     }
@@ -594,7 +644,7 @@ ini_close();
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>other</whoName>
+        <whoName>Player</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -662,7 +712,7 @@ if(room != game_intro and dibujar_scores){
             draw_text_outlined(
                 offset_x + 10, 
                 offset_y + 8, 
-                "DAMAGE", 
+                "HEALTH", 
                 c_white, 
                 c_black,
                 2
@@ -734,7 +784,7 @@ if(room != game_intro and dibujar_scores){
                 draw_sprite_ext(
                     asset_get_index("spr_player"+jugador+"_face"),
                     0, 
-                    670 - (i *50),
+                    613 - (i *50),
                     50, 
                     1,
                     1, 
@@ -749,7 +799,7 @@ if(room != game_intro and dibujar_scores){
                 draw_sprite(
                     asset_get_index("spr_player"+jugador+"_face"),
                     0, 
-                    670 - (i*50),
+                    613 - (i*50), // 670
                     50
                 );
             }

@@ -36,6 +36,11 @@ seguir_ninos = false;
 inc = 0.02;
 //audio_play_sound(sn_wind1, 1, 1);
 
+
+audio_stop_sound(sn_helicopter_behind);
+audio_stop_sound(sn_helicopter_front);
+
+
 // Control variables.
 if(audio_is_playing(sn_avion)){
     audio_sound_gain(sn_avion, 1, 1);
@@ -54,7 +59,8 @@ buildings = false;
 collapses = false;
 sentido = "derecha";
 
-texto_avion = "Colombia, finales de los años 80.      Basado en hechos reales.";
+if(idioma == "es") texto_avion = "Colombia, finales de los años 80.      Basado en hechos reales.";
+else if(idioma == "en") texto_avion = "Colombia, late '80s.      Based on real facts.  "
 texto_1 = "";
 
 mostrar_historia = true;
@@ -525,6 +531,31 @@ if(mostrar_historia){
     draw_set_font(font_textbox2);
     draw_set_color(c_white);
     draw_text(170, 58, texto_1);
+}
+
+
+// Draw skip if historia is true.
+if(historia){
+    draw_set_font(font_textbox2);
+    var stg = "...SALTAR";
+    
+    draw_text(
+        view_xview[0] + 768 - string_width(stg) - 20, 
+        room_height - string_height(stg) - 15, 
+        stg
+    );
+    
+    if(in_Rectangle(
+             view_xview[0] + 768 - string_width(stg) - 50,
+             room_height - string_height(stg) - 30,
+             view_xview[0] + 768,
+             room_height
+    ) and mouse_check_button_pressed(mb_left)){
+        room_goto_transition(Room_Select, 0, 120);
+        audio_stop_sound(sn_helicopter_front);
+        audio_stop_sound(sn_rage_music);
+    }
+    
 }
 </string>
           </argument>

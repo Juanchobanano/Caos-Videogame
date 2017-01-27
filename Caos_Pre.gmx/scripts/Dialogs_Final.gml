@@ -6,7 +6,7 @@ if(final){
             
                 case 0:
                 
-                    audio_play_sound(sn_puerta, 1, 0);
+                   // audio_play_sound(sn_puerta, 1, 0);
                     with Building_32 image_index = 1;
                     
                 break;
@@ -129,7 +129,7 @@ switch(argument[0]){
                 if(first_c.x < 1200){
                     t++;
                     str = 0;
-                    audio_play_sound(sn_dialogo, 1, 1);
+                //    audio_play_sound(sn_dialogo, 1, 1);
                     animar = true;
                     can_continue = true;
                     with(Child_Intro){
@@ -221,27 +221,7 @@ switch(argument[0]){
                         image_speed = 0;
                         image_index = 0;
                     }
-                }
-                
-               /* var carlos_c = ds_list_find_value(kids, 1);
-                if(carlos_c.x < 528){
-                    with(carlos_c){
-                        hspeed = 0;
-                        image_speed = 0;
-                        image_xscale = 1;
-                        sprite_index = spr_child3_idle_2;
-                        
-                    }   
-                    
-                    var daniel_c = ds_list_find_value(kids, 2);
-                    with(daniel_c){
-                        hspeed = 0;
-                        image_speed = 0;
-                        image_xscale = 1;
-                        sprite_index = spr_child1_idle_2;
-                    }              
-                }*/
-                
+                }                               
             break;
         }
     break;

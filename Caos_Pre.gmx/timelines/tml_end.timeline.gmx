@@ -25,6 +25,7 @@ Player.controles = "izq";
 audio_sound_gain(sn_soundtrack_final, 0, 2000);
 audio_stop_sound(sn_rage_music);
 audio_play_sound(sn_rage_music, 1, 1);
+audio_sound_gain(sn_rage_music, 1, 1);
 </string>
           </argument>
         </arguments>

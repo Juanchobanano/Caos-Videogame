@@ -435,4 +435,7 @@ Rage_State();
 
 
 // Life.
-if(vida <= 0 and !win) state = Lose_State;
+if(vida <= 0 and !win){
+    state = Lose_State;
+    //audio_play_sound(sn_roar, 1, 0);
+}

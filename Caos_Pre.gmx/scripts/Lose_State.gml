@@ -31,16 +31,18 @@ if(place_meeting(x, y+vsp, Floor)){
        // vida_global = 100;
         with (s) { alarm[0] = 25; }
         
-        // Draw score.
-        draw_score = true;
-        
         // Decrease chance variable. (3 chances per level).
         if(room != game10){ alarm[0] = 30; }
         else{ if(chances > 0){ alarm[0]= 30 } else{ alarm[3] = 90; }}
-        audio_play_sound(sn_perdistes, 1, 0);
         
-   
-        instance_create(room_width/2, room_height/2 - 30, GameOver);
+        //if(chances <= 0){
+            instance_create(room_width/2, room_height/2 - 30, GameOver);
+            // Draw score.
+            draw_score = true;
+            audio_play_sound(sn_perdistes, 1, 0);
+       // }/*else{
+            
+       // }*/
    
     
     } 

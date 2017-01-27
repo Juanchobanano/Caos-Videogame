@@ -338,7 +338,7 @@ if(is_ready){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(Player)){ 
+            <string>/*if(instance_exists(Player)){ 
     if (building_life &gt; 0){
         if (c_boton){
             if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
@@ -379,7 +379,7 @@ if(is_ready){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(Player)){   
+            <string>/*if(instance_exists(Player)){   
     Player.y1_ed = device_mouse_y(0);
     Player.x1_ed = device_mouse_x(0);
 

@@ -32,22 +32,37 @@ audio_sound_gain(sn_musica_intro, 1, 3000);*/
 
 //sonar_puerta = true;
 color = c_white;
-str = 0
-vel = .4;
+sonidop = true;
+str = 0;
+vel = .5;
 t = 0;
 angle = 0;
 draw_skip = true;
+//mouse_clean = false;
 can_continue = true;
 
-audio_play_sound(sn_dialogo, 0, 1);
+//audio_play_sound(sn_dialogo, 0, 1);
 txt = ds_list_create();
-ds_list_add(txt, "El 12 de Mayo de 1990, Carlos#y Daniel de 11 años y Julián#de 17, fueron víctimas del#carro bomba que explotó en el#barrio Niza, en la ciudad de#Bogotá.");
-                 //                           //                           //                           //                           //                           //                           //                           //                                          //                                          //                                          //                                          //
-ds_list_add(txt, "Carlos estuvo más de 12 horas#en el quirófano, reconstru-#cción del 70% de su cráneo.");
-ds_list_add(txt, "Daniel sufrió una fractura ex-#puesta de clavícula, lo cual#generó una burbuja en su#torrente sanguíneo.");
-ds_list_add(txt, "Julián sufrió un corte trans-#versal de 20cm en la parte#posterior de su cabeza.");
-ds_list_add(txt, "Infortunadamente, aún hoy en#diferentes partes del mundo,#los adultos continúan portán-#dose mal, día tras día niños#y jóvenes sufren experiencias#similares a las de Carlos,#Daniel y Julián.");
-ds_list_add(txt, "En muchos casos no corren con#la misma suerte...");
+
+if(idioma == "en"){
+    ds_list_add(txt, "May 12, 1990, Carlos, Daniel#and Julian were victims of an#exploding car in Niza, a#neighborhood in the streets of#Bogotá, Colombia.");
+                     //                           //                           //                           //                           //                           //                           //                           //                                          //                                          //                                          //                                          //
+    ds_list_add(txt, "Carlos endured a 12 hour-long#surgery, having 70% of his#skull completely destroyed.");
+    ds_list_add(txt, "Daniel suffered an exposed#fracture of his collar bone,#which generated a bubble in#his blood stream.");
+    ds_list_add(txt, "Julián came in to the emergency#room with a 20 centimeter#transversal cut in the back#of his head.");
+    ds_list_add(txt, "Unfortunately, even today,#adults continue to act badly,#and day after day kids not#unlike Carlos, Daniel, and#Julian experience these kind#of acts.");
+    ds_list_add(txt, "In plenty of cases, they#don’t survive...");
+}else if(idioma == "es"){
+
+    ds_list_add(txt,"El 12 de Mayo de 1990, Carlos#y Daniel de 11 años y Julián#de 17, fueron víctimas del#carro bomba que explotó en el#barrio Niza, en la ciudad de#Bogotá.");
+                     //                           //                           //                           //                           //                           //                           //                           //     
+    ds_list_add(txt,"Carlos estuvo más de 12 horas#en el quirófano, reconstruc-#ción del 70% de su cráneo.");
+    ds_list_add(txt,"Daniel sufrió una fractura ex-#puesta de clavícula, lo cual#generó una burbuja en su to-#rrente sanguíneo.");
+    ds_list_add(txt,"Julián sufrió un corte trans-#versal de 20cm en la parte#posterior de su cabeza.");
+    ds_list_add(txt,"Infortunadamente, aún hoy en#diferentes partes del mundo,#los adultos continúan portán-#dose mal, día tras día niños#y jóvenes sufren experiencias#similares a las de Carlos,#Daniel y Julián.");
+    ds_list_add(txt,"En muchos casos no corren con#la misma suerte...");
+    
+}
 </string>
           </argument>
         </arguments>
@@ -79,16 +94,20 @@ if(str &gt;= string_length(ds_list_find_value(txt,t))){
    // if(sonar_puerta) audio_play_sound(sn_puerta, 1, 0);
    // sonar_puerta = !sonar_puerta;
     draw_skip = true;   
-    audio_stop_sound(sn_dialogo);
+    //audio_stop_sound(sn_dialogo);
+    if(sonidop){ audio_play_sound(sn_puerta, 1, 0); sonidop = false; }
     
     if((keyboard_check_pressed(ord('Z')) or mouse_check_button_pressed(mb_left)) and can_continue){
-        audio_play_sound(sn_dialogo, 0, 1);
+    //    audio_play_sound(sn_dialogo, 0, 1);
         //sonar_puerta = !sonar_puerta;
+        sonidop = true;
         t++;
         str = 0;
         draw_skip = false;
         animar = true; // Animar comienzo del próximo diálogo.
         final = true; // Animar al final de el diálogo actual.
+        mouse_clear(mb_left);
+      //  mouse_clean = false;
         if(t &gt;= ds_list_size(txt)){
             instance_destroy();
             room_goto_transition(Room_Creditos, 0, 150);
@@ -101,10 +120,16 @@ if(str &gt;= string_length(ds_list_find_value(txt,t))){
     }
 }else{
     draw_skip = false;
-    //mouse_clear(mb_left);
-    if((keyboard_check(ord('Z')) or mouse_check_button(mb_left)) and (str &lt; string_length(ds_list_find_value(txt,t)))){
-        str += (vel + 1);
-    }
+   // if(mouse_clean){
+        if((keyboard_check(ord('Z')) or mouse_check_button_pressed(mb_left)) and (str &lt; string_length(ds_list_find_value(txt,t)))){
+            //str += (vel + 1);
+            str = string_length(ds_list_find_value(txt, t));
+        }
+    /*}else{
+        if(mouse_check_button_pressed(mb_left)){
+            mouse_clean = true;
+        }   
+    }*/
 }
 </string>
           </argument>

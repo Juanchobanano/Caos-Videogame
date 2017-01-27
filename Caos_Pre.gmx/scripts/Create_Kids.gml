@@ -79,4 +79,5 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
     with (Player) dibujar_scores = false;
     with Dibujar_Poderes instance_destroy();
     with Pausa instance_destroy();
+    if(instance_exists(Tutorial_Button)) with Tutorial_Button instance_destroy();
 }

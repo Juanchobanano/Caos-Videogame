@@ -34,13 +34,13 @@ image_yscale = .65;
 get_father = false;
 building_father = 0;
 
-var rand = random_range(0,100);
+//var rand = random_range(0,100);
 
-if (rand &gt; 30){
-    image_index = irandom_range(0,3);//(0,1,2,3);//billetes, bomba, bolsa de dinero, jeringa
-}else {
+//if (rand &gt; 30){
+image_index = irandom_range(0,3);//(0,1,2,3);//billetes, bomba, bolsa de dinero, jeringa
+/*}else {
     image_index = choose(4,5);
-}
+}*/
 
 
 

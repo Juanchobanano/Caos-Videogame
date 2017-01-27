@@ -110,6 +110,11 @@ if(animar){
                     can_continue = false;
                 break;
                 
+                case 12:
+                    adelantar = false;
+                break;
+                
+  
              
                 
                 

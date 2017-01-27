@@ -30,14 +30,17 @@ if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
-              jugador, game_pause, tutorial_bool, idioma, 
-              end_game, game_completed, rate, regresar_menu, show_tuto;
-    
+              jugador, game_pause, tutorial_bool, idioma, puntaje_checkpoint,  
+              end_game, game_completed, rate, regresar_menu, show_tuto, can_post;
+
     show_tuto = false;
     regresar_menu = false;
     rate = false;
     game_completed = false;
     end_game = false;
+    can_post = false;
+   // select_idioma = false;
+  //  player_save = 0;
    // avance_edificios = ds_list_create(); // Importante!
     idioma = "es";
     tutorial_bool = false;
@@ -48,13 +51,14 @@ if(room == Room_Digital){
     sound_retard = 0;
     vida_global = 100;
     puntaje_global = 1000;
+    puntaje_checkpoint = 0;
     best_score = 1000;
     num_level = 0;
     //texture_set_interpolation(true);
 
     // Historia.
     globalvar historia, activar_tuto;
-    historia = true;
+    historia = false;
     activar_tuto = true;
     
     // Variables de poderes.
@@ -82,6 +86,7 @@ if(room == Room_Digital){
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
         file_delete(working_directory + "rate.sav");
+        file_delete(working_directory + "checkpoint.sav");
     //}
     //save = false;
   //  historia = true;
@@ -90,6 +95,28 @@ if(room == Room_Digital){
         globalvar save_nivel, save_puntaje, gacha_select;
         save_nivel = 0;
         save_puntaje = 1000;
+        
+        
+        if(file_exists(working_directory + "idioma.sav")){
+            ini_open(working_directory + "idioma.sav");
+            idioma = ini_read_string("idioma", "pass", 0);
+          //  select_idioma = ini_read_real("select_idioma", "pass", 0);
+            ini_close();
+        }
+        
+        // Puntaje cuando el jugador llegó al checkpoint.
+        if(file_exists(working_directory + "checkpoint.sav")){
+            ini_open(working_directory + "checkpoint.sav");
+            puntaje_checkpoint = ini_read_real("checkpoint", "pass", 0);
+            ini_close();
+        }
+        
+        // Cant post (si el jugador no puede postear su puntaje en play store al final del juego).
+        if(file_exists(working_directory + "can_post.sav")){
+            ini_open(working_directory + "can_post.sav");
+            can_post = ini_read_real("can_post", "pass", 0);
+            ini_close();
+        }
         
         if(file_exists(working_directory + "guardar_juego.sav")){
             ini_open(working_directory + "guardar_juego.sav");
@@ -145,12 +172,12 @@ if(room == Room_Digital){
     
     //if(num_level &gt; 0) historia = false;
     
-    // Connect to the Google Store.
-    /*if(os_is_network_connected()){
+    // Connect to the Google Play Store.
+    if(os_is_network_connected()){
         if(!achievement_login_status()){
             achievement_login();
         }
-    }*/
+    }
     
     // Load data.
     if(file_exists(working_directory + "puntaje.sav")){
@@ -186,6 +213,10 @@ if(room == Room_Digital){
 
     // Tank animation.
     animator = 0;
+    audio_sound_gain(sn_rage_music, 1, 1);
+    audio_sound_gain(sn_roar, 1, 1);
+    audio_sound_gain(sn_musica_intro, 1, 1);
+        
     audio_stop_sound(sn_musica_intro);
     audio_stop_sound(sn_roar);
     audio_stop_sound(sn_rage_music);
@@ -198,14 +229,14 @@ if(room == Room_Digital){
     
     
     if(game_completed){
-        if(!rate){
+        if(!rate and os_type == os_android){
         
-            if(idioma == "en"){ var question = "We hope you are enjoying Caos! Please, rate us in the store!"; }
-            else if(idioma == "es") { var question = "¡Esperamos que estés disfrutando Caos! ¡Porfavor, valóranos en la tienda!"; }
+            if(idioma == "en"){ var question = "We hope you are enjoying Caos! Please, rate us in the store :)!"; }
+            else if(idioma == "es") { var question = "¡Esperamos que estés disfrutando Caos! ¡Porfavor, valóranos en la tienda :)!"; }
             
             if(show_question(question)){
                 if(os_type == os_android){
-                    url_open(""); // Android
+                    url_open("https://play.google.com/store/apps/details?id=com.BaiusGames.Caos"); // Android
                 }else if(os_type == os_ios){
                     url_open(""); // iOS.
                 }
@@ -438,7 +469,7 @@ alarm[0] = 30*7;
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -897,7 +928,7 @@ num_level = 9;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(game_tutorial);
+            <string>room_goto(Room_Select);
 </string>
           </argument>
         </arguments>
@@ -944,7 +975,8 @@ room_goto(game1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(Room_Menu);
+            <string>//room_goto(Room_Menu);
+show_debug_message(historia);
 </string>
           </argument>
         </arguments>

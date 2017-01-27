@@ -53,7 +53,7 @@
   <instances>
     <instance objName="Floor" x="0" y="454" name="inst_A4DF0A1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_21" x="139" y="433" name="inst_5C33D706" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Building_20" x="458" y="433" name="inst_E361F91C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_20" x="452" y="433" name="inst_E361F91C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_23" x="290" y="433" name="inst_2B6F60C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_15" x="534" y="433" name="inst_B554E31D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="151" y="338" name="inst_EADC1460" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -76,14 +76,14 @@
     <instance objName="obj_ventana" x="356" y="369" name="inst_24CCA778" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="324" y="369" name="inst_0EC8B171" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="308" y="381" name="inst_26A0C636" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="468" y="352" name="inst_8BE6F3FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="468" y="325" name="inst_B34ED4E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="530" y="325" name="inst_E40C5450" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="516" y="352" name="inst_DFC3E5FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="530" y="352" name="inst_837DD984" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="482" y="352" name="inst_24027BC9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="516" y="325" name="inst_EA8EAB1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ventana" x="482" y="325" name="inst_69A9D04B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="462" y="352" name="inst_8BE6F3FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="461" y="325" name="inst_B34ED4E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="523" y="325" name="inst_E40C5450" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="510" y="352" name="inst_DFC3E5FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="524" y="352" name="inst_837DD984" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="475" y="352" name="inst_24027BC9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="509" y="325" name="inst_EA8EAB1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ventana" x="475" y="325" name="inst_69A9D04B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="611" y="353" name="inst_EA2E20A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="603" y="337" name="inst_08676BA2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="544" y="321" name="inst_3EB39CDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

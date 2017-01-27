@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0,0, Tutorial);
+            <string>if(!instance_exists(Instruccion)){
+    instance_create(0,0, Instruccion);
+    audio_play_sound(sn_tutorial, 1, 0);
+}
 </string>
           </argument>
         </arguments>
