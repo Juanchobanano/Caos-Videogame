@@ -385,8 +385,7 @@
       <sprite>sprites\spr_ico_bogota</sprite>
       <sprite>sprites\spr_ico_m</sprite>
       <sprite>sprites\spr_tutorial</sprite>
-      <sprite>sprites\spr_english</sprite>
-      <sprite>sprites\spr_spanish</sprite>
+      <sprite>sprites\spr_idioma</sprite>
     </sprites>
     <sprites name="Puntaje">
       <sprite>sprites\spr_score_1000</sprite>
