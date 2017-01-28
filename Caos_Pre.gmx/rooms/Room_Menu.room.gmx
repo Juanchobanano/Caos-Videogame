@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="Control_Game" x="64" y="24" name="inst_E944818D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Idioma" x="700" y="36" name="inst_4BC4C2B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Idioma" x="687" y="39" name="inst_4BC4C2B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

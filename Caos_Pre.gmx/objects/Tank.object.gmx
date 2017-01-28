@@ -95,7 +95,8 @@ if(sign(image_xscale) == 1) corner = bbox_right;
 else corner = bbox_left; 
 var bullet_ = instance_create(corner, bbox_top, Tank_Bullet);
 with(bullet_){
-    xscale = Tank.image_xscale;
+    var n_tank = instance_nearest(x, y, Tank);
+    xscale = n_tank.image_xscale;
     if(Tank.image_xscale == 1) image_index = 0;
     else image_index = 1; 
 }

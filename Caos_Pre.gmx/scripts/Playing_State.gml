@@ -307,6 +307,7 @@ if(climb){
             if(!grounded) Play_Track("air_punch");
             if(!limits) limits = true;
             grounded = true;
+            key_attack = 0;
             if(!roar){
                 //audio_play_sound(sn_roar, 1, 0);
                 roar = true;
@@ -409,15 +410,19 @@ if(climb){
     
     // Android.
     }else{
-        if(key_attack){
-            if(instance_exists(Enemy)){
-                var enemy = instance_nearest(x, y, Enemy);
-                var near_enough = point_in_circle(enemy.x, enemy.y, Player.x, Player.y, 100);
-                //if(!near_enough){ show_debug_message("out of range") exit; }
-                
-                if(near_enough){ scriptCheckAttack(enemy.x, enemy.y, enemy); }
+ 
+      //  if((grounded or climbed_building != noone) or (!grounded and y < 300)){ // Esto arregla el bug de que se queda congelado cuando cae.
+            if(key_attack){
+               // show_debug_message(y);
+                if(instance_exists(Enemy)){
+                    var enemy = instance_nearest(x, y, Enemy);
+                    var near_enough = point_in_circle(enemy.x, enemy.y, Player.x, Player.y, 100);
+                    //if(!near_enough){ show_debug_message("out of range") exit; }
+                    
+                    if(near_enough){ scriptCheckAttack(enemy.x, enemy.y, enemy); }
+                }
             }
-        }
+      //  }
     }
     
     // Player is on the roof but wants to return to its climb state.

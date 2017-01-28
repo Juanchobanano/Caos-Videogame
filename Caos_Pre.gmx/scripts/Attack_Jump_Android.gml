@@ -4,6 +4,9 @@ var yy = argument[1];
 if(enemy.x < Player.x) var escala = 1;
 else var escala = -1;
 image_xscale = escala;
+
+//show_message(object_get_name(enemy));
+
 if(yy < y + 10 and yy > y - 15){
 
     // (Aside Attack).
@@ -11,10 +14,13 @@ if(yy < y + 10 and yy > y - 15){
         // Jump con sprite mirando a la derecha. (Aside attack).
         if(x < Player.x and Player.image_xscale == -1){
             Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 0, retard_value);
+          //  show_debug_message("ERROR 1");
+            
             //Destroy_Enemy_Android(x + 62 * image_xscale, y - 5, enemy);
         // Climb con sprite mirando a la izquierda. (Aside attack).
         }else if(x > Player.x and Player.image_xscale == 1){
             Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 0, retard_value);
+           // show_debug_message("ERROR 2");
            // Destroy_Enemy_Android(x + 62 * image_xscale, y - 5, enemy);
         }
         

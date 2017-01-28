@@ -16,6 +16,7 @@ if(instance_exists(enemy)){
 if(climb){
     //show_debug_message("Here!");
     Attack_Climb_Android(xx, yy, enemy);
+ //   show_debug_message("bug climb");
     
 // No climb.
 }else{
@@ -23,9 +24,11 @@ if(climb){
     // Atacar en el piso.
     if(grounded or climbed_building){
         Attack_Ground_Android(enemy, yy);
+   //     show_debug_message("bug piso");
         
     // Atacar saltando.
     }else{
+      //  show_debug_message("bug saltar");
         if(!take_women){
             Attack_Jump_Android(enemy, yy);
         }

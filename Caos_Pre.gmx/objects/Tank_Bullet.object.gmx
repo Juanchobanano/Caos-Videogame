@@ -59,9 +59,11 @@ Play_Track("tank_bullet");
 if(!set_target){
     //var tank = instance_nearest(x, y, Tank)
     target_x = x + xscale * (lengthdir_x(room_width*2, 30));
+   // show_debug_message(target_x);
     target_y = y - lengthdir_y(-room_height*2, 30); 
     set_target = true;
 }
+
 move_towards_point(target_x, target_y, spd);
 if(collision_point(x, y, Player, true, true)){
     var e = instance_create(x, y, Explosion);

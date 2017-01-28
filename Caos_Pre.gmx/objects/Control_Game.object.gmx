@@ -87,6 +87,7 @@ if(room == Room_Digital){
         file_delete(working_directory + "puntaje.sav");
         file_delete(working_directory + "rate.sav");
         file_delete(working_directory + "checkpoint.sav");
+        file_delete(working_directory + "idioma.sav");
     //}
     //save = false;
   //  historia = true;
@@ -301,7 +302,7 @@ if(room == Room_Digital){
     // Select character.
     change_color = 0;
     color_select = c_white;
- //   font = "";
+    font = "";
 }
 
 /*   COSAS POR HACER:
@@ -612,7 +613,9 @@ if(room == Room_Select){
     draw_set_halign(fa_center);
     
     if(font == "press") draw_set_font(font_press_20);
-    else draw_set_font(font_wonder_20);
+    else 
+    
+    draw_set_font(font_wonder_20);
     
  
     draw_text_outlined(room_width/2 + 10, 80, "SELECT CHARACTER", color_select, c_black, 2);
