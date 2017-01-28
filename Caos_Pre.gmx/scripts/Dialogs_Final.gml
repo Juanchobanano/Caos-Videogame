@@ -82,7 +82,7 @@ if(final){
                         }
                         with(Control_Intro) sentido = "izquierda";
                        // instance_destroy();
-                        with TextBox instance_destroy();
+                        //with TextBox instance_destroy();
                     
                 break;
                 

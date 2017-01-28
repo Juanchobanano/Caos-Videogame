@@ -294,7 +294,7 @@ if(room == Room_Digital){
     // Select character.
     change_color = 0;
     color_select = c_white;
-    font = "";
+ //   font = "";
 }
 
 /*   COSAS POR HACER:
@@ -534,8 +534,9 @@ if(room == Room_Select){
 
     // Draw bestscore
    //draw_set_halign(fa_center);
-    if(font == "press") draw_set_font(font_press_11);
-    else draw_set_font(font_wonder_11);
+    //if(font == "press") draw_set_font(font_press_11);
+    //else draw_set_font(font_wonder_11);
+    draw_set_font(font_textbox2);
     draw_set_color(c_white);
     var str = "BEST SCORE: " + string(best_score);
     draw_text(10, 10, str);

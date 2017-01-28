@@ -119,7 +119,7 @@ switch(room_){
     break;
     default:
         if(idioma == "es"){
-            ds_list_add(texto, "Julián: Corran! Corran!"); ds_list_add(caras, 2);
+            ds_list_add(texto, "Julián: ¡Corran! ¡Corran!"); ds_list_add(caras, 2);
         }else if(idioma == "en"){
             ds_list_add(texto, "Julián: Run! Run!"); ds_list_add(caras, 2);
         }

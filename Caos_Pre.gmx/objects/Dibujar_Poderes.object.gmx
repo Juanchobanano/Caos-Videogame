@@ -115,6 +115,7 @@ if(c_jeringa &gt;= 3){
         power_a.sprite_index = spr_jeringa;
     }
     instance_create(x, y, Vida_Suma); // Sumar 20
+    audio_play_sound(sn_jeringa, 1, 0);
 }
 
 

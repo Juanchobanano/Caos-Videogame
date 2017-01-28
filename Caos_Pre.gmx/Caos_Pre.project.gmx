@@ -78,6 +78,7 @@
       </sounds>
       <sounds name="Power">
         <sound>sound\sn_eat_power</sound>
+        <sound>sound\sn_jeringa</sound>
       </sounds>
       <sounds name="Dialogos">
         <sound>sound\sn_dialogo2</sound>

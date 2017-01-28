@@ -154,34 +154,35 @@ draw_set_color(c_white);
 draw_set_alpha(1);
 
 
-draw_set_font(font_wonder_14);
+//draw_set_font(font_wonder_14);
+draw_set_font(font_textbox2);
 //draw_set_font(font_press_14);
 draw_set_color(c_white);
 //var c_grey_dark = make_color_rgb(208, 208, 208);
 //var c_grey_light = make_color_rgb(220, 220, 220);
-var c_grey_light = c_white;
+//var c_grey_light = c_white;
 //var c_grey_light = make_color_rgb(220, 220, 220);
-draw_text_colour(
+
+var txt_num = string(num_level+1);
+draw_text(
     room_width/2, 
-    room_height/2, 
-    string_copy(txt[num_level], 0, str), 
-    c_grey_light, 
-    c_grey_light, 
-    c_grey_light, 
-    c_grey_light, 
-    1
+    room_height/2 - string_height(txt_num)*1.5,
+    string_upper("Nivel " + txt_num)
 );
 
 
-draw_text_colour(
+
+draw_text(
     room_width/2, 
-    room_height/2 + string_height(txt[num_level]), 
-    Nombre_Ciudad(num_level+1),
-    c_grey_light, 
-    c_grey_light, 
-    c_grey_light, 
-    c_grey_light, 
-    1
+    room_height/2, 
+    string_upper(string_copy(txt[num_level], 0, str)) 
+);
+
+
+draw_text(
+    room_width/2, 
+    room_height/2 + string_height(txt[num_level])*1.5, 
+    string_upper(Nombre_Ciudad(num_level+1))
 );
 
 

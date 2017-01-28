@@ -97,7 +97,7 @@ if(str &gt;= string_length(ds_list_find_value(texto, t))){
     if((keyboard_check_pressed(ord('Z')) or mouse_check_button_pressed(mb_left)) and can_continue){
       
         if(room != game_intro and room != game10) audio_play_sound(sn_dialogo, 0, 1);
-        show_debug_message(t);
+      //  show_debug_message(t);
         sonidop = true;
         //audio_play_sound(sn_puerta, 1, false); 
         t++;

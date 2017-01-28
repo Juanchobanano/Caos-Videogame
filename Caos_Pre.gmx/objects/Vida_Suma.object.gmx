@@ -57,10 +57,12 @@
         //else Player.bar_index = 1;
 
     }else{
+        audio_stop_sound(sn_jeringa);
         instance_destroy();
         with Player bar_index = 1;
     }
 }else{
+    audio_stop_sound(sn_jeringa);
     instance_destroy();
     with Player bar_index = 1;
 }

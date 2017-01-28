@@ -33,7 +33,7 @@ if(idioma == "es"){
     txt[2] = "Oprima     para saltar";
     txt[3] = "Oprima     para subirse al edificio más cercano";
     txt[4] = "Oprima las flechas         para subir y bajar";//#                                del edificio";
-    txt[5] = "Oprima     para atacar los edificios y los enemigos";
+    txt[5] = "Oprima     para destruir los edificios y los enemigos";
     txt[6] = "¡Recolecte poderes         para obtener recompensas!";
     txt[7] = "Oprima     para ver el tutorial nuevamente."
 }else if(idioma == "en"){
@@ -42,7 +42,7 @@ if(idioma == "es"){
     txt[2] = "Press      to jump";
     txt[4] = "Press      to climb the nearest building";
     txt[5] = "Press the keys          to go up and down";//#                       through the building";
-    txt[3] = "Press      to attack the buildings and the enemies";
+    txt[3] = "Press      to destroy the buildings and the enemies";
     txt[6] = "Collect powers         in order to obtain rewards!";
     txt[7] = "Press     to see the tutorial again."
 
@@ -292,7 +292,7 @@ if(idioma == "es"){
         break;
         
         case 5: // attack
-            draw_sprite_ext(spr_botones, 4, room_width/2 - 240, 135, .6, .6, 0, c_white,alpha);
+            draw_sprite_ext(spr_botones, 4, room_width/2 - 255, 135, .6, .6, 0, c_white,alpha);
         break;
         
         case 3: // climb
@@ -330,7 +330,7 @@ if(idioma == "es"){
         break;
         
         case 5: // attack
-            draw_sprite_ext(spr_botones, 4, room_width/2 - 240, 135, .6, .6, 0, c_white,alpha);
+            draw_sprite_ext(spr_botones, 4, room_width/2 - 255, 135, .6, .6, 0, c_white,alpha);
         break;
         
         case 3: // climb

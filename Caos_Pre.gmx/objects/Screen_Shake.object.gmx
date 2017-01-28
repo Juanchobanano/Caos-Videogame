@@ -52,12 +52,12 @@ int = 1.5;
             <kind>1</kind>
             <string>if(room == Room_Menu){
     //if(!historia){ 
-    if(num_level == 0){
+    //if(num_level == 0){
         room_goto_transition(game_intro, 0, 45); 
         audio_sound_gain(sn_soundtrack_pausa, 0, 3000);
-    }else{
-        room_goto_transition(Room_Select, 0, 45); 
-    }
+    //}else{
+     //   room_goto_transition(Room_Select, 0, 45); 
+    //}
 }  
 
 /// Tutorial.
