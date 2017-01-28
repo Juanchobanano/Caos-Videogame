@@ -211,6 +211,13 @@ if(room == Room_Digital){
     
 }else if(room == Room_Menu){
 
+    /*if(show_question("Seleccione Yes para Español o No para inglés")){
+        idioma = "es";
+    }else{
+        idioma = "en";
+    }*/
+    
+
     // Tank animation.
     animator = 0;
     audio_sound_gain(sn_rage_music, 1, 1);
