@@ -1,3 +1,4 @@
+/// BBox_Change()
 var second_building = Search_Building(climbed_building);    
 var change = false;
 
@@ -20,3 +21,5 @@ if(second_building.building_life > 0){
        }
     }
 } 
+
+

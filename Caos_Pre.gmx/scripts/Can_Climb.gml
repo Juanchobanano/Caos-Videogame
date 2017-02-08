@@ -18,8 +18,6 @@ if(grounded or climbed_building){
         
             // Can climb.
             if(building.building_life <= 0) exit; 
-                   
-            
                   
             if(point_distance(x + 23, y, building.bbox_left, y) <= rango){
                 if(!place_meeting(x+23, y, building)) exit;

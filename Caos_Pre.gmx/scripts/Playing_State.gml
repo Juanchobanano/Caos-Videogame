@@ -173,8 +173,7 @@ if(climb){
                                 }
                             }
                     break;
-                }
-                
+                }                        
             // Player attack front.
             }else{
                                             

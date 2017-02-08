@@ -28,7 +28,7 @@
             <string>image_speed = 0;
 image_index = 0;
 gravity = .1;
-alarm[0] = irandom_range(35, 45);// 35 45
+//alarm[0] = irandom_range(35, 45);// 35 45
 </string>
           </argument>
         </arguments>
@@ -194,12 +194,13 @@ for(var i = 0; i &lt; ds_list_size(list); i++){
           <argument>
             <kind>1</kind>
             <string>image_angle += 5;
-if(place_meeting(x, y, Persona) or place_meeting(x, y, Tank) or place_meeting(x, y, Floor)){
+if(/*place_meeting(x, y, Persona)or*/ place_meeting(x, y, Tank) or place_meeting(x, y, Floor)){
     instance_destroy();
 }
+
 if(place_meeting(x, y, Helicoptero)){
     var h = instance_nearest(x, y, Helicoptero);
-    if(h.sprite_index = spr_helicopter_front){
+    if(h.sprite_index == spr_helicopter_front){
         instance_destroy();
     }
 }
