@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// Set image speed to 2.
 image_speed = .2;
+if(idioma == "es") sprite_index = spr_coronaste;
+else sprite_index = spr_allright;
 </string>
           </argument>
         </arguments>

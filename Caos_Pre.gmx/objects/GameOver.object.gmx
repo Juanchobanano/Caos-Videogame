@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// Set image speed to 2.
-image_speed = .2;
+image_speed = .2; 
+if(idioma == "es") sprite_index = spr_perdiste;
+else sprite_index = spr_youlose;
 </string>
           </argument>
         </arguments>

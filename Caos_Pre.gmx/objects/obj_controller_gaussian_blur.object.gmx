@@ -33,6 +33,7 @@ Fechas();
 //screen_save(working_directory + "pausa.png");
 instance_deactivate_all(true);
 instance_activate_object(Pausa);
+instance_activate_object(Debugg);
 /*background = sprite_add(
     working_directory + "pausa.png", 
     0, 
@@ -179,15 +180,38 @@ draw_set_halign(fa_center);
 draw_set_font(font_textbox2);
 //draw_text_outlined(room_width/2, 52, string_upper(Nombre_Ciudad(num_level)), c_white, c_black, 2);
 var txt_num = string(num_level);
-draw_text_outlined(room_width/2, 32 + 15, "NIVEL " + txt_num, c_white, c_black, 2);
-draw_text_outlined(room_width/2, 52 + 45, string_upper(Nombre_Ciudad(num_level)), c_white, c_black, 2);
-draw_text_outlined(room_width/2, 27 + 45,  string_upper(txt[num_level - 1]), c_white, c_black, 2);
-draw_sprite(
+draw_text_outlined(room_width/2, 70, "NIVEL " + txt_num, c_white, c_black, 2);
+draw_text_outlined(room_width/2, 90,  string_upper(txt[num_level - 1]), c_white, c_black, 2);
+draw_text_outlined(room_width/2, 120, string_upper(Nombre_Ciudad(num_level)), c_white, c_black, 2);
+draw_sprite_ext(spr_caos_original, 0, 371,233,.4,.4,-5,c_white, 1);
+draw_set_font(font_textbox3);
+
+
+draw_set_color(c_black);
+draw_set_alpha(.4);
+draw_roundrect(40,310,720,420,0);
+//draw_rectangle(40,310,720,420,0);
+draw_set_alpha(1);
+
+
+if(idioma == "en"){
+    draw_text_outlined(room_width/2, 320, "Are you a reporter or Youtuber?", c_yellow, c_black, 2);
+    draw_text_outlined(room_width/2, 340, "Or maybe you just want to send a simple 'hello'", c_yellow, c_black, 2);
+    draw_text_outlined(room_width/2, 380, "We'd love to hear from you! :)", c_yellow, c_black, 2);
+    draw_text_outlined(room_width/2, 400, "baiuscontact@gmail.com ", c_yellow, c_black, 2);
+}else{
+    draw_text_outlined(room_width/2, 320, "¿Trabajas en prensa o eres un Youtuber?", c_yellow, c_black, 2);
+    draw_text_outlined(room_width/2, 340, "¿O sólo quieres enviarnos un saludo?", c_yellow, c_black, 2);
+    draw_text_outlined(room_width/2, 380, "A nosotros nos encantaría saber de ti! :)", c_yellow, c_black, 2);
+    draw_text_outlined(room_width/2, 400, "baiuscontact@gmail.com ", c_yellow, c_black, 2);
+}
+
+/*draw_sprite(
     spr_creditos, 
     0, 
     room_width/2, 
     70
-);
+);*/
 draw_set_halign(noone);
 
 

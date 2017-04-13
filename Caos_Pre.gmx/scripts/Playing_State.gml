@@ -306,7 +306,7 @@ if(climb){
             if(!grounded) Play_Track("air_punch");
             if(!limits) limits = true;
             grounded = true;
-            key_attack = 0;
+            //key_attack = 0;
             if(!roar){
                 //audio_play_sound(sn_roar, 1, 0);
                 roar = true;

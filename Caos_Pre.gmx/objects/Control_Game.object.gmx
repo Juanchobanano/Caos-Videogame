@@ -42,7 +42,7 @@ if(room == Room_Digital){
    // select_idioma = false;
   //  player_save = 0;
    // avance_edificios = ds_list_create(); // Importante!
-    idioma = "es";
+    idioma = "en";
     tutorial_bool = false;
     game_pause = false;
     jugador = "";
@@ -88,6 +88,7 @@ if(room == Room_Digital){
         file_delete(working_directory + "rate.sav");
         file_delete(working_directory + "checkpoint.sav");
         file_delete(working_directory + "idioma.sav");
+        file_delete(working_directory + "can_post.sav");
     //}
     //save = false;
   //  historia = true;
@@ -237,23 +238,33 @@ if(room == Room_Digital){
     
     
     if(game_completed){
-        if(!rate and os_type == os_android){
+    
+        if(!rate){
         
-            if(idioma == "en"){ var question = "We hope you are enjoying Caos! Please, rate us in the store :)!"; }
-            else if(idioma == "es") { var question = "¡Esperamos que estés disfrutando Caos! ¡Porfavor, valóranos en la tienda :)!"; }
+            if(idioma == "en"){ 
+                var question = "We hope you are enjoying Caos! Please, rate us in the store :)!"; 
+                shop_leave_rating(question, "¡Off Course!", "Maybe Later.", "");
+            }
+            else if(idioma == "es"){ 
+                var question = "¡Esperamos que estés disfrutando Caos! ¡Porfavor, valóranos en la tienda :)!"; 
+                shop_leave_rating(question, "¡Por supuesto!", "En otro Momento.", "https://play.google.com/store/apps/details?id=com.BaiusGames.Caos");
+            }
             
-            if(show_question(question)){
+            /*if(show_question(question)){
                 if(os_type == os_android){
+                
                     url_open("https://play.google.com/store/apps/details?id=com.BaiusGames.Caos"); // Android
                 }else if(os_type == os_ios){
                     url_open(""); // iOS.
                 }
-            }
+            }*/
             
             ini_open(working_directory + "rate.sav");
             ini_write_real("rate", "pass", 1);
             ini_close();
         }
+        
+        
     }
     
     if(regresar_menu){
@@ -372,6 +383,8 @@ HECHAS:
     Animación Final.
     
 
+    Cambios en ingles
+    
     
 
 */
@@ -513,6 +526,7 @@ alarm[0] = 30*7;
           <argument>
             <kind>1</kind>
             <string>/// Draw press to start.
+var txt;
 if(room == Room_Menu){ 
 
     if(animator &lt; 10){ // 25
@@ -520,10 +534,12 @@ if(room == Room_Menu){
         draw_set_font(font_press_14);
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);
+        if(idioma == "en") txt = "INSERT COIN"
+        else txt = "INSERTE MONEDA";
         draw_text(
             room_width/2, 
             room_height/2 + 150, 
-            "INSERT COIN"
+            txt
         );
         draw_set_halign(noone);
         draw_set_valign(noone);
@@ -531,7 +547,11 @@ if(room == Room_Menu){
     
     }else{
         animator++;
-        if(animator &gt;= 20) animator = 0; // 50
+        if(animator &gt;= 20){
+            animator = 0; 
+            if(idioma == "en") idioma = "es";
+            else idioma = "en";
+        }
     }
     
 

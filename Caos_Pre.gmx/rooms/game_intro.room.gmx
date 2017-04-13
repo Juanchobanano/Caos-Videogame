@@ -53,7 +53,6 @@
   <instances>
     <instance objName="Building_16" x="699" y="433" name="inst_8D1D8567" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_32" x="1355" y="433" name="inst_575E28BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Control_Intro" x="134" y="51" name="inst_63F96BA5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Child_Intro" x="1319" y="404" name="inst_5AE805AF" locked="0" code="/// Change sprite.&#xA;sprite_index = spr_child1_idle_2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_14" x="64" y="433" name="inst_E650CBB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_23" x="179" y="433" name="inst_E44E875B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -69,6 +68,7 @@
     <instance objName="Building_7" x="1091" y="433" name="inst_015CEE1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_20" x="1195" y="433" name="inst_2EC17DEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Letrero_galan1" x="1149" y="312" name="inst_A4D06384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Choose_Language" x="99" y="102" name="inst_0E829C1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

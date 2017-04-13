@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>0</persistent>
+  <depth>-100</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,31 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sumar_vida = 12*3;
-instance_create(0,0, Control_recuperacion_overlay);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>with Control_recuperacion_overlay instance_destroy();
+            <string>/// Crear variables globales para el debugg. (Todas las variables terminan con _debug).
+globalvar sprite_debug, background_debug;// focus_debug;
+sprite_debug = -1;
+background_debug = -1;
+//focus_debug = -1;
 </string>
           </argument>
         </arguments>
@@ -72,23 +52,73 @@ instance_create(0,0, Control_recuperacion_overlay);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(sumar_vida &gt; 0){
-    if(Player.vida &lt; 100){
-        Player.vida += .5;
-        sumar_vida-=.5;
-        
-       /* if(Player.bar_index == 1) */Player.bar_index = 4;
-        //else Player.bar_index = 1;
+            <string>/// Ejecutar DevDevelopment Scripts.
+Ubicar_Sprite();
+Pausa_Debug();
+Seleccionar_Nivel();
+Mouse_Position();
 
-    }else{
-        audio_stop_sound(sn_jeringa);
-        instance_destroy();
-        with Player bar_index = 1;
-    }
-}else{
-    audio_stop_sound(sn_jeringa);
-    instance_destroy();
-    with Player bar_index = 1;
+// Crear nuevo texto.
+var control = keyboard_check(vk_control);
+var key_t = keyboard_check(ord("T"));
+
+if(control and key_t){
+    instance_create(0,0, Texto_Debug);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(background_debug != -1){
+    draw_set_color(c_black);
+    draw_text(room_width - string_width("JUEGO PAUSADO"), 0, "JUEGO PAUSADO");
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_font(font_debug);
+draw_set_color(c_white);
+draw_text(0,0, "FPS:" + string(fps));
+
+if(background_debug != -1){
+    draw_sprite_ext(background_debug, 0, 0, 0, room_width/sprite_get_width(background_debug), room_height/sprite_get_height(background_debug), 0, c_white, 1);
 }
 </string>
           </argument>

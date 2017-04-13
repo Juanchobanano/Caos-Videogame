@@ -3,7 +3,7 @@
   <spriteName>spr_espanol</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-50</depth>
   <persistent>0</persistent>
   <parentName>Iconos</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>image_speed = .2;
 
-if(idioma == "en"){
+/*if(idioma == "en"){
     sprite_index = spr_ingles;
 }else if(idioma == "es"){
     image_index = spr_espanol;
@@ -55,7 +55,7 @@ if(idioma == "en"){
           <argument>
             <kind>1</kind>
             <string>// Cambiar idioma.
-if(idioma == "es"){ 
+/*if(idioma == "es"){ 
     idioma = "en"; 
    // image_index = 1; 
     sprite_index = spr_ingles;
@@ -64,6 +64,12 @@ else if(idioma == "en"){
     idioma = "es"; 
    // image_index = 0;
     sprite_index = spr_espanol;
+}*/
+
+if(sprite_index == spr_espanol){
+    idioma = "es";
+}else{
+    idioma = "en";
 }
 
 if(file_exists(working_directory + "idioma.sav")){
@@ -75,6 +81,7 @@ ini_write_string("idioma", "pass", idioma);
 ini_close();
 
 audio_play_sound(sn_tutorial, 1, 0);
+with Choose_Language instance_destroy();
 </string>
           </argument>
         </arguments>

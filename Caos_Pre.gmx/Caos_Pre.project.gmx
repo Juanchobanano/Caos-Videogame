@@ -236,6 +236,7 @@
     </sprites>
     <sprites name="Detalles">
       <sprite>sprites\spr_damage_overlay</sprite>
+      <sprite>sprites\spr_recuperacion_overlay</sprite>
       <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_caos2</sprite>
       <sprite>sprites\spr_rage</sprite>
@@ -247,6 +248,8 @@
       <sprite>sprites\spr_caos_intro</sprite>
       <sprite>sprites\spr_mano_tuto</sprite>
       <sprite>sprites\spr_debug</sprite>
+      <sprite>sprites\spr_youlose</sprite>
+      <sprite>sprites\spr_allright</sprite>
     </sprites>
     <sprites name="Player">
       <sprites name="Pablo Escobar">
@@ -527,6 +530,9 @@
       <script>scripts\crear_cuadricula.gml</script>
       <script>scripts\dibujar_efecto.gml</script>
     </scripts>
+    <scripts name="DevDevelopment">
+      <script>scripts\Cambiar_Dato.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>
@@ -539,6 +545,7 @@
       <font>fonts\font_menu</font>
       <font>fonts\font_game_10</font>
       <font>fonts\font_textbox2</font>
+      <font>fonts\font_textbox3</font>
       <font>fonts\font_04b11_30</font>
       <font>fonts\font_press_11</font>
       <font>fonts\font_game_13</font>
@@ -547,6 +554,7 @@
       <font>fonts\font_nombres</font>
       <font>fonts\font_wonder_20</font>
       <font>fonts\font_wonder_14</font>
+      <font>fonts\font_debug</font>
     </fonts>
   </fonts>
   <objects name="objects">
@@ -662,6 +670,8 @@
       <object>objects\Instruccion</object>
       <object>objects\Leaderboard</object>
       <object>objects\Aviso</object>
+      <object>objects\Lluvia</object>
+      <object>objects\Control_recuperacion_overlay</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>
@@ -728,6 +738,7 @@
       <object>objects\Control_Intro</object>
       <object>objects\Helicopter_Intro</object>
       <object>objects\Player_Intro</object>
+      <object>objects\Choose_Language</object>
     </objects>
     <objects name="Final">
       <object>objects\Dialogo_Final</object>
@@ -742,6 +753,11 @@
         <object>objects\Arma_Child</object>
         <object>objects\End_Game</object>
       </objects>
+    </objects>
+    <objects name="Debug">
+      <object>objects\Debugg</object>
+      <object>objects\Ubicar_Objeto</object>
+      <object>objects\Texto_Debug</object>
     </objects>
   </objects>
   <timelines name="timelines">

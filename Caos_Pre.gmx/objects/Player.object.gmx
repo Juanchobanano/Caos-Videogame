@@ -169,6 +169,7 @@ win = false;
 dead_time = 5;
 draw_player = true;
 if(num_level == 5) instance_create(0, 0, Aviso);
+gameover = false; // Se vuelve true cuando el jugador muere en la escena final --&gt; el Game Over cambia.
 
 
 </string>
@@ -506,6 +507,9 @@ if(grounded){
     y_anterior2 = 0;
 }
 
+
+//effect_create_below(ef_rain, irandom_range(0,room_width), -10, 0, make_color_rgb(0,81,123));
+//effect_create_above(ef_rain, irandom_range(0,room_width), -10, 0, c_white);
 //show_debug_message(chances);
 /*c_bombas = 3;
     c_bolsa = 3;
