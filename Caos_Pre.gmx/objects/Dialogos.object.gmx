@@ -164,10 +164,12 @@ draw_set_color(c_white);
 //var c_grey_light = make_color_rgb(220, 220, 220);
 
 var txt_num = string(num_level+1);
+if(idioma == "es") txt_num = "Nivel " + txt_num;
+else txt_num = "Level " + txt_num;  
 draw_text(
     room_width/2, 
     room_height/2 - string_height(txt_num)*1.5,
-    string_upper("Nivel " + txt_num)
+    txt_num
 );
 
 

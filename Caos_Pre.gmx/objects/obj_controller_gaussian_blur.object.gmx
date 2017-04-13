@@ -202,7 +202,7 @@ if(idioma == "en"){
 }else{
     draw_text_outlined(room_width/2, 320, "¿Trabajas en prensa o eres un Youtuber?", c_yellow, c_black, 2);
     draw_text_outlined(room_width/2, 340, "¿O sólo quieres enviarnos un saludo?", c_yellow, c_black, 2);
-    draw_text_outlined(room_width/2, 380, "A nosotros nos encantaría saber de ti! :)", c_yellow, c_black, 2);
+    draw_text_outlined(room_width/2, 380, "Nos encantaría saber de ti! :)", c_yellow, c_black, 2);
     draw_text_outlined(room_width/2, 400, "baiuscontact@gmail.com ", c_yellow, c_black, 2);
 }
 

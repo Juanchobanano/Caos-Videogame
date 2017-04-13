@@ -62,7 +62,9 @@ int = 1.5;
 
 /// Tutorial.
 if(room == game1 and !show_tuto){
-    instance_create(0,0, Instruccion);
+    if(!instance_exists(Instruccion)){
+        instance_create(0,0, Instruccion);
+    }
     //show_tuto = true;
 }
 </string>

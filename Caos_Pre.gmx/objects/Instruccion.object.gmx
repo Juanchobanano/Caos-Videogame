@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// Textos.
+
+// ESTE OBJETO SE CREA EN SHAKE_SCREEN!!!!
+
 i = 0;
 if(idioma == "es"){
     txt[0] = "¡Encuentre a los niños destruyendo los edificios!"

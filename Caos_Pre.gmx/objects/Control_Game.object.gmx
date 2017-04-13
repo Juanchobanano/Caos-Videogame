@@ -81,14 +81,14 @@ if(room == Room_Digital){
 
     
     //if(file_exists(working_directory + "guardar_juego.sav")){
-        file_delete(working_directory + "guardar_juego.sav");
+        /*file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
         file_delete(working_directory + "rate.sav");
         file_delete(working_directory + "checkpoint.sav");
         file_delete(working_directory + "idioma.sav");
-        file_delete(working_directory + "can_post.sav");
+        file_delete(working_directory + "can_post.sav");*/
     //}
     //save = false;
   //  historia = true;
@@ -534,12 +534,11 @@ if(room == Room_Menu){
         draw_set_font(font_press_14);
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);
-        if(idioma == "en") txt = "INSERT COIN"
-        else txt = "INSERTE MONEDA";
+
         draw_text(
             room_width/2, 
             room_height/2 + 150, 
-            txt
+            "INSERT COIN"
         );
         draw_set_halign(noone);
         draw_set_valign(noone);

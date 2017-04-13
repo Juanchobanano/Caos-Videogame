@@ -56,7 +56,7 @@ if(os_is_network_connected()){
             if(os_type == os_android){
                 achievement_post_score("CgkIga-DrZQVEAIQBw", best_score);
             }else if(os_type == os_ios){
-                achievement_post_score("", best_score);
+                achievement_post_score("grp.caoshighscore", best_score);
             }
             
             can_post = false;

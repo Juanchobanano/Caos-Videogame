@@ -406,9 +406,9 @@ if (Controles){
     if(!instance_exists(Button_A) and !instance_exists(Button_B)){
         //B_A = instance_create(615+15, 395+20+10, Button_B);//600
         //B_B = instance_create(700+15, 345+20+10, Button_A);//685
-        B_A = instance_create(710, 425, Button_B);// y = 425
-        B_B = instance_create(710 - 100, 425, Button_A);//600
-        B_C = instance_create(710, 425 - 90, Button_Climb);
+        B_A = instance_create(700, 425, Button_B);// y = 425
+        B_B = instance_create(700 - 100, 425, Button_A);//600
+        B_C = instance_create(700, 425 - 90, Button_Climb);
         B_LF = instance_create(75, 425, Button_Left);
         B_RT = instance_create(190, 425, Button_Right);
     }

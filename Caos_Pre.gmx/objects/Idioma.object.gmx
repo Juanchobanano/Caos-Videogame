@@ -80,7 +80,7 @@ ini_open(working_directory + "idioma.sav");
 ini_write_string("idioma", "pass", idioma);
 ini_close();
 
-audio_play_sound(sn_tutorial, 1, 0);
+//audio_play_sound(sn_tutorial, 1, 0);
 with Choose_Language instance_destroy();
 </string>
           </argument>
