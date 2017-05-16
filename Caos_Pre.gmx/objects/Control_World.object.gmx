@@ -63,6 +63,7 @@ create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
 Controles = 1;
+if(maquina) Controles = 0;
 instance_create(705, 25, Pausa);
 instance_create(648, 25, Tutorial_Button);
 instance_create(0,0, Dibujar_Poderes);
@@ -454,6 +455,20 @@ if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("S"))){
     with b building_life = 0;
 }
 
+// Pausar el juego.
+if(keyboard_check_pressed(ord("P"))){
+    Pausa_Juego();
+}
+
+// Colocar tutorial de nuevo.
+if(keyboard_check_pressed(ord("T")) and !game_pause){
+    if(!instance_exists(Instruccion)){
+        instance_create(0,0, Instruccion);
+        audio_play_sound(sn_tutorial, 1, 0);
+    }
+}
+
+
 
 /*if(audio_is_playing(sn_roar)){
     show_debug_message("ROAR!!");
@@ -779,7 +794,7 @@ draw_sprite(
           <argument>
             <kind>1</kind>
             <string>/// Create tanks.
-if(!create_tanks){
+/*if(!create_tanks){
     create_tanks = true;
 }else{
     create_tanks = false;
@@ -806,7 +821,7 @@ if(!create_tanks){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>num_level --;
+            <string>/*num_level --;
 room_restart();
 vida_global = 100;
 </string>
@@ -876,30 +891,7 @@ else
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="70">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto_next();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="67">
+    <event eventtype="9" enumb="71">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -921,6 +913,29 @@ else
 }else{
     Controles = 1;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="70">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto_next();
 </string>
           </argument>
         </arguments>

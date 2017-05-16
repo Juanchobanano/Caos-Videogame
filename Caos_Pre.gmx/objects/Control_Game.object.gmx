@@ -31,8 +31,14 @@ if(room == Room_Digital){
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
               jugador, game_pause, tutorial_bool, idioma, puntaje_checkpoint,  
-              end_game, game_completed, rate, regresar_menu, show_tuto, can_post;
-
+              end_game, game_completed, rate, regresar_menu, show_tuto, can_post, acelerar, 
+              tiempo_trans, maquina;
+              
+    texture_set_interpolation(false);
+    acelerar = false;
+    tiempo_trans = 62;
+    maquina = true; // MAQUINITA!!
+    
     show_tuto = false;
     regresar_menu = false;
     rate = false;
@@ -42,7 +48,7 @@ if(room == Room_Digital){
    // select_idioma = false;
   //  player_save = 0;
    // avance_edificios = ds_list_create(); // Importante!
-    idioma = "en";
+    idioma = "es";
     tutorial_bool = false;
     game_pause = false;
     jugador = "";
@@ -81,14 +87,18 @@ if(room == Room_Digital){
 
     
     //if(file_exists(working_directory + "guardar_juego.sav")){
-        /*file_delete(working_directory + "guardar_juego.sav");
+    
+    /*if(instance_exists(Debugg)){
+        file_delete(working_directory + "guardar_juego.sav");
         file_delete(working_directory + "game_complete.sav");
         file_delete(working_directory + "historia.sav");
         file_delete(working_directory + "puntaje.sav");
         file_delete(working_directory + "rate.sav");
         file_delete(working_directory + "checkpoint.sav");
         file_delete(working_directory + "idioma.sav");
-        file_delete(working_directory + "can_post.sav");*/
+        file_delete(working_directory + "can_post.sav");
+        file_delete(working_directory + "acelerar.sav");
+    }*/
     //}
     //save = false;
   //  historia = true;
@@ -98,6 +108,12 @@ if(room == Room_Digital){
         save_nivel = 0;
         save_puntaje = 1000;
         
+        if(file_exists(working_directory + "acelerar.sav")){
+            ini_open(working_directory + "acelerar.sav");
+            acelerar = ini_read_real("acelerar", "pass", 0);
+            ini_close();
+        }
+        
         
         if(file_exists(working_directory + "idioma.sav")){
             ini_open(working_directory + "idioma.sav");
@@ -105,6 +121,7 @@ if(room == Room_Digital){
           //  select_idioma = ini_read_real("select_idioma", "pass", 0);
             ini_close();
         }
+        if(maquina){ idioma = "es"; }
         
         // Puntaje cuando el jugador llegó al checkpoint.
         if(file_exists(working_directory + "checkpoint.sav")){
@@ -155,6 +172,9 @@ if(room == Room_Digital){
             ini_close();
         }
         
+        // Si MAQUINA es true, historia true.
+        if(maquina){ historia = true; }
+        
         /*if(ds_list_empty(avance_edificios)){
             show_debug_message("HOLA K HACE");
         }else{  
@@ -170,6 +190,13 @@ if(room == Room_Digital){
         
         
        // show_debug_message(num_level);
+    }
+    
+    if(acelerar) tiempo_trans = 30;
+    if(!file_exists(working_directory + "acelerar.sav")){
+        ini_open(working_directory + "acelerar.sav");
+        ini_write_real("acelerar", "pass", 1);
+        ini_close();
     }
     
     //if(num_level &gt; 0) historia = false;
@@ -196,9 +223,9 @@ if(room == Room_Digital){
     piso_y = 399;
     //room_goto(game1);
     instance_create(room_width/2, room_height/2, Digital);
-    alarm[1] = 62; //55
+    alarm[1] = tiempo_trans; //62
     instance_create(0, 0, Change_Soundtrack);
-    
+    instance_create(0,0, Reset_Game); // Resetear el juego cuando máquina es true.
     audio_play_sound(sn_soundtrack_pausa, 1, 1);
     //soundtrack = audio_play_sound(sn_soundtrack_1, 1, 1);
 
@@ -206,10 +233,10 @@ if(room == Room_Digital){
 }else if(room == Room_Baius){
 
     instance_create(room_width/2, room_height/2, Baius);
-    alarm[1] = 62;
+    alarm[1] = tiempo_trans; // 62
     
 }else if(room == Room_Alexander){
-    alarm[1] = 62;
+    alarm[1] = tiempo_trans;
     
 }else if(room == Room_Menu){
 
@@ -237,13 +264,14 @@ if(room == Room_Digital){
     }
     
     
-    if(game_completed){
+    if(game_completed and (os_type == os_android or os_type == os_ios)){
     
-        if(!rate){
+        // Para android solamente por ahora.
+        if(!rate and os_type == os_android){
         
             if(idioma == "en"){ 
                 var question = "We hope you are enjoying Caos! Please, rate us in the store :)!"; 
-                shop_leave_rating(question, "¡Off Course!", "Maybe Later.", "");
+                shop_leave_rating(question, "¡Off Course!", "Maybe Later.", "https://play.google.com/store/apps/details?id=com.BaiusGames.Caos");
             }
             else if(idioma == "es"){ 
                 var question = "¡Esperamos que estés disfrutando Caos! ¡Porfavor, valóranos en la tienda :)!"; 
@@ -314,6 +342,7 @@ if(room == Room_Digital){
     change_color = 0;
     color_select = c_white;
     font = "";
+    player_selected = 1; // para maquina --&gt; Pablo
 }
 
 /*   COSAS POR HACER:
@@ -474,6 +503,89 @@ alarm[0] = 30*7;
             <kind>1</kind>
             <string>//show_debug_message("puntaje_global: ");
 //show_debug_message(num_level);
+
+/*var key_space = keyboard_check_pressed(vk_space);
+if(key_space){
+    show_debug_message(historia);
+}*/
+
+var key_b = keyboard_check_pressed(ord("B"));
+if(key_b){
+    room_goto(game1);
+}
+
+
+var key_h = keyboard_check_pressed(ord("H"));
+if(key_h){
+    room_goto(Room_Select);
+}
+
+
+
+var key_j = keyboard_check_pressed(ord("J")); 
+if(key_j){
+    room_goto(game_intro);
+}
+
+
+
+var key_q = keyboard_check_pressed(ord("Q")); 
+if(key_q){
+    room_goto(game10);
+    num_level = 9;
+}
+
+
+
+/*var key_r = keyboard_check_pressed(ord("R"));
+if(key_r){
+    game_restart();
+}*/
+
+
+
+/*var key_t = keyboard_check_pressed(ord("T"));
+if(key_t){
+    room_goto(Room_Prueba);
+}*/
+
+
+ 
+var key_w = keyboard_check_pressed(ord("W")); 
+if(key_w){
+    room_goto(game_final);
+    audio_stop_sound(sn_soundtrack_pausa);
+    num_level = 10;
+}
+
+/*var key_z = keyboard_check_pressed(ord("Z")); 
+if(key_z){
+    room_goto(Room_Transicion);
+    tutorial_bool = true;
+}*/
+
+var key_o = keyboard_check_pressed(ord("O")); 
+if(key_o){
+    room_goto(Room_Creditos);
+}
+
+if(maquina and room == Room_Menu){
+
+
+    var key_t = keyboard_check_pressed(ord("T")); //tutorial
+    var key_p = keyboard_check_pressed(ord("P")); //pausa
+    var key_l = keyboard_check_pressed(ord("L")); //climb
+    
+    var key_jump = keyboard_check_pressed(vk_space);
+    var key_attack = keyboard_check_pressed(ord('X'));
+    
+    if(key_jump or key_attack or key_t or key_p or key_l){
+        Play_Track("press_start");
+        var sk = instance_create(0,0,Screen_Shake);
+        with (sk) alarm[0] = 30; // Go to room next.
+        mouse_clear(mb_left);
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -559,454 +671,18 @@ if(room == Room_Menu){
 
 if(room == Room_Select){
 
-    // Draw bestscore
-   //draw_set_halign(fa_center);
-    //if(font == "press") draw_set_font(font_press_11);
-    //else draw_set_font(font_wonder_11);
-    draw_set_font(font_textbox2);
-    draw_set_color(c_white);
-    var str = "BEST SCORE: " + string(best_score);
-    draw_text(10, 10, str);
+
     
-    // Draw score.
-    if(save){
-        var str = "SCORE: " + string(save_puntaje);
-        draw_text(10, 10 + string_height(str), str);
-    }
-   // draw_set_halign(noone);
-    
-  /*  draw_set_color(make_color_rgb(18, 163, 218));
-    draw_rectangle(
-        168, 
-        24,
-        600,
-        168+24+24,
-        0
-    );*/
-    
-   /* draw_set_color(make_color_rgb(18, 163, 218));
-    draw_set_alpha(.8);
-    draw_rectangle(
-        168, 
-        24, 
-        600,
-        168, 
-        0
-    )
-    draw_set_alpha(1);
-    
-    draw_set_font(font_game_14);
-    draw_set_color(c_white);
-    //draw_set_color(make_color_rgb(215, 81, 0));
-    draw_text(168+24, 48-12, "PRESS    A    BUTTON    TO    START    THE#GAME");
-    draw_text(168+24, 48 + 24*2, "MOVE    THE    JOYSTICK    FOR    CHANGE#THE    CHARACTER");
- //   draw_text(600-24-string_width("CREDITS:    2"), 168+24, "CREDITS:    2"); 
-    
-    */
-  /*  draw_set_color(c_black);
-    draw_set_alpha(.3);
-    draw_rectangle(
-        0,
-        0,
-        room_width, 
-        room_height,
-        0
-    )
-    draw_set_color(c_white);
-    draw_set_alpha(1);*/
-    
- 
-    var yemenos = 20;
-    if(change_color &lt; 10){
-        change_color++;
-        color_select = c_white;
+    if(!maquina){
+        Draw_Select();
     }else{
-        color_select = make_color_rgb(51,204,255);
-        if(change_color &lt; 20){
-            change_color++;
-        }else{
-            change_color = 0;
-        }
+        Draw_Select_Maquina();
     }
-    
-    draw_set_halign(fa_center);
-    
-    if(font == "press") draw_set_font(font_press_20);
-    else 
-    
-    draw_set_font(font_wonder_20);
-    
- 
-    draw_text_outlined(room_width/2 + 10, 80, "SELECT CHARACTER", color_select, c_black, 2);
-    /*draw_set_color(color_select);
-    draw_text(room_width/2 + 10, 80, "SELECT CHARACTER");*/
-    draw_set_halign(noone);
-    
-    var select = "SELECT";
-    var color = c_white;
-    
-    // Draw pablo escobar.
-    if(mouse_x &gt; 204 and mouse_x &lt; 204 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){
-        if(font == "press") draw_set_font(font_press_14);
-        else draw_set_font(font_wonder_14);
-        color = c_red;
-        draw_sprite(spr_character_1, 1, 204, 210 - yemenos);
-        if(mouse_check_button_released(mb_left) and !seleccionado){
-            // Change soundtrack.
-            audio_sound_gain(sn_soundtrack_pausa, 0, 3000);                
-            seleccionado = true;
-            jugador = "";
-            var marco = instance_nearest(204, 210 - yemenos, Marco);
-            with marco image_speed = 1;
-            Play_Track("press_start");
-            mouse_clear(mb_left);
-        }
-    }else{
-          color = c_white;
-          if(font == "press") draw_set_font(font_press_11);
-          else draw_set_font(font_wonder_11);
-          draw_sprite(spr_character_1, 0, 204, 210 - yemenos);
-    }
-
-
-    draw_set_halign(fa_center);
-    draw_text_outlined(204 + 128/2, 180 - yemenos, "EL JEFE", color, c_black, 2); 
-    draw_text_outlined(204 + 128/2, 360 - yemenos, select, color, c_black, 2);
-    
-    /*draw_set_color(color);
-    draw_text(204 + 128/2, 180 - yemenos, "EL JEFE");
-    draw_text(204 + 128/2, 360 - yemenos, select);*/
-    draw_set_halign(noone);
-    
-    if(num_level == 4) if(!instance_exists(New)) instance_create(440 + sprite_get_width(spr_character_2)/2, 210 + 144 - sprite_get_height(spr_new) - 25, New);
-
-    color = c_white;
-    
-    if(num_level &lt; 4) draw_set_alpha(.5);
-    
-    // Draw second character.
-    if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){   
-    if(num_level == 4 or gacha_select){ // Select new character nivel 5.
-            draw_sprite(spr_character_2, 1, 440, 210 - yemenos);
-            if(mouse_check_button_released(mb_left) and !seleccionado){
-                if(font == "press") draw_set_font(font_press_14);
-                else draw_set_font(font_wonder_14);
-                color = c_red;
-                seleccionado = true;
-                var marco = instance_nearest(440, 210 - yemenos, Marco);
-                with marco image_speed = 1;
-                jugador = "2";
-                Play_Track("press_start");
-                mouse_clear(mb_left);
-               // room_goto_transition(Room_Transicion, 0, 45);
-            }
-        }else{
-            draw_sprite(spr_character_2, 2, 440, 210 - yemenos);            
-            if(mouse_check_button_pressed(mb_left)){
-                color  = c_red;
-                if(font == "press") draw_set_font(font_press_14);
-                else draw_set_font(font_wonder_14);
-            }            
-            if(mouse_check_button_released(mb_left)){
-                //seleccionado = true;
-
-                if(font == "press") draw_set_font(font_press_11);
-                else draw_set_font(font_wonder_11);
-                color = c_white;
-                if(audio_is_playing(sn_nogacha)) audio_stop_sound(sn_nogacha);
-                audio_play_sound(sn_nogacha, 1, 0);
-                mouse_clear(mb_left);
-            }
-        }
-    }else{
-        draw_set_color(c_white);
-        if(font == "press") draw_set_font(font_press_11);
-        else draw_set_font(font_wonder_11);
-        draw_sprite(spr_character_2, 0, 440, 210 - yemenos);
-    }
-    
-    
-    
-
-    draw_set_halign(fa_center);
-    draw_text_outlined(440 + 128/2, 180 - yemenos, "EL MERO", color, c_black, 2); 
-    draw_text_outlined(440 + 128/2, 360 - yemenos, select, color, c_black, 2);
-    /*draw_set_color(color);
-    draw_text(440 + 128/2, 180 - yemenos, "EL MERO");
-    draw_text(440 + 128/2, 360 - yemenos, select);*/
-    draw_set_halign(noone);
-    draw_set_color(c_white);
-    
-     draw_set_alpha(1);
 }
 
 if(keyboard_check_pressed(vk_space)){
     room_goto(game1);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="90">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto(Room_Transicion);
-tutorial_bool = true;
-
-/*
-
-
-
-
-
-
-
-Daniel: Dizque hay un juego que uno puede escoger y pelear con varios manes
-de diferentes artes marciales, uno es un ninja, otro es un karateka, otro hace kung fu, me entiende?
-
-
-Carlos: Uy suena tremendo.
-
-
-Julián: Esperen... ¿por qué corre toda esta gente?
-
-
-Daniel : Qué está pasando?
-
-
-Carlos: No sé, pero tenemos que irnos ya!
-
-
-Julián: Vámonos, escondámonos donde podamos!
-
-
-Corren a esconderse.
-
-
-
-
-
-
-
-
-
-
-
-
-------
-
-
-Encuentre a los niños
-
-
-
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="87">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto(game_final);
-audio_stop_sound(sn_soundtrack_pausa);
-num_level = 10;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="84">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto(Room_Prueba);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="82">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>game_restart();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="81">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto(game10);
-num_level = 9;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="74">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto(game_intro);
-//audio_stop_sound(soundtrack);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="72">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto(Room_Select);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="66">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// gOTO GAME1
-room_goto(game1);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//room_goto(Room_Menu);
-show_debug_message(historia);
 </string>
           </argument>
         </arguments>

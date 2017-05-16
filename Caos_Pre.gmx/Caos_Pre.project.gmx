@@ -278,8 +278,8 @@
             <sprite>sprites\spr_player_ground_normal_attack</sprite>
           </sprites>
           <sprites name="Angry">
-            <sprite>sprites\spr_player_ground_angry_walk</sprite>
             <sprite>sprites\spr_player_ground_angry_idle</sprite>
+            <sprite>sprites\spr_player_ground_angry_walk</sprite>
             <sprite>sprites\spr_player_ground_angry_eat_up</sprite>
             <sprite>sprites\spr_player_ground_angry_eat_down</sprite>
             <sprite>sprites\spr_player_ground_angry_attack</sprite>
@@ -292,9 +292,9 @@
             <sprite>sprites\spr_player_jump_normal_damage</sprite>
           </sprites>
           <sprites name="Angry">
-            <sprite>sprites\spr_player_jump_angry_attack</sprite>
             <sprite>sprites\spr_player_jump_angry_idle</sprite>
             <sprite>sprites\spr_player_jump_angry_damage</sprite>
+            <sprite>sprites\spr_player_jump_angry_attack</sprite>
           </sprites>
         </sprites>
         <sprites name="Dead">
@@ -355,6 +355,8 @@
         <sprites name="Face">
           <sprite>sprites\spr_player2_face</sprite>
         </sprites>
+        <sprite>sprites\sprite222</sprite>
+        <sprite>sprites\sprite221</sprite>
       </sprites>
     </sprites>
     <sprites name="Menu">
@@ -411,6 +413,9 @@
       <sprite>sprites\spr_caras</sprite>
       <sprite>sprites\spr_caras2</sprite>
     </sprites>
+    <sprites name="Extra">
+      <sprite>sprites\sprite223</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background_menu</background>
@@ -434,7 +439,6 @@
       <scripts name="Stastes Scripts">
         <script>scripts\Going_Up_Checker.gml</script>
         <script>scripts\Attack_Other.gml</script>
-        <script>scripts\Player_Inputs.gml</script>
         <script>scripts\Current_Sprite.gml</script>
         <script>scripts\Can_Climb.gml</script>
         <script>scripts\Dead_State.gml</script>
@@ -452,12 +456,14 @@
         <script>scripts\BBox_Change.gml</script>
         <script>scripts\Hurt_Player.gml</script>
         <script>scripts\Get_Soundtrack.gml</script>
+        <script>scripts\Pausa_Juego.gml</script>
       </scripts>
       <scripts name="Global States">
         <script>scripts\Playing_State.gml</script>
         <script>scripts\Rage_State.gml</script>
         <script>scripts\Rage_Anim.gml</script>
         <script>scripts\Lose_State.gml</script>
+        <script>scripts\Player_Inputs.gml</script>
       </scripts>
     </scripts>
     <scripts name="World Scripts">
@@ -532,6 +538,9 @@
     </scripts>
     <scripts name="DevDevelopment">
       <script>scripts\Cambiar_Dato.gml</script>
+    </scripts>
+    <scripts name="RoomSelect">
+      <script>scripts\Draw_Select.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -611,6 +620,7 @@
       <object>objects\Poder_Animado</object>
       <object>objects\Tutorial</object>
       <object>objects\VR_Adapter</object>
+      <object>objects\Reset_Game</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>

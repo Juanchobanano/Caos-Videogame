@@ -1,15 +1,33 @@
 /// Player_Inputs(os_type)
-if(argument[0] == "windows"){
+if(argument[0] == "windows" and room != game_intro and room != game10){
+
     key_up = keyboard_check(vk_up);
     key_left = keyboard_check(vk_left);
     key_right = keyboard_check(vk_right);
     key_down = keyboard_check(vk_down);
     key_jump = keyboard_check_pressed(vk_space);
     key_attack = keyboard_check_pressed(ord('X'));
+   
+    
     
 }else if(argument[0] == "android"){
-    key_jump = keyboard_check_pressed(ord('Z'));
+
+    key_jump = keyboard_check_pressed(vk_space);
     key_attack = keyboard_check_pressed(ord('X'));  
+    
+    // Esto se hace para arreglar el bug del CLIMB para windows.
+    
+    
+    /*if(maquina){
+        var key_up = keyboard_check(vk_up);
+        var key_left = keyboard_check(vk_left);
+        var key_right = keyboard_check(vk_right);
+        var key_down = keyboard_check(vk_down);
+        if(key_up or key_down or key_left or key_right){
+            controles = "windows";
+        }
+    }*/
+    
     //show_debug_message(key_attack); 
     // Move in different directions.
     /*if(grounded){

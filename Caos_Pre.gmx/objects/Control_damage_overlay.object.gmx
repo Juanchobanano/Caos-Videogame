@@ -49,26 +49,59 @@ cont = 1/100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(Player)){
-if (Player.vida &lt;= 40 and Player.vida &gt;=30){
-    if (image_alpha &lt; 0.15){
-        image_alpha += (cont/2);
-    }
-}else if (Player.vida &lt;= 30 and Player.vida &gt;=20){
-    if (image_alpha &lt; 0.3){
-        image_alpha += (cont/2);
-    }
-}else if (Player.vida &lt;= 20){
-    if (image_alpha &lt; 0.6){
-        image_alpha += (cont/2);
-    }
-}else if(Player.vida &gt; 40){
-    if (image_alpha != 0){
-        image_alpha -=cont;
-    }else{
-        instance_destroy();
+            <string>/*if(instance_exists(Player)){
+    if (Player.vida &lt;= 80 and Player.vida &gt;= 60){
+        if (image_alpha &lt; 0.15){
+            image_alpha += (cont/2);
+        }
+    }else if (Player.vida &lt;= 60 and Player.vida &gt; 40){
+        if (image_alpha &lt; 0.3){
+            image_alpha += (cont/2);
+        }
+    }else if (Player.vida &gt;= 20 and Player.vida &lt; 40){
+        if (image_alpha &lt; 0.6){
+            image_alpha += (cont/2);
+        }
+    }else if(Player.vida &lt; 20){
+        if (image_alpha != 0){
+            image_alpha -=cont;
+        }else{
+            instance_destroy();
+        }
+    }else if(Player.vida &gt; 40){
+        if (image_alpha != 0){
+            image_alpha -=cont;
+        }else{
+            instance_destroy();
+        }
     }
 }
+*/
+
+
+if(instance_exists(Player)){
+
+    if (Player.vida &lt;= 80 and Player.vida &gt;= 60){
+        if(image_alpha &lt; .3){
+            image_alpha += cont/2;
+        }
+    }else if(Player.vida &lt; 60 and Player.vida &gt;= 40){
+        if (image_alpha &lt; 0.5){
+            image_alpha += (cont/2);
+        }
+    }else if (Player.vida &gt;= 20 and Player.vida &lt; 40){
+        if (image_alpha &lt; 0.7){
+            image_alpha += (cont/2);
+        }
+    }else if(Player.vida &lt; 20 and Player.vida &gt;= 10){
+        if (image_alpha &lt; .9){
+            image_alpha += cont;
+        }
+    }else if(Player.vida &lt; 10){
+        image_alpha = 1;
+    }else{
+        image_alpha = 0;
+    }
 }
 </string>
           </argument>

@@ -61,7 +61,7 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
         
         
         with(Player){
-            controles = "windows";
+            controles = "";
             end_game = true;
             poder_ate = "billetes";
             Player.angry = 100;

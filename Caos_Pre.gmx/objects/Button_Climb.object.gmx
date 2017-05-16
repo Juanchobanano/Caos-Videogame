@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Create virtual key.
+            <string>/// CLIMB: Create virtual key. 'C'
 event_inherited();
-cl = virtual_key_add(x - sprite_width/2, y - sprite_height/2, sprite_width, sprite_height, ord('L'));
+cl = virtual_key_add(x - sprite_width/2, y - sprite_height/2, sprite_width, sprite_height, ord('C'));
 image_index = 5;
 image_speed = 0;
 </string>
@@ -58,7 +58,7 @@ image_speed = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="76">
+    <event eventtype="9" enumb="67">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -77,7 +77,8 @@ image_speed = 0;
             <kind>1</kind>
             <string>/// Set image alpha to 2.
 image_alpha = .5;
-//show_debug_message("Click");
+//Player.controles = "android";
+//show_debug_message(controles);
 
 if(instance_exists(Player) and instance_exists(Edificio)){   
 
@@ -91,13 +92,14 @@ if(instance_exists(Player) and instance_exists(Edificio)){
     Player.w_edificio = 0;   
     Player.ed_r = 0;
     Player.ed_cont = 1;
+    
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="76">
+    <event eventtype="10" enumb="67">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -119,6 +121,7 @@ image_alpha = .8;
 
 if(instance_exists(Player) and instance_exists(Edificio)){ 
 
+  //  show_debug_message("wah");
     var nearest = instance_nearest(Player.x, Player.y, Edificio);
     with(nearest){ image_blend = c_blue; }
     

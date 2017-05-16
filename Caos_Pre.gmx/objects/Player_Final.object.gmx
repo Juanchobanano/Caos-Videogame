@@ -147,8 +147,8 @@ if(call_alarm &gt; 0.5){
     with(p){
       vida = 0;
       dibujar_scores = false;
-      vsp = -jumpspeed;
-      hsp = 3;
+      /*vsp = -jumpspeed;
+      hsp = 3;*/
       gameover = true;
     }
     background_blend[0] = c_white;

@@ -545,17 +545,29 @@ if(historia){
         stg
     );
     
-    if(in_Rectangle(
-             view_xview[0] + 768 - string_width(stg) - 50,
-             room_height - string_height(stg) - 30,
-             view_xview[0] + 768,
-             room_height
-    ) and mouse_check_button_pressed(mb_left)){
-        room_goto_transition(Room_Select, 0, 120);
-        audio_stop_sound(sn_helicopter_front);
-        audio_stop_sound(sn_rage_music);
+    if(!maquina){
+        if(in_Rectangle(
+                 view_xview[0] + 768 - string_width(stg) - 50,
+                 room_height - string_height(stg) - 30,
+                 view_xview[0] + 768,
+                 room_height
+        )and mouse_check_button_pressed(mb_left)){
+            room_goto_transition(Room_Select, 0, 120);
+            audio_stop_sound(sn_helicopter_front);
+            audio_stop_sound(sn_rage_music);
+        }
+    }else{
+        if(keyboard_check_pressed(ord("Z"))){
+            room_goto_transition(Room_Select, 0, 120);
+            audio_stop_sound(sn_helicopter_front);
+            audio_stop_sound(sn_rage_music);
+        }
     }
-    
+}
+
+// Skip con Jump en maquina.
+if(maquina){
+    draw_sprite_ext(spr_botones, 3, view_xview[0] + view_wview[0] - 70, 420, .5, .5, 0, c_white, 1);
 }
 </string>
           </argument>

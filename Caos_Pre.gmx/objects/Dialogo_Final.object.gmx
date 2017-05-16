@@ -40,6 +40,7 @@ angle = 0;
 draw_skip = true;
 //mouse_clean = false;
 can_continue = true;
+contador_maquina = 0;
 
 //audio_play_sound(sn_dialogo, 0, 1);
 txt = ds_list_create();
@@ -97,7 +98,7 @@ if(str &gt;= string_length(ds_list_find_value(txt,t))){
     //audio_stop_sound(sn_dialogo);
     if(sonidop){ audio_play_sound(sn_puerta, 1, 0); sonidop = false; }
     
-    if((keyboard_check_pressed(ord('Z')) or mouse_check_button_pressed(mb_left)) and can_continue){
+    if((keyboard_check_pressed(ord('X')) or mouse_check_button_pressed(mb_left)) and can_continue){
     //    audio_play_sound(sn_dialogo, 0, 1);
         //sonar_puerta = !sonar_puerta;
         sonidop = true;
@@ -121,7 +122,7 @@ if(str &gt;= string_length(ds_list_find_value(txt,t))){
 }else{
     draw_skip = false;
    // if(mouse_clean){
-        if((keyboard_check(ord('Z')) or mouse_check_button_pressed(mb_left)) and (str &lt; string_length(ds_list_find_value(txt,t)))){
+        if((keyboard_check_pressed(ord('X')) or mouse_check_button_pressed(mb_left)) and (str &lt; string_length(ds_list_find_value(txt,t)))){
             //str += (vel + 1);
             str = string_length(ds_list_find_value(txt, t));
         }
@@ -201,15 +202,25 @@ draw_text_colour(
 );
 
 if(draw_skip){ 
-   //show_debug_message("awdnjyy");
-    if(ds_list_size(txt) &gt; t +1 ){
-        angle+=.3; 
-        draw_sprite_ext(spr_skip_text, 0, 645-15, 15+135+40+10+string_height(ds_list_find_value(txt, t))  + sin(angle) * 5, 1, 1, 0, c_white, 1); 
+    if(!maquina){
+        if(ds_list_size(txt) &gt; t +1 ){
+            angle+=.3; 
+            draw_sprite_ext(spr_skip_text, 0, 630, 200+string_height(ds_list_find_value(txt, t)) + sin(angle) * 5, 1, 1, 0, c_white, 1); 
+        }else{
+            angle+=.3; 
+            draw_sprite(spr_skip_text, 1, 645-15, 135+40+10+string_height(ds_list_find_value(txt, t)) + sin(angle) * 5);
+        }
     }else{
-        angle+=.3; 
-        draw_sprite(spr_skip_text, 1, 645-15, 135+40+10+string_height(ds_list_find_value(txt, t)) + sin(angle) * 5);
+        if(contador_maquina &lt; 20){
+            draw_sprite_ext(spr_botones, 4, 630, 200+string_height(ds_list_find_value(txt, t)), .8, .8, 0, c_white, 1);
+            contador_maquina++; 
+        }else{
+            if(contador_maquina &gt; 40) contador_maquina = 0;
+            contador_maquina++;
+        } 
     }
 }
+
 </string>
           </argument>
         </arguments>

@@ -27,4 +27,5 @@ if(distance_to_point(player_x, player_y - sprite_get_height(Player.sprite_index)
     
     // Change state.
     state = Helicopter_Idle;
+    
 }

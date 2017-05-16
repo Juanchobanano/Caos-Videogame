@@ -30,6 +30,7 @@ alarm[1] = 1; // Personas.
 tanke = true;
 var t = instance_create(-150, 396, Tank2);
 with(t) depth = -500;
+
 /*av = instance_create(
     room_width + 10, 
     125,

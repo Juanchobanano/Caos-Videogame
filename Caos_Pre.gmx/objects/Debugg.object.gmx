@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Crear variables globales para el debugg. (Todas las variables terminan con _debug).
-instance_destroy();;
+instance_destroy();
 globalvar sprite_debug, background_debug;// focus_debug;
 sprite_debug = -1;
 background_debug = -1;
@@ -57,15 +57,16 @@ background_debug = -1;
 Ubicar_Sprite();
 Pausa_Debug();
 Seleccionar_Nivel();
+FileExists();
 //Mouse_Position();
 
 // Crear nuevo texto.
 var control = keyboard_check(vk_control);
-var key_t = keyboard_check(ord("T"));
+/*var key_t = keyboard_check(ord("T"));
 
 if(control and key_t){
     instance_create(0,0, Texto_Debug);
-}
+}*/
 
 if(control and keyboard_check(ord("D"))){
     file_delete(working_directory + "guardar_juego.sav");

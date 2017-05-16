@@ -84,7 +84,7 @@ draw_line_width(display_get_width()/2, 0, display_get_width()/2, display_get_hei
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message(historia);
+            <string>//show_debug_message(historia);
 </string>
           </argument>
         </arguments>

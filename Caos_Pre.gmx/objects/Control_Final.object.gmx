@@ -70,7 +70,7 @@ audio_stop_sound(sn_soundtrack_5);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_restart();
+            <string>//room_restart();
 </string>
           </argument>
         </arguments>

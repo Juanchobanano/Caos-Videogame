@@ -53,6 +53,7 @@ TextBox_Dialogs(room);
 var cara = ds_map_find_value(map, "caras");*/
 
 // Variables locales.
+contador_maquina = 0;
 rage = false;
 </string>
           </argument>
@@ -94,9 +95,10 @@ if(str &gt;= string_length(ds_list_find_value(texto, t))){
     
     //audio_play_sound(sn_puerta, 1, 0);
     
-    if((keyboard_check_pressed(ord('Z')) or mouse_check_button_pressed(mb_left)) and can_continue){
+    if((keyboard_check_pressed(ord('X')) or mouse_check_button_pressed(mb_left)) and can_continue){
       
         if(room != game_intro and room != game10) audio_play_sound(sn_dialogo, 0, 1);
+        contador_maquina = 0;
       //  show_debug_message(t);
         sonidop = true;
         //audio_play_sound(sn_puerta, 1, false); 
@@ -121,7 +123,7 @@ if(str &gt;= string_length(ds_list_find_value(texto, t))){
     draw_skip = false;
     
    // if(mouse_clean){
-        if((keyboard_check(ord('Z')) or mouse_check_button_pressed(mb_left)) and adelantar and (str &lt; string_length(ds_list_find_value(texto, t)))){
+        if((keyboard_check_pressed(ord('X')) or mouse_check_button_pressed(mb_left)) and adelantar and (str &lt; string_length(ds_list_find_value(texto, t)))){
             if(room == game_intro or room == game_final){
                // str += (vel + 2);
                str = string_length(ds_list_find_value(texto, t));
@@ -155,7 +157,7 @@ if(keyboard_check_pressed(ord('X')) and can_skip){
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>other</whoName>
+        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -180,13 +182,28 @@ draw_text_colour(view_xview[0] + 64 + 30, yy + 10, string_copy(ds_list_find_valu
 //draw_text_colour(51, 406, string_copy(text[t], 0, str), c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
 //draw_text_colour(51, 503, string_copy(text[t], 0, str), c_grey_dark, c_grey_dark, c_grey_dark, c_grey_dark, 1);
 if(draw_skip){ 
-    if(ds_list_size(texto) &gt; t +1){
-        angle+=.3; 
-        draw_sprite_ext(spr_skip_text, 0, view_xview[0] +  720, 55 + sin(angle) * 5, 1, 1, 0, c_white, 1); 
+   
+    if(!maquina){    
+        if(ds_list_size(texto) &gt; t + 1){
+            angle+=.3; 
+            draw_sprite_ext(spr_skip_text, 0, view_xview[0] +  720, 55 + sin(angle) * 5, 1, 1, 0, c_white, 1); 
+        }else{
+            angle+=.3; 
+            draw_sprite(spr_skip_text, 1, view_xview[0] +  720, 55 + sin(angle) * 5);
+        }
     }else{
-        angle+=.3; 
-        draw_sprite(spr_skip_text, 1, view_xview[0] +  720, 55 + sin(angle) * 5);
+        if(contador_maquina &lt; 20){
+            draw_sprite_ext(spr_botones, 4, view_xview[0] +  720, 55+15, .8, .8, 0, c_white, 1);
+            contador_maquina++; 
+        }else{
+            if(contador_maquina &gt; 40) contador_maquina = 0;
+            contador_maquina++;
+        }   
     }
+    
+    
+    
+    
 }
 </string>
           </argument>

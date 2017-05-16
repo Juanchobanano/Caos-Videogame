@@ -31,6 +31,14 @@ spd = 10;
 bullet_life = 45;
 set_target = false;
 xscale = 1;
+
+var number = irandom_range(1, 3);
+if(number == 1){
+    explotar = true;
+}else{
+    explotar = false;
+}
+//explotar = if(irandom_range(1, 3);
 </string>
           </argument>
         </arguments>
@@ -89,6 +97,26 @@ if(collision_point(x, y, Player, true, true)){
     Play_Track("hys_bullet");
     var e = instance_create(x, y, Explosion);
     with (e) { sprite_index = spr_explosion3; }
+    if(explotar){
+        instance_create(x, y, Destrucion);
+        with(Player){
+             //vida--;
+             if(Player.humor == "normal"){
+                 if(grounded or (!climb and climbed_building != noone) and !lose){
+                     eating = false;
+                     grounded = false;
+                     climbed_building = noone;
+                     vsp = -jumpspeed;
+                     
+                     var bullets = instance_nearest(x, y, Helicopter_Bullet); 
+                     hsp = 3 * bullets.xscale;
+                     
+                     var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
+                     Current_Sprite(asset, 0, 0, retard_value);
+                 }
+             }
+        }
+    }
     instance_destroy();
 }
 if(bullet_life &gt; 0) bullet_life--;

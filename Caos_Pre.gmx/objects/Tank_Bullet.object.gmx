@@ -90,6 +90,7 @@ if(collision_point(x, y, Player, true, true)){
     }
     
     Hurt_Player("Tank_Bullet", x, y);
+    instance_create(x, y, Destrucion);
     instance_destroy();
 }
 

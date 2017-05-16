@@ -30,9 +30,10 @@
 // Save background.
 
 
+
 // Controles.
-controles = "android";
-//controles = "windows";
+//controles = "android";
+controles = "windows";
 //movepos_final = false;
 
 // ROAR.
@@ -171,7 +172,8 @@ draw_player = true;
 if(num_level == 5) instance_create(0, 0, Aviso);
 gameover = false; // Se vuelve true cuando el jugador muere en la escena final --&gt; el Game Over cambia.
 
-
+// Fix punch bug.
+no_punch = true;
 </string>
           </argument>
         </arguments>
@@ -194,18 +196,18 @@ gameover = false; // Se vuelve true cuando el jugador muere en la escena final -
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(draw_player == 0) draw_player = 1;
-else draw_player = 0;
-alarm[4] = dead_time;
-dead_time -= .5;
-if(dead_time &lt;= 0){
+            <string>//if(draw_player == 0) draw_player = 1;
+//else draw_player = 0;
+//alarm[4] = dead_time;
+//dead_time -= .5;
+//if(dead_time &lt;= 0){
     puntaje_global = player_score;
     var p = instance_create(-32, 200, Player);
     instance_destroy();
     with(p){ vida = 100; }
     with GameOver instance_destroy();
    // draw_score = false;
-}
+//}
 </string>
           </argument>
         </arguments>
@@ -409,7 +411,7 @@ if vida &gt;=100{
 
 
 // Create Damage overlay
-if (vida &lt;=40){
+if (vida &lt;= 80){
     if (!instance_exists(Control_damage_overlay)){
         instance_create(0,0,Control_damage_overlay);
     }
@@ -507,7 +509,7 @@ if(grounded){
     y_anterior2 = 0;
 }
 
-
+//show_debug_message(controles);
 //effect_create_below(ef_rain, irandom_range(0,room_width), -10, 0, make_color_rgb(0,81,123));
 //effect_create_above(ef_rain, irandom_range(0,room_width), -10, 0, c_white);
 //show_debug_message(chances);

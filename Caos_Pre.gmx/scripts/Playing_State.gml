@@ -285,6 +285,7 @@ if(climb){
         var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle");
         Current_Sprite(asset, 0, irandom_range(0,2));
         grounded = false;
+        no_punch = true;
        
         
         // aqui lo esta haciendo bien.
@@ -306,7 +307,7 @@ if(climb){
             if(!grounded) Play_Track("air_punch");
             if(!limits) limits = true;
             grounded = true;
-            //key_attack = 0;
+            if(no_punch){ key_attack = 0; no_punch = false; }
             if(!roar){
                 //audio_play_sound(sn_roar, 1, 0);
                 roar = true;
@@ -357,7 +358,7 @@ if(climb){
                 // Up attack.
                 if(key_up){
                 
-                    Check_Tutorial("ATTACK UP!");
+                    //Check_Tutorial("ATTACK UP!");
                           
                     // Eat in building person.
                     if(Can_Eat("floor_up")){
@@ -440,6 +441,18 @@ Rage_State();
 
 // Life.
 if(vida <= 0 and !win){
+    vsp = -16; // Saltar.
+    audio_play_sound(sn_perdistes, 1, 0);
+    var s = instance_create(0,0,Screen_Shake); with (s) { alarm[0] = 25; }
+    repeat(10) instance_create(x + irandom_range(-150, 150), y + irandom_range(-150, 30) , Destrucion);
+    var go = instance_create(room_width/2, room_height/2 - 30, GameOver);
+    draw_score = true;
+    if(gameover){
+        gameover = false;
+        with(go) sprite_index = spr_gameover;
+        draw_score = false;
+    }
+
     state = Lose_State;
     //audio_play_sound(sn_roar, 1, 0);
 }

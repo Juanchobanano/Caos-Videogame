@@ -39,8 +39,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Add the A button virtual key.
-dr = virtual_key_add(x - sprite_width/2, y - sprite_height/2, sprite_width, sprite_height, ord('D'));
+            <string>/// RIGHT: Add the A button virtual key. 'vk_right'
+dr = virtual_key_add(x - sprite_width/2, y - sprite_height/2, sprite_width, sprite_height, vk_right);
 image_index = 0;
 b_climb = false;
 </string>
@@ -108,7 +108,7 @@ if(instance_exists(Player)){
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="68">
+    <event eventtype="5" enumb="39">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -126,6 +126,7 @@ if(instance_exists(Player)){
           <argument>
             <kind>1</kind>
             <string>/// Set image alpha to 2.
+//if(maquina) Player.controles = "windows";
 if (instance_exists(Edificio)){
 Edificio.c_boton = 0; // controlar tap edificio
 }
@@ -153,7 +154,7 @@ if(!b_climb){
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="68">
+    <event eventtype="10" enumb="39">
       <action>
         <libid>1</libid>
         <id>603</id>

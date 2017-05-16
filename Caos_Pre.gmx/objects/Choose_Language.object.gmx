@@ -25,11 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(file_exists(working_directory + "idioma.sav")){ instance_destroy(); }
-var es = instance_create(400,170,Idioma);
-with es sprite_index = spr_espanol;
-var en = instance_create(400, 300, Idioma);
-with en sprite_index = spr_ingles;
+            <string>if(!maquina){
+    if(file_exists(working_directory + "idioma.sav")){
+        instance_destroy(); 
+    }else{
+        var es = instance_create(400,170,Idioma);
+        with es sprite_index = spr_espanol;
+        var en = instance_create(400, 300, Idioma);
+        with en sprite_index = spr_ingles;
+    }
+}else{
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -52,9 +59,8 @@ with en sprite_index = spr_ingles;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy(Idioma);
+            <string>if(instance_exists(Idioma)) instance_destroy(Idioma);
 instance_create(0,0, Control_Intro);
-
 </string>
           </argument>
         </arguments>

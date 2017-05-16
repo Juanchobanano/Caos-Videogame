@@ -151,3 +151,20 @@ var key_c = keyboard_check(ord("c"));
     show_debug_message("Mouse x: " + string(mouse_x));
     show_debug_message("Mouse y: " + string(mouse_y));
 //}
+#define FileExists
+/// FileExists("file_name");
+var control = keyboard_check(vk_control);
+var key_f = keyboard_check(ord("F"));
+
+if(control and key_f){
+    var file_name = get_string("Digite el nombre del archivo: ","") + ".sav";
+    if(file_exists(working_directory + file_name)){
+        show_debug_message("El archivo " + file_name + " existe!");
+    }else{
+        show_debug_message("El archivo " + file_name + " no existe!");
+    }
+}
+
+
+#define Variable_State
+var variable = get_string("Digite nombre de variable:","");
